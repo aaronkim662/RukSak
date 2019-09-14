@@ -5,5 +5,20 @@ const logger = require('morgan');
 const PORT = process.env.PORT || 3001;
 const app = express();
 
+app.use(cors());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+app.use(logger('dev'));
+
+app.use((e, req, res) => {
+  if (e) {
+    console.log(e.message); // eslint-disable-line
+    res.status(500).send(e.message);
+  }
+});
+
+app.get('/', (req, res) => {
+  res.send('Welcome to the default route. 3001');
+});
 // eslint-disable-next-line
 app.listen(PORT, () => console.log('up and running'));
