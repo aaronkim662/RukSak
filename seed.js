@@ -17,9 +17,13 @@ const seed = async () => {
     const gear5 = await Gear.create({ gear: 'Flashlight' });
     const gear6 = await Gear.create({ gear: 'Bike' });
 
-    await hike.setLocation([gear3, gear4, gear5]);
-    await camp.setLocation([gear1, gear2, gear3, gear4, gear5]);
-    await bike.setLocation([gear3, gear4, gear5, gear6]);
+    await hike.setGears([gear3, gear4, gear5]);
+    await camp.setGears([gear1, gear2, gear3, gear4, gear5]);
+    await bike.setGears([gear3, gear4, gear5, gear6]);
+
+    await hike.setLocation(location1);
+    await camp.setLocation(location2);
+    await bike.setLocation(location3);
 
   } catch(e) {
     console.log(e.message);

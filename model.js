@@ -42,11 +42,13 @@ User.init({
 });
 
 Trip.belongsToMany(User, { through: 'user_trips' });
-User.belongsTo(Trip, { through: 'user_trips' });
+User.belongsToMany(Trip, { through: 'user_trips' });
 
 Gear.belongsToMany(Trip, { through: 'trip_gear' });
-Trip.belongsTo(Gear, { through: 'trip_gear' });
+Trip.belongsToMany(Gear, { through: 'trip_gear' });
 
+Location.hasMany(Trip);
+Trip.belongsTo(Location);
 
 module.exports = {
   db,
