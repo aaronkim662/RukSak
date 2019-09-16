@@ -7,9 +7,10 @@ An app that lets a user plan an adventure in its entirety, down to the gear and 
 ## Wireframes
 
 #### ERD
-https://drive.google.com/open?id=1S3xRcYb0dqa0w7TTny2wDJ93DABviPQs
 
-#### Component Hierarchy/ Mobile/ Destop
+https://drive.google.com/file/d/1wRTyxZbuPiJMm2on-sMkRXl8NEUOkeJj/view
+
+#### Component Hierarchy/ Mobile/ Desktop
 
 https://imgur.com/a/1ZJhoLp
 
