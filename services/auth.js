@@ -20,23 +20,15 @@ const genToken = (data) => {
 const restrict = (req, res, next) => {
   try {
     const token = req.headers.authorization.split(' ')[1];
-    // debugger;
     const data = jwt.verify(token, TOKEN_KEY);
     res.locals.user = data;
     next();
   } catch (e) {
     console.log(e.message);
     res.status(403).send('Unauthorized');
-  }
+  };
 };
 
-(async () => {
-  await console.log('password', await hashPassword('tea tea'));
-})();
-
-(async () => {
-  await console.log('hashed', await checkPassword('tea tea', await hashPassword('tea tea')));
-})();
 
 module.exports = {
   checkPassword,
