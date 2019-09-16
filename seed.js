@@ -1,4 +1,4 @@
-const { Gear, Location, Trip } = require('./models')
+const { Gear, Location, Trip } = require('./model')
 
 const seed = async() => {
   try {
