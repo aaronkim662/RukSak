@@ -7,7 +7,7 @@ const locationController = Router();
 locationController.get('/location', async (req, res, next) => {
   try {
     const locations = await Location.findAll();
-    res.json(location);
+    res.json(locations);
   } catch(e) {
     next(e);
   }
