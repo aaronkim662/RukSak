@@ -9,19 +9,9 @@ An app that lets a user plan an adventure in its entirety, down to the gear and 
 #### ERD
 https://drive.google.com/open?id=1S3xRcYb0dqa0w7TTny2wDJ93DABviPQs
 
-#### Component Hierarchy
-https://drive.google.com/open?id=1exNGVVImg_WdNh1_6qHzJGaoN3O4befL
+#### Component Hierarchy/ Mobile/ Destop
 
-#### Mobile
-https://drive.google.com/open?id=1LK8qSdeoH9m0XPFjOsgxj_pW04ReoMkr
-
-https://drive.google.com/open?id=1uEkiK8YolqkUtFbWMnQ42azy0ZFhMND6
-
-https://drive.google.com/open?id=1v9NFcdCK6PH2HSH7J1_mb_gucMcU_Txw
-
-https://drive.google.com/open?id=133FtfhnQ2p6yWevU7yHW5VwXmywlnyZB
-
-https://drive.google.com/open?id=1FCe6MQCtxjxvPmCkaN0rXjE84fz31P-T
+https://imgur.com/a/1ZJhoLp
 
 #### Desktop
 
@@ -100,6 +90,7 @@ Each itinerary has many items
 | Create a itinerary | H | 1 Hr |  | |
 | Display info | H | 1 Hr | |  |
 | Add People to group | H | 2 Hr |  |  |
+| Styling | H | 5 Hr | | |
 | PostMVP | | | |
 | Send out information | M | 2 Hr | |
 | Combine list with other users | M | 2 Hr | |
