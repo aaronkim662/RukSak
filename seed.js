@@ -24,13 +24,13 @@ const seed = async () => {
     await hike.setLocation(location1);
     await camp.setLocation(location2);
     await bike.setLocation(location3);
-
-  } catch(e) {
+  } catch (e) {
+    // eslint-disable-next-line
     console.log(e.message);
   } finally {
     process.exit();
   }
-}
+};
 
 
 seed();

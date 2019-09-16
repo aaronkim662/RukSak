@@ -1,26 +1,33 @@
 import React from 'react';
-import logo from './logo.svg';
+import Header from '/Component/Header';
+import Form from '/Component/Form';
+
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  state = {
+    form: {
+      username: null,
+      password: null,
+    }
+  }
+  handleChange = async (e) => {
+const{ name,value } = e.target
+  this.setState(prevState => ({
+    form: {
+      ...prevState.form,
+      [name]: value
+    }
+  }));
+}
+  render(){
+    return (
+      <div className="App">
+        <Header />
+        <Form />
+      </div>
+    );
+  }
 }
 
 export default App;
