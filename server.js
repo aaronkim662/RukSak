@@ -21,5 +21,15 @@ app.use(logger('dev'));
 app.get('/', (req, res) => {
   res.send('Welcome to the default route. 3001');
 });
+
+const locationController = require('./controllers/locationController')
+app.use('/location', locationController);
+
+const gearController = require('./controllers/gearController')
+app.use('/gear', gearController);
+
+const userController = require('./controllers/userController')
+app.use('/user', userController);
+
 // eslint-disable-next-line
 app.listen(PORT, () => console.log('up and running'));
