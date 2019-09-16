@@ -42,10 +42,10 @@ User.init({
 });
 
 Trip.belongsToMany(User, { through: 'user_trips' });
-User.belongsToOne(Trip, { through: 'user_trips' });
+User.belongsTo(Trip, { through: 'user_trips' });
 
 Gear.belongsToMany(Trip, { through: 'trip_gear' });
-Trip.belongsToOne(Gear, { through: 'trip_gear' });
+Trip.belongsTo(Gear, { through: 'trip_gear' });
 
 
 module.exports = {

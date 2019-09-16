@@ -8,7 +8,7 @@
     "dev": "nodemon server.js",
     "start": "node server.js",
     "db:create": "dropdb --if-exists -e ruksak_db && createdb -e ruksak_db",
-    "db:reset": "reset resetDb.js",
+    "db:reset": "node resetDb.js",
     "db:seed": "node seed.js"
   },
   "repository": {
