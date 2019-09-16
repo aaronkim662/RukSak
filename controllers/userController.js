@@ -20,7 +20,7 @@ userController.post('/register', async (req, res, next) => {
     res.json(respData);
   } catch (e) {
     next(e);
-  }
+  };
 });
 
 userController.post('/login', async (req, res, next) => {
@@ -37,7 +37,7 @@ userController.post('/login', async (req, res, next) => {
     }
   } catch (e) {
     next(e);
-  }
+  };
 });
 
 module.exports = userController;
