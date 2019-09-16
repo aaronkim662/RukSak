@@ -8,7 +8,7 @@ locationController.get('/location', async (req, res, next) => {
   try {
     const locations = await Location.findAll();
     res.json(locations);
-  } catch(e) {
+  } catch (e) {
     next(e);
   }
 });
