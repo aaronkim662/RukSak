@@ -6,21 +6,21 @@ const TOKEN_KEY = 'adventuretime';
 
 const hashPassword = async (password) => {
   return await bcrypt.hash(password, SALT);
-}
+};
 
 const checkPassword = async (password, hashed_password) => {
   return await bcrypt.compare(password, hashed_password);
-}
+};
 
 const genToken = (data) => {
   const token = jwt.sign(data, TOKEN_KEY);
   return token;
-}
+};
 
 const restrict = (req, res, next) => {
   try {
     const token = req.headers.authorization.split(' ')[1];
-    debugger;
+    // debugger;
     const data = jwt.verify(token, TOKEN_KEY);
     res.locals.user = data;
     next();
@@ -28,11 +28,19 @@ const restrict = (req, res, next) => {
     console.log(e.message);
     res.status(403).send('Unauthorized');
   }
-}
+};
+
+(async () => {
+  await console.log('password', await hashPassword('tea tea'));
+})();
+
+(async () => {
+  await console.log('hashed', await checkPassword('tea tea', await hashPassword('tea tea')));
+})();
 
 module.exports = {
   checkPassword,
   genToken,
   hashPassword,
-  restrict
-}
+  restrict,
+};
