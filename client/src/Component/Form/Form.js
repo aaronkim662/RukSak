@@ -17,7 +17,7 @@ class Form extends React.Component {
     return (
       <div className="formContainer">
         <div className="returnUsers">
-          <h2 className="formHeading">Returning Users</h2>
+          <h2 className="formHeading">Sign In</h2>
           <form className="returningForm"
             onSubmit={this.props.onSubmit}
           >
@@ -32,9 +32,10 @@ class Form extends React.Component {
               onChange={this.props.handleChange}
             />
           </form>
+          <button className="submit">Sign In</button>
         </div>
         <div className="newUsers">
-          <h2 className="formHeading">New Users</h2>
+          <h2 className="formHeading">Register</h2>
           <form className="returningForm"
             onSubmit={this.props.onSubmit}
           >
@@ -54,6 +55,7 @@ class Form extends React.Component {
               onChange={this.props.handleChange}
             />
           </form>
+          <button className="submit">Create an Account</button>
         </div>
       </div>
     )
