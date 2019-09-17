@@ -27,6 +27,10 @@ input {
   border-radius: 50px;
 }
 
+.signIn {
+  margin-top: 47px;
+}
+
 /* BELOW IS STYLE FOR FORM CONTAINER */
 
 .formContainer {
@@ -34,7 +38,7 @@ input {
   display: flex;
   justify-content: center;
   width: 60%;
-  height: 40vh;
+  height: 45vh;
   margin: auto;
   position: absolute;
   left: 0;
@@ -52,14 +56,59 @@ input {
   /* border: 1px solid red; */
   background-color: rgba(0,0,0,0.6);
   margin-right: 2em;
-  width: 30%;
-  overflow-wrap: break-word;
+  width: 40%;
+  border-radius: 10px;
 }
 
 /* BELOW IS STYLE FOR NEW USERS */
 
 .newUsers {
-  /* border: 1px solid green; */
   background-color: rgba(0,0,0,0.6);
-  width: 30%;
+  width: 40%;
+  border-radius: 10px;
+}
+
+
+
+/* BELOW IS STYLING FOR BUTTON */
+
+button {
+  background: #1AAB8A;
+  color: #fff;
+  border: none;
+  position: relative;
+  height: 40px;
+  padding: 0 2em;
+  font-size: 20px;
+  cursor: pointer;
+  transition: 800ms ease all;
+  outline: none;
+  /* overflow-wrap: break-word; */
+  /* text-wrap: wrap; */
+}
+button:hover{
+  /* background:#fff; */
+  color:#1AAB8A;
+  background-color: white;
+  border-radius: 0;
+}
+button:before,button:after{
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 2px;
+  width: 0;
+  background: #1AAB8A;
+  transition: 400ms ease all;
+}
+button:after{
+  right:inherit;
+  top:inherit;
+  left:0;
+  bottom:0;
+}
+button:hover:before,button:hover:after{
+  width:100%;
+  transition:800ms ease all;
 }

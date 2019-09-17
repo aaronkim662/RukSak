@@ -32,7 +32,7 @@ class Form extends React.Component {
               onChange={this.props.handleChange}
             />
           </form>
-          <button className="submit">Sign In</button>
+          <button className="submit signIn">Sign In</button>
         </div>
         <div className="newUsers">
           <h2 className="formHeading">Register</h2>
