@@ -1,4 +1,6 @@
 import React from 'react';
+import { Redirect, Route } from 'react-router-dom'
+
 import Header from './Component/Header/Header';
 import Form from './Component/Form/Form';
 
@@ -22,10 +24,12 @@ const{ name,value } = e.target
 }
   render(){
     return (
-      <div className="App">
-        <Header />
-        <Form />
-      </div>
+      <>
+        <div className="App">
+          <Header />
+          <Form />
+        </div>
+      </>
     );
   }
 }
