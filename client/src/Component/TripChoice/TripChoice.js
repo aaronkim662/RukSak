@@ -1,16 +1,16 @@
 import React from 'react'
 
-// Get the name of the
+// Give the props to the image and the h2
 
 function TripChoice(props) {
 
   return(
     <div>
       <div>
-        <img src={require(this.props.tripImage)} alt=''/>
+        <img src={props.tripImage} alt=''/>
       </div>
       <div>
-        <h2>{this.props.tripChoice}</h2>
+        <h2>{props.tripChoice}</h2>
       </div>
     </div>
   )
