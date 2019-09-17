@@ -1,6 +1,11 @@
 import React from 'react';
-import Header from './Component/Header/Header';
+import { Redirect, Route, Switch } from 'react-router-dom'
+
 import Form from './Component/Form/Form';
+import Header from './Component/Header/Header';
+import Main from './Component/main/main'
+import Planning from './Component/planning/Planning'
+import Profile from './Component/Profile/Profile'
 // import { allGear, oneGear, deleteGear,}
 
 import './App.css';
@@ -26,10 +31,19 @@ const{ name,value } = e.target
 
   render(){
     return (
-      <div className="App">
-        <Header />
-        <Form />
-      </div>
+      <>
+        <div className="App">
+          <Header />
+          <Form />
+        </div>
+        <div>
+          <Switch>
+            <Route path='/home' component={Main} />
+            <Route path='/planning' component={Planning} />
+            <Route path='/profile' component={Profile} />
+          </Switch>
+        </div>
+      </>
     );
   }
 }
