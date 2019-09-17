@@ -7,7 +7,10 @@ class Form extends React.Component {
   render() {
     return (
       <form>
+        This is form
       </form>
     )
   }
 }
+
+export default Form
