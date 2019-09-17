@@ -86,9 +86,8 @@ Each itinerary has many items
 | --- | :---: |  :---: | :---: | :---: |
 | Create a login page | H |  1 Hr |  |  |
 | Create an API | H | 1 Hr |  |  |
-| Make sure the login page works | H | 2 Hrs |  |  |
 | Create the skeleton | H | 1 Hr | |  |
-| Create a itinerary | H | 1 Hr |  | |
+| Create an itinerary | H | 1 Hr |  | |
 | Display info | H | 1 Hr | |  |
 | Add People to group | H | 2 Hr |  |  |
 | Styling | H | 5 Hr | | |
