@@ -1,49 +1,77 @@
 import React from 'react';
-import { Redirect, Route, Switch } from 'react-router-dom'
-
-import Form from './Component/Form/Form';
 import Header from './Component/Header/Header';
-import Main from './Component/main/main'
-import Planning from './Component/planning/Planning'
-import Profile from './Component/Profile/Profile'
-// import { allGear, oneGear, deleteGear,}
+import Login from './Component/Login/Login';
+import { allGear, oneGear, deleteGear, loginUser, registerUser} from './services/api';
 
 import './App.css';
 
 class App extends React.Component {
   state = {
+    currentUser: null,
     form: {
-      username: null,
-      password: null,
-      email: null,
+      username: "",
+    },
+    authFormData: {
+      email: "",
+      username: "",
+      password: "",
     }
   }
-  handleChange = async (e) => {
-const{ name,value } = e.target
+
+handleChange = async (e) => {
+  const{ name,value } = e.target
   this.setState(prevState => ({
     form: {
-      ...prevState.form,
       [name]: value
     }
   }));
+};
+
+handleLogin = async () => {
+  const userData = await loginUser(this.state.authFormData);
+  this.setState({
+    currentUser: userData.user
+  })
+  localStorage.setItem("jwt", userData.token)
+};
+
+// Function to register a user
+// After register, we just call the login function with the same data
+handleRegister = async (e) => {
+  e.preventDefault();
+  await registerUser(this.state.authFormData);
+  this.handleLogin();
+};
+
+handleLogout = () => {
+  localStorage.removeItem("jwt");
+  this.setState({
+    currentUser: null
+  })
 }
 
-
+handleAuth = async (e) => {
+  const { name, value } = e.target
+  this.setState(prevState => ({
+    authFormData: {
+      ...prevState.authFormData,
+      [name]: value,
+    }
+  }))
+};
   render(){
+    console.log('app', this.state.authFormData)
+    console.log('currentUser', this.state.currentUser)
+
     return (
-      <>
-        <div className="App">
-          <Header />
-          <Form />
-        </div>
-        <div>
-          <Switch>
-            <Route path='/home' component={Main} />
-            <Route path='/planning' component={Planning} />
-            <Route path='/profile' component={Profile} />
-          </Switch>
-        </div>
-      </>
+      <div className="App">
+        <Header />
+        <Login  handleLogin={(e) => this.handleLogin(e)}
+                handleAuthChange={this.handleAuth}
+                authFormData={this.state.authFormData}
+                handleRegister={(e) => this.handleRegister(e)}
+                />
+      </div>
     );
   }
 }
