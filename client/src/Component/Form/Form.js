@@ -7,15 +7,21 @@ class Form extends React.Component {
       form: {
         username: null,
         password: null,
-        email: null,
       },
-      test: {
-        val: ''
-      }
     };
   };
+
+  handleChange = async (e) => {
+    const{ name,value } = e.target
+    this.setState(prevState => ({
+      form: {
+        [name]: value
+      }
+    }));
+  };
+
   render() {
-    console.log('form ', this.props.authFormData)
+    console.log('form ', this.props.authLoginData)
 
     return (
       <div className="formContainer">
@@ -23,23 +29,25 @@ class Form extends React.Component {
         <div className="returnUsers">
           <h2>Returning Users</h2>
           <form className="returningForm" id="login"
-            onSubmit={() => this.props.handleLogin()}
+            onSubmit={(e) => this.props.handleLog(e)}
           >
             <input
               type="text"
               name="username"
               placeholder="username"
-              value={this.props.authFormData.username}
-              onSubmit={this.props.handleAuthChange}
+              value={this.props.authLoginData.username}
+              onChange={this.props.handleChange}
             />
             <input
               type="password"
               name="password"
               placeholder="password"
-              value={this.props.authFormData.password}
-              onChange={this.props.handleAuthChange}
+              value={this.state.form.username}
+              onChange={(e) => this.props.handleChange(e)}
             />
+          <button>Login</button>
           </form>
+
         </div>
 
         <div className="newUsers">
@@ -52,7 +60,7 @@ class Form extends React.Component {
             name="email"
             placeholder="email"
             value={this.props.authFormData.email}
-            onChange={(e) => this.props.handleAuthChange(e)}
+            onChange={this.props.handleAuthChange}
           />
             <input
               type="text"
@@ -66,7 +74,7 @@ class Form extends React.Component {
               name="password"
               placeholder="password"
               value={this.props.authFormData.password}
-              onChange={(e) => this.props.handleAuthChange(e)}
+              onChange={this.props.handleAuthChange}
             />
           <button>Register</button>
           </form>

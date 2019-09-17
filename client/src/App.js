@@ -15,7 +15,11 @@ class App extends React.Component {
       email: "",
       username: "",
       password: "",
-    }
+    },
+    authLoginData: {
+      username: "",
+      password: "",
+    },
   }
 
 handleChange = async (e) => {
@@ -27,8 +31,17 @@ handleChange = async (e) => {
   }));
 };
 
-handleLogin = async () => {
+handleLogin = async (e) => {
+  e.preventDefault();
   const userData = await loginUser(this.state.authFormData);
+  this.setState({
+    currentUser: userData.user
+  })
+  localStorage.setItem("jwt", userData.token)
+};
+handleLog = async (e) => {
+  e.preventDefault();
+  const userData = await loginUser(this.state.authLoginData);
   this.setState({
     currentUser: userData.user
   })
@@ -59,17 +72,29 @@ handleAuth = async (e) => {
     }
   }))
 };
+handleAuthLogin = async (e) => {
+  const { name, value } = e.target
+  this.setState(prevState => ({
+    authLoginData: {
+      ...prevState.authLoginData,
+      [name]: value,
+    }
+  }))
+};
   render(){
-    console.log('app', this.state.authFormData)
+    console.log('app', this.state.authLoginData)
     console.log('currentUser', this.state.currentUser)
 
     return (
       <div className="App">
         <Header />
         <Login  handleLogin={(e) => this.handleLogin(e)}
-                handleAuthChange={this.handleAuth}
-                authFormData={this.state.authFormData}
                 handleRegister={(e) => this.handleRegister(e)}
+                authFormData={this.state.authFormData}
+                authLoginData={this.state.authLoginData}
+                handleChange={this.handleAuthLogin}
+                handleAuthChange={this.handleAuth}
+                handleLog={(e) => this.handleLog(e)}
                 />
       </div>
     );
