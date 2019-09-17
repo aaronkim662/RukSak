@@ -1,6 +1,6 @@
 import React from 'react';
-import Header from '/Component/Header';
-import Form from '/Component/Form';
+import Header from './Component/Header/Header';
+import Form from './Component/Form/Form';
 
 import './App.css';
 
