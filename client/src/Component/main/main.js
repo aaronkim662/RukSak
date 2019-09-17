@@ -17,7 +17,7 @@ class Main extends React.Component {
   const activity = response.data.feed.entry.map( (d,i) => {
     return {
       image: d.gsx$image.$t,
-      activity: d.gsx$activity.$t
+      name: d.gsx$activity.$t
     }
   })
   this.setState({
@@ -26,15 +26,14 @@ class Main extends React.Component {
 }
 
 componentDidMount() {
-  this.makeApiCall()
+  this.getActivities()
 }
 
   render() {
     return (
       <div>
         <TripChoice
-        tripChoice={this.state.activity}
-        tripImage={this.state.image}
+          
         />
       </div>
     )
