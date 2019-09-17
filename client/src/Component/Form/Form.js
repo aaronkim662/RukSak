@@ -4,9 +4,13 @@ class Form extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-
-    }
-  }
+      form: {
+        username: null,
+        password: null,
+        email: null,
+      }
+    };
+  };
 
   render() {
     return (
@@ -51,7 +55,8 @@ class Form extends React.Component {
           </form>
         </div>
       </div>
-
     )
-  }
-}
+  };
+};
+
+export default Form;
