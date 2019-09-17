@@ -29,7 +29,7 @@ class Form extends React.Component {
 
         <div className="returnUsers">
 
-          <h2 className-"formHeading>Sign In</h2>
+          <h2 className="formHeading">Sign In</h2>
           <form className="returningForm" id="login"
             onSubmit={(e) => this.props.handleLog(e)}
           >
@@ -47,7 +47,7 @@ class Form extends React.Component {
               value={this.state.form.username}
               onChange={(e) => this.props.handleChange(e)}
             />
-          <button className="submit signIn">Sign In</button>
+          <button className="submitSignIn">Sign In</button>
           <button>Register</button>
           </form>
         </div>

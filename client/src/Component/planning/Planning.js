@@ -1,4 +1,5 @@
 import React from 'react'
+import RadioForm from '../RadioForm/RadioForm';
 
 class Planning extends React.Component {
   state = {
@@ -16,7 +17,9 @@ class Planning extends React.Component {
         <div className="planning">
           <div className="camping">
             <h2>Camping</h2>
-            <div className="daysSelection"></div>
+            <div className="daysSelection">
+              <RadioForm/>
+            </div>
             <div className="peopleSelection"></div>
             <div className="recommended"></div>
           </div>
