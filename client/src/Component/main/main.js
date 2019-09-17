@@ -1,15 +1,11 @@
 import React from 'react'
 
-class Main extends React.Component {
-  this.state {
+function Main() {
+  
+  return (
+    <div>This is the home page</div>
 
-  }
-  render() {
-    return (
-      <div>This is main</div>
-
-    )
-  }
+  )
 }
 
 export default Main
