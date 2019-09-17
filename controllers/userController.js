@@ -12,14 +12,16 @@ const buildAuthResponse = (user) => {
   const token = genToken(tokenData);
   return { user: { id, username }, token };
 };
-// userController.get('/', async (req, res, next) => {
-//   try {
-//     const user = await User.findAll();
-//     res.json(user);
-//   } catch (e) {
-//     next(e);
-//   }
-// });
+// testing user data
+userController.get('/', async (req, res, next) => {
+  try {
+    const user = await User.findAll();
+    res.json(user);
+  } catch (e) {
+    next(e);
+  }
+});
+
 userController.post('/register', async (req, res, next) => {
   try {
     const { username, password } = req.body;
