@@ -112,3 +112,50 @@ button:hover:before,button:hover:after{
   width:100%;
   transition:800ms ease all;
 }
+
+
+/* BELOW IS MEDIA QUERIES FOR MOBILE */
+
+@media(max-width: 768px) {
+  /* .formContainer {
+    display: block;
+    width: 80%;
+    height: 100%;
+    padding-top: 50%;
+  }
+  .newUsers {
+    width: 100%;
+    padding-bottom: 15px;
+  }
+  .returnUsers {
+    width: 100%;
+    padding-bottom: 15px;
+  }
+  .signIn {
+    margin-top: 0;
+  }
+  input {
+    margin-bottom: 1px;
+  } */
+
+/* ATTEMPTING TO STACK THE TWO */
+  .formContainer {
+    position: absolute;
+    display: block;
+    width: 80%;
+  }
+  .newUsers {
+    position: absolute;
+    width: 100%;
+    z-index: -1;
+    opacity: 0;
+  }
+  .returnUsers {
+    width: 100%;
+    position: absolute;
+    z-index: 1;
+  }
+  .signIn {
+    margin-top: 0;
+  }
+}

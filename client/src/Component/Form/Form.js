@@ -33,6 +33,7 @@ class Form extends React.Component {
             />
           </form>
           <button className="submit signIn">Sign In</button>
+          <button>Register</button>
         </div>
         <div className="newUsers">
           <h2 className="formHeading">Register</h2>
@@ -55,7 +56,7 @@ class Form extends React.Component {
               onChange={this.props.handleChange}
             />
           </form>
-          <button className="submit">Create an Account</button>
+          <button className="submit">Register</button>
         </div>
       </div>
     )
