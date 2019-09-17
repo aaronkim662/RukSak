@@ -10,6 +10,7 @@ class App extends React.Component {
     form: {
       username: null,
       password: null,
+      email: null,
     }
   }
   handleChange = async (e) => {
