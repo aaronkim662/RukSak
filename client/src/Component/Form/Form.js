@@ -29,7 +29,7 @@ class Form extends React.Component {
 
         <div className="returnUsers">
 
-          <h2 className-"formHeading>Sign In</h2>
+          <h2 className="formHeading">Sign In</h2>
           <form className="returningForm" id="login"
             onSubmit={(e) => this.props.handleLog(e)}
           >
