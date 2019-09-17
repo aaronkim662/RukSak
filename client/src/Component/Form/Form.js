@@ -1,4 +1,5 @@
 import React from 'react';
+import './form.css'
 
 class Form extends React.Component {
   constructor(props) {
@@ -16,7 +17,7 @@ class Form extends React.Component {
     return (
       <div className="formContainer">
         <div className="returnUsers">
-          <h2>Returning Users</h2>
+          <h2 className="formHeading">Returning Users</h2>
           <form className="returningForm"
             onSubmit={this.props.onSubmit}
           >
@@ -33,7 +34,7 @@ class Form extends React.Component {
           </form>
         </div>
         <div className="newUsers">
-          <h2>New Users</h2>
+          <h2 className="formHeading">New Users</h2>
           <form className="returningForm"
             onSubmit={this.props.onSubmit}
           >

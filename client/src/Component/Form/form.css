@@ -1,0 +1,47 @@
+body {
+  background-image: url('https://res.cloudinary.com/darrin-im/image/upload/v1568667109/project3-background_fafbvd.jpg');
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+}
+
+.formHeading {
+  color: white;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* BELOW IS STYLE FOR FORM CONTAINER */
+
+.formContainer {
+  border: 1px solid white;
+  display: flex;
+  justify-content: center;
+  width: 60%;
+  height: 30vh;
+  margin: auto;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+/* BELOW IS STYLE FOR RETURNING USERS */
+
+.returnUsers {
+  border: 1px solid red;
+  background-color: rgba(0,0,0,0.6);
+}
+
+/* BELOW IS STYLE FOR NEW USERS */
+
+.newUsers {
+  border: 1px solid green;
+  background-color: rgba(0,0,0,0.6);
+}
