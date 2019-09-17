@@ -39,6 +39,7 @@ handleLogin = async (e) => {
   })
   localStorage.setItem("jwt", userData.token)
 };
+
 handleLog = async (e) => {
   e.preventDefault();
   const userData = await loginUser(this.state.authLoginData);
@@ -48,8 +49,6 @@ handleLog = async (e) => {
   localStorage.setItem("jwt", userData.token)
 };
 
-// Function to register a user
-// After register, we just call the login function with the same data
 handleRegister = async (e) => {
   e.preventDefault();
   await registerUser(this.state.authFormData);
@@ -72,6 +71,7 @@ handleAuth = async (e) => {
     }
   }))
 };
+
 handleAuthLogin = async (e) => {
   const { name, value } = e.target
   this.setState(prevState => ({
@@ -81,10 +81,8 @@ handleAuthLogin = async (e) => {
     }
   }))
 };
-  render(){
-    console.log('app', this.state.authLoginData)
-    console.log('currentUser', this.state.currentUser)
 
+  render(){
     return (
       <div className="App">
         <Header />
