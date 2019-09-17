@@ -1,4 +1,5 @@
 import React from 'react';
+import './form.css'
 
 class Form extends React.Component {
   constructor(props) {
@@ -27,7 +28,8 @@ class Form extends React.Component {
       <div className="formContainer">
 
         <div className="returnUsers">
-          <h2>Returning Users</h2>
+
+          <h2 className-"formHeading>Sign In</h2>
           <form className="returningForm" id="login"
             onSubmit={(e) => this.props.handleLog(e)}
           >
@@ -45,13 +47,13 @@ class Form extends React.Component {
               value={this.state.form.username}
               onChange={(e) => this.props.handleChange(e)}
             />
-          <button>Login</button>
+          <button className="submit signIn">Sign In</button>
+          <button>Register</button>
           </form>
-
         </div>
 
         <div className="newUsers">
-          <h2>New Users</h2>
+         <h2 className="formHeading">Register</h2>
           <form className="returningForm" id="register"
             onSubmit={this.props.handleRegister}
           >
@@ -78,6 +80,7 @@ class Form extends React.Component {
             />
           <button>Register</button>
           </form>
+          <button className="submit">Register</button>
         </div>
       </div>
     )
