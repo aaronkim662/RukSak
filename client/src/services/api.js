@@ -2,18 +2,20 @@ const axios = require('axios');
 
 const BASE_URL = 'http://localhost:3001/';
 
+const api = axios.create({ baseUrl: BASE_URL });
+
 export const oneLocation = async (location) => {
-  let res = await axios.get(`${BASE_URL}/${location}`);
+  const res = await api.get(`/location/${location}`);
   return res.data;
 }
 
 export const allGear = async () => {
-  let res = await axios.get(`${BASE_URL}/gear`);
+  const res = await api.get(`/gear`);
   return res.data;
 }
 
 export const oneGear = async (gearId) => {
-  let res = await axios.get(`${BASE_URL}/gear/${gearId}`);
+  const res = await axios.get(`/gear/${gearId}`);
   return res.data;
 }
 
