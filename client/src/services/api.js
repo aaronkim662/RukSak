@@ -34,4 +34,4 @@ export const updateGear = async (data,gearId) => {
 export const createGear = async (data) => {
   let res = await axios.post(`${BASE_URL}/gear`, data);
   return res.data;
-}
+};
