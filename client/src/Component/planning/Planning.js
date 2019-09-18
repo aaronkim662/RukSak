@@ -9,23 +9,38 @@ class Planning extends React.Component {
   }
 
   handleClick = (e) => {
-    e.preventDefault();
+    this.setState({
+      days: e.target.value
+    })
+  }
+
+  handleClickPeople = (e) => {
+    this.setState({
+      people: e.target.value
+    })
   }
   render() {
+    console.log('plan', this.state.days)
     return (
       <React.Fragment>
         <div className="planning">
           <div className="camping">
             <h2>Camping</h2>
             <div className="daysSelection">
-              <RadioForm/>
+              <RadioForm
+                days={this.state.days}
+                people={this.state.people}
+              handleClickPeople={this.handleClickPeople}
+              />
             </div>
             <div className="peopleSelection"></div>
             <div className="recommended"></div>
           </div>
           <div className="itinerary"></div>
-            <div className="days"></div>
-            <div className="people"></div>
+            <div className="days">
+            Days {this.state.days}</div>
+            <div className="people">
+            People {this.state.people}</div>
             <div className="location"></div>
         </div>
       </React.Fragment>
