@@ -1,16 +1,34 @@
-import React from 'react'
+import React from 'react';
+import './TripChoice.css'
 
 // Give the props to the image and the h2
 
-function TripChoice(props) {
+function TripChoice() {
 
   return(
-    <div>
+    <div className="trip-choice">
       <div>
-        <img src={props.tripImage} alt=''/>
+      <img
+      className='camping-photo'
+      src="https://i.imgur.com/vVIAXS0.jpg" alt='Camping'/>
       </div>
       <div>
-        <h2>{props.tripChoice}</h2>
+        <h2>Camping</h2>
+      </div>
+      <div>
+      <img
+      className='hiking-photo'
+      src="https://i.imgur.com/GFZQ8B4.jpg" alt='Camping'/>
+      </div>
+      <div>
+        <h2>Hiking</h2>
+      </div><div>
+      <img
+      className='biking-photo'
+      src="https://i.imgur.com/qVvoGj4.jpg" alt='Camping'/>
+      </div>
+      <div>
+        <h2>Biking</h2>
       </div>
     </div>
   )

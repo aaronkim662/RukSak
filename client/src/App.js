@@ -2,8 +2,8 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom'
 import Header from './Component/Header/Header';
 import Login from './Component/Login/Login';
-import Main from './Component/Main/main.js';
-import Planning from './Component/Planning/Planning';
+import Main from './Component/main/main.js';
+import Planning from './Component/planning/Planning';
 import Profile from './Component/Profile/Profile';
 import { allGear, oneGear, deleteGear, loginUser, registerUser} from './services/api';
 
