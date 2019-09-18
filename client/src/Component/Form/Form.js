@@ -50,7 +50,7 @@ class Form extends React.Component {
               onChange={(e) => this.props.handleChange(e)}
             />
 
-            <button className="submitSignIn">Sign In</button>
+            <button className="submitSignIn" id="buttonSignIn">Sign In</button>
             <button
               className="newUserButton"
               onClick={(e) => this.props.handleRegisterClick(e)}>New Users</button>
