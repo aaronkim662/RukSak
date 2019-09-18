@@ -8,7 +8,6 @@ function Profile() {
       <div className="profileInfo">
         <h2 className="profileHeader">Profile Info</h2>
         <ul className="unorderedList">
-          <li className="profileList">Name: </li>
           <li className="profileList">Username: </li>
           <li className="profileList">Email: </li>
         </ul>
