@@ -99,14 +99,6 @@ handleAuthLogin = async (e) => {
   }))
 };
 
-
-handleRegisterClick = async (e) => {
-  this.setState({
-    isShowing: true
-  })
-};
-
-
   render(){
     return (
       <>
