@@ -32,6 +32,11 @@ Trip.init({
   modelName: 'trip',
 });
 
+class TripType extends Sequelize.Model{}
+TripType.init({
+  
+})
+
 class User extends Sequelize.Model {}
 User.init({
   username: Sequelize.STRING,
