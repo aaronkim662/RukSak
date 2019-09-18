@@ -24,6 +24,7 @@ class Form extends React.Component {
 
   render() {
     console.log('form ', this.props.authLoginData)
+    console.log('reg', this.props.handleRegisterClick)
 
     return (
       <div className="formContainer">
@@ -51,7 +52,8 @@ class Form extends React.Component {
 
             <button className="submitSignIn">Sign In</button>
             <button
-              className="newUserButton">New Users</button>
+              className="newUserButton"
+              onClick={(e) => this.props.handleRegisterClick(e)}>New Users</button>
           </form>
         </div>
 

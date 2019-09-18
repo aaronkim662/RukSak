@@ -5,6 +5,7 @@ import Login from './Component/Login/Login';
 import Main from './Component/Main/main';
 import Planning from './Component/Planning/Planning.js';
 import Profile from './Component/Profile/Profile';
+import Register from './Component/Form/Register';
 import { allGear, oneGear, deleteGear, loginUser, registerUser} from './services/api';
 
 import './App.css';
@@ -24,6 +25,7 @@ class App extends React.Component {
       username: "",
       password: "",
     },
+    isShowing: false,
   }
 
 redirect = () => {
@@ -90,6 +92,14 @@ handleAuthLogin = async (e) => {
   }))
 };
 
+handleRegisterClick = async (e) => {
+  this.setState({
+    isShowing: true
+  })
+};
+
+
+
   render(){
 
     return (
@@ -116,6 +126,7 @@ handleAuthLogin = async (e) => {
 
             )} />
           <Route path='/profile' component={Profile} />
+          />
         </Switch>
       </div>
       </>

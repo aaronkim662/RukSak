@@ -1,0 +1,34 @@
+.profileContainer {
+  border: 1px solid black;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  height: 100vh;
+}
+.profileImage {
+  border: 1px solid white;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+}
+.profileInfo {
+  border: 1px solid green;
+  height: 100%;
+}
+.profileEdit {
+  border: 1px solid red;
+  height: 100%;
+}
+
+.far {
+  height: 100px;
+  color: white;
+}
+
+.profileList {
+  list-style-type: none;
+  /* border: 1px solid white; */
+  margin-bottom: 10px;
+  font-size: 1.3em;
+}
