@@ -1,6 +1,10 @@
 import React from 'react'
-import TripChoice from '../TripChoice/TripChoice'
 import axios from 'axios'
+import './main.css'
+
+import TripChoice from '../TripChoice/TripChoice'
+import Profile from '../Profile/Profile'
+
 
 class Main extends React.Component {
   constructor(props) {
@@ -31,9 +35,11 @@ componentDidMount() {
 
   render() {
     return (
-      <div className="main">
-        <TripChoice
-        />
+      <div>
+        <div className="main">
+          <Profile />
+          <TripChoice />
+        </div>
       </div>
     )
   }
