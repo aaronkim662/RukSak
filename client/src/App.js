@@ -28,9 +28,6 @@ class App extends React.Component {
     isShowing: false,
   }
 
-redirect = () => {
-}
-
 handleChange = async (e) => {
   const{ name,value } = e.target
   this.setState(prevState => ({
@@ -42,27 +39,37 @@ handleChange = async (e) => {
 
 handleLogin = async (e) => {
   // e.preventDefault();
+
   const userData = await loginUser(this.state.authFormData);
   this.setState({
     currentUser: userData.user
   })
   localStorage.setItem("jwt", userData.token)
-  this.props.history.push('/planning')
+    this.props.history.push('/planning')
 };
 
 handleLog = async (e) => {
   e.preventDefault();
+
+  if(this.state.authLoginData.username !== ""  && this.state.authLoginData.password !== ""){
+
   const userData = await loginUser(this.state.authLoginData);
   this.setState({
     currentUser: userData.user
   })
   localStorage.setItem("jwt", userData.token)
+  this.props.history.push('/planning')
+  }
 };
 
 handleRegister = async (e) => {
   e.preventDefault();
+
+  if(this.state.authFormData.username !== "" && this.state.authFormData.email !== "" && this.state.authFormData.password !== ""){
+
   await registerUser(this.state.authFormData);
   this.handleLogin();
+  }
 };
 
 handleLogout = () => {
@@ -92,16 +99,7 @@ handleAuthLogin = async (e) => {
   }))
 };
 
-handleRegisterClick = async (e) => {
-  this.setState({
-    isShowing: true
-  })
-};
-
-
-
   render(){
-
     return (
       <>
       <div className="App">
