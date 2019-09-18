@@ -1,5 +1,5 @@
 import React from 'react';
-import './form.css'
+import './form.css';
 
 class Form extends React.Component {
   constructor(props) {
@@ -11,6 +11,7 @@ class Form extends React.Component {
       },
     };
   };
+
 
   handleChange = async (e) => {
     const{ name,value } = e.target
@@ -29,7 +30,7 @@ class Form extends React.Component {
 
         <div className="returnUsers">
 
-          <h2 className-"formHeading>Sign In</h2>
+          <h2 className="formHeading">Sign In</h2>
           <form className="returningForm" id="login"
             onSubmit={(e) => this.props.handleLog(e)}
           >
@@ -47,8 +48,9 @@ class Form extends React.Component {
               value={this.state.form.username}
               onChange={(e) => this.props.handleChange(e)}
             />
-          <button className="submit signIn">Sign In</button>
-          <button>Register</button>
+            <button className="submit signIn">Sign In</button>
+            <button
+              className="newUserButton">New Users</button>
           </form>
         </div>
 
@@ -78,9 +80,8 @@ class Form extends React.Component {
               value={this.props.authFormData.password}
               onChange={this.props.handleAuthChange}
             />
-          <button>Register</button>
+            <button className="submit">Register</button>
           </form>
-          <button className="submit">Register</button>
         </div>
       </div>
     )
