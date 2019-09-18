@@ -31,9 +31,8 @@ componentDidMount() {
 
   render() {
     return (
-      <div>
+      <div className="main">
         <TripChoice
-
         />
       </div>
     )
