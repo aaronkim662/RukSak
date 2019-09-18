@@ -34,9 +34,23 @@ class Planning extends React.Component {
                 handleClickPeople={this.handleClickPeople}
                 handleClick={this.handleClick}
               />
-
             <div className="recommended"></div>
           </div>
+          <div>Recommended List</div>
+          {this.props.gear.map((ele,i) => {
+            return(
+              <li onClick={()=>this.props.handleGearClick(ele)}>{ele.gear}</li>
+            )
+          })
+        }
+        <div>Current List</div>
+          {this.props.selectedGear.map((ele,i) => {
+            return(
+              <li index={i}
+                onClick={() => this.props.handleRemoveClick(i)}>{ele}</li>
+            )
+          })
+        }
           <div className="itinerary"></div>
             <div className="days">
             Days {this.state.days}</div>
@@ -45,6 +59,7 @@ class Planning extends React.Component {
             <div className="location"></div>
         </div>
         <div className="gearList">
+
           <h3 className="gearListHeader">Itinerary</h3>
           {this.props.gear.map((ele,i) => {
             return(

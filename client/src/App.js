@@ -27,6 +27,7 @@ class App extends React.Component {
     },
     isShowing: false,
     gear:[],
+    selectedGear: [],
   }
 
 handleChange = async (e) => {
@@ -104,12 +105,25 @@ getGear = async (e) => {
   this.setState({gear});
 };
 
+handleGearClick = (e) => {
+
+  this.setState(prevState => ({
+    selectedGear: [...prevState.selectedGear, e.gear]
+  }))
+};
+
+removeGearClick = (e) => {
+  this.setState(prevState => ({
+  selectedGear: prevState.selectedGear.filter((ele,i) => i !== e)
+  })
+)}
+
 componentDidMount() {
   this.getGear();
 }
 
   render(){
-console.log(this.state.gear)
+console.log(this.state.selectedGear)
     return (
       <>
       <div className="App">
@@ -140,9 +154,11 @@ console.log(this.state.gear)
             <>
               <Header />
               <Planning {...props}
+                    selectedGear={this.state.selectedGear}
                     getGear={this.getGear}
                     gear={this.state.gear}
-
+                    handleGearClick={(e) => this.handleGearClick(e)}
+                    handleRemoveClick={(e)=>this.removeGearClick(e)}
                 />
             </>
             )}/>
