@@ -1,5 +1,3 @@
-
-
 .radioDays {
   display: flex;
   flex-direction: row;
@@ -8,4 +6,8 @@
 .radioPeople {
   display: flex;
   flex-direction: row;
+}
+
+.radioButton {
+  color: black;
 }

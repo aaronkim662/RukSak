@@ -23,6 +23,7 @@ render(){
         <form className="radioDays"
         >
           <input
+            className="radioButton"
             type="radio"
             name="day1"
             value='1-2'

@@ -1,0 +1,22 @@
+.planning-container {
+  border: 1px solid green;
+  display: flex;
+  justify-content: space-between;
+  height: 80vh;
+}
+.gearList {
+  border: 1px solid black;
+  list-style-type: none;
+  width: 25%;
+  text-align: center;
+}
+.gearListHeader {
+  text-decoration: underline;
+}
+.planning {
+  border: 1px solid red;
+  width: 25%;
+}
+.camping {
+  border: 1px solid blue;
+}
