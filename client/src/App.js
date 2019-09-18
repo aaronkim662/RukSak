@@ -1,8 +1,8 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom'
+import { Route, Switch, withRouter } from 'react-router-dom'
 import Header from './Component/Header/Header';
 import Login from './Component/Login/Login';
-import Main from './Component/Main/main.js';
+import Main from './Component/Main/Main';
 import Planning from './Component/Planning/Planning';
 import Profile from './Component/Profile/Profile';
 import { allGear, oneGear, deleteGear, loginUser, registerUser} from './services/api';
@@ -26,6 +26,9 @@ class App extends React.Component {
     },
   }
 
+redirect = () => {
+}
+
 handleChange = async (e) => {
   const{ name,value } = e.target
   this.setState(prevState => ({
@@ -42,6 +45,7 @@ handleLogin = async (e) => {
     currentUser: userData.user
   })
   localStorage.setItem("jwt", userData.token)
+  this.props.history.push('/planning')
 };
 
 handleLog = async (e) => {
@@ -87,23 +91,32 @@ handleAuthLogin = async (e) => {
 };
 
   render(){
+
     return (
       <>
       <div className="App">
         <Header />
-        <Login  handleLogin={(e) => this.handleLogin(e)}
-                handleRegister={(e) => this.handleRegister(e)}
-                authFormData={this.state.authFormData}
-                authLoginData={this.state.authLoginData}
-                handleChange={this.handleAuthLogin}
-                handleAuthChange={this.handleAuth}
-                handleLog={(e) => this.handleLog(e)}
-                />
+
+              <button onClick={this.setRedirect}>Planning</button>
       </div>
       <div>
         <Switch>
+          <Route exact path='/'render={(props) => (
+              <Login  {...props}
+                      handleLogin={(e) => this.handleLogin(e)}
+                      handleRegister={(e) => this.handleRegister(e)}
+                      authFormData={this.state.authFormData}
+                      authLoginData={this.state.authLoginData}
+                      handleChange={this.handleAuthLogin}
+                      handleAuthChange={this.handleAuth}
+                      handleLog={(e) => this.handleLog(e)}
+                      />
+            )}/>
           <Route path='/home' component={Main} />
-          <Route path='/planning' component={Planning} />
+          <Route path='/planning' render={(props) => (
+              <Planning />
+
+            )} />
           <Route path='/profile' component={Profile} />
         </Switch>
       </div>
@@ -112,4 +125,4 @@ handleAuthLogin = async (e) => {
   }
 }
 
-export default App;
+export default withRouter(App);

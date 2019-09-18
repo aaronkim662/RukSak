@@ -26,15 +26,13 @@ class Planning extends React.Component {
         <div className="planning">
           <div className="camping">
             <h2>Camping</h2>
-            <div className="daysSelection">
               <RadioForm
                 days={this.state.days}
                 people={this.state.people}
                 handleClickPeople={this.handleClickPeople}
                 handleClick={this.handleClick}
               />
-            </div>
-            <div className="peopleSelection"></div>
+
             <div className="recommended"></div>
           </div>
           <div className="itinerary"></div>
