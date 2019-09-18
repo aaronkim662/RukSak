@@ -2,8 +2,8 @@ import React from 'react';
 import { Route, Switch, withRouter } from 'react-router-dom'
 import Header from './Component/Header/Header';
 import Login from './Component/Login/Login';
-import Main from './Component/main/main.js';
-import Planning from './Component/planning/Planning';
+import Main from './Component/Main/main';
+import Planning from './Component/Planning/Planning.js';
 import Profile from './Component/Profile/Profile';
 import { allGear, oneGear, deleteGear, loginUser, registerUser} from './services/api';
 
@@ -96,8 +96,6 @@ handleAuthLogin = async (e) => {
       <>
       <div className="App">
         <Header />
-
-              <button onClick={this.setRedirect}>Planning</button>
       </div>
       <div>
         <Switch>
