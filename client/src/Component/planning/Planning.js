@@ -20,7 +20,7 @@ class Planning extends React.Component {
     })
   }
   render() {
-    console.log('plan', this.state.days)
+    console.log('plan', this.props.gear)
     return (
       <React.Fragment>
         <div className="planning">
@@ -41,6 +41,14 @@ class Planning extends React.Component {
             <div className="people">
             People {this.state.people}</div>
             <div className="location"></div>
+        </div>
+        <div className="gearList">
+          {this.props.gear.map((ele,i) => {
+            return(
+              <li>{ele.gear}</li>
+            )
+          })
+        }
         </div>
       </React.Fragment>
     )
