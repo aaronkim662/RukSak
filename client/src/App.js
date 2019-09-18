@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, Switch, withRouter } from 'react-router-dom'
 import Header from './Component/Header/Header';
 import Login from './Component/Login/Login';
-import Main from './Component/Main/Main.js';
+import Main from './Component/Main/main.js';
 import Planning from './Component/Planning/Planning.js';
 import Profile from './Component/Profile/Profile';
 import Register from './Component/Form/Register';
@@ -39,7 +39,6 @@ handleChange = async (e) => {
 
 handleLogin = async (e) => {
   // e.preventDefault();
-
   const userData = await loginUser(this.state.authFormData);
   this.setState({
     currentUser: userData.user
