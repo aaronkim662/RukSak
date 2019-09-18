@@ -99,15 +99,14 @@ handleAuthLogin = async (e) => {
   }))
 };
 
-<<<<<<< HEAD
-=======
+
 handleRegisterClick = async (e) => {
   this.setState({
     isShowing: true
   })
 };
 
->>>>>>> 5ad822f5532713d330dcd667c3c020f177845f8d
+
   render(){
     return (
       <>
