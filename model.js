@@ -32,6 +32,11 @@ Trip.init({
   modelName: 'trip',
 });
 
+class TripType extends Sequelize.Model{}
+TripType.init({
+  
+})
+
 class User extends Sequelize.Model {}
 User.init({
   username: Sequelize.STRING,
@@ -40,6 +45,7 @@ User.init({
   sequelize: db,
   modelName: 'user',
 });
+
 
 Trip.belongsToMany(User, { through: 'user_trips' });
 User.belongsToMany(Trip, { through: 'user_trips' });
