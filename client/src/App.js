@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, Switch, withRouter } from 'react-router-dom'
 import Header from './Component/Header/Header';
 import Login from './Component/Login/Login';
-import Main from './Component/Main/main.js';
+import Main from './Component/Main/Main.js';
 import Planning from './Component/Planning/Planning.js';
 import Profile from './Component/Profile/Profile';
 import Register from './Component/Form/Register';
@@ -26,6 +26,7 @@ class App extends React.Component {
       password: "",
     },
     isShowing: false,
+    gear:[],
   }
 
 handleChange = async (e) => {
@@ -44,7 +45,7 @@ handleLogin = async (e) => {
     currentUser: userData.user
   })
   localStorage.setItem("jwt", userData.token)
-    this.props.history.push('/planning')
+    this.props.history.push('/home')
 };
 
 handleLog = async (e) => {
@@ -57,7 +58,7 @@ handleLog = async (e) => {
     currentUser: userData.user
   })
   localStorage.setItem("jwt", userData.token)
-  this.props.history.push('/planning')
+  this.props.history.push('/home')
   }
 };
 
@@ -98,7 +99,17 @@ handleAuthLogin = async (e) => {
   }))
 };
 
+getGear = async (e) => {
+  const gear = await allGear();
+  this.setState({gear});
+};
+
+componentDidMount() {
+  this.getGear();
+}
+
   render(){
+console.log(this.state.gear)
     return (
       <>
       <div className="App">
@@ -125,10 +136,14 @@ handleAuthLogin = async (e) => {
               <Main />
             </>
           )}/>
-          <Route path='/planning' render={() => (
+        <Route path='/planning' render={(props) => (
             <>
               <Header />
-              <Planning />
+              <Planning {...props}
+                    getGear={this.getGear}
+                    gear={this.state.gear}
+
+                />
             </>
             )}/>
           <Route path='/profile' render={() => (
