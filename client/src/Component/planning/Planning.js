@@ -1,5 +1,6 @@
 import React from 'react'
 import RadioForm from '../RadioForm/RadioForm';
+import './planning.css'
 
 class Planning extends React.Component {
   state = {
@@ -23,6 +24,7 @@ class Planning extends React.Component {
     console.log('plan', this.props.gear)
     return (
       <React.Fragment>
+      <div className="planning-container">
         <div className="planning">
           <div className="camping">
             <h2>Camping</h2>
@@ -57,6 +59,15 @@ class Planning extends React.Component {
             <div className="location"></div>
         </div>
         <div className="gearList">
+
+          <h3 className="gearListHeader">Itinerary</h3>
+          {this.props.gear.map((ele,i) => {
+            return(
+              <li>{ele.gear}</li>
+            )
+          })
+        }
+        </div>
         </div>
       </React.Fragment>
     )
