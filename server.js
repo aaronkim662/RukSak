@@ -21,6 +21,6 @@ app.get('/', (req, res) => {
 });
 app.use('/location', locationController);
 app.use('/gear', gearController);
-app.use('/user', userController);
+app.use('/auth', userController);
 // eslint-disable-next-line
 app.listen(PORT, () => console.log('up and running'));

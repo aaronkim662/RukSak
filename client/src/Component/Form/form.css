@@ -1,0 +1,170 @@
+body {
+  background-image: url('https://res.cloudinary.com/darrin-im/image/upload/v1568667109/project3-background_fafbvd.jpg');
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+}
+
+.formHeading {
+  color: white;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+}
+
+input {
+  margin-bottom: 10px;
+  border: none;
+  padding: 10px;
+}
+
+.submit {
+  border-radius: 50px;
+}
+
+.signIn {
+  margin-top: 43px;
+}
+
+/* BELOW IS STYLE FOR FORM CONTAINER */
+
+.formContainer {
+  /* border: 1px solid white; */
+  display: flex;
+  justify-content: center;
+  width: 60%;
+  height: 45vh;
+  margin: auto;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  max-width:100%;
+  max-height:100%;
+  overflow:auto;
+}
+
+/* BELOW IS STYLE FOR RETURNING USERS */
+
+.returnUsers {
+  /* border: 1px solid red; */
+  background-color: rgba(0,0,0,0.6);
+  margin-right: 2em;
+  width: 40%;
+  border-radius: 10px;
+}
+
+/* BELOW IS STYLE FOR NEW USERS */
+
+.newUsers {
+  background-color: rgba(0,0,0,0.6);
+  width: 40%;
+  border-radius: 10px;
+}
+
+/* BELOW IS STYLING FOR BUTTON */
+
+button {
+  background: #1AAB8A;
+  color: #fff;
+  border: none;
+  position: relative;
+  height: 40px;
+  padding: 0 2em;
+  font-size: 20px;
+  cursor: pointer;
+  transition: 800ms ease all;
+  outline: none;
+  margin: 5px;
+  /* overflow-wrap: break-word; */
+  /* text-wrap: wrap; */
+}
+button:hover{
+  /* background:#fff; */
+  color:#1AAB8A;
+  background-color: white;
+  border-radius: 0;
+}
+button:before,button:after{
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 2px;
+  width: 0;
+  background: #1AAB8A;
+  transition: 400ms ease all;
+}
+button:after{
+  right:inherit;
+  top:inherit;
+  left:0;
+  bottom:0;
+}
+button:hover:before,button:hover:after{
+  width:100%;
+  transition:800ms ease all;
+}
+
+.newUserButton {
+  display: none;
+}
+
+
+/* BELOW IS MEDIA QUERIES FOR MOBILE */
+
+@media(max-width: 768px) {
+  /* .formContainer {
+    display: block;
+    width: 80%;
+    height: 100%;
+    padding-top: 50%;
+  }
+  .newUsers {
+    width: 100%;
+    padding-bottom: 15px;
+  }
+  .returnUsers {
+    width: 100%;
+    padding-bottom: 15px;
+  }
+  .signIn {
+    margin-top: 0;
+  }
+  input {
+    margin-bottom: 1px;
+  } */
+
+/* ATTEMPTING TO STACK THE TWO */
+  .formContainer {
+    position: absolute;
+    display: block;
+    width: 80%;
+  }
+  .newUsers {
+    position: absolute;
+    width: 100%;
+    z-index: -1;
+    opacity: 0;
+  }
+  .returnUsers {
+    width: 100%;
+    position: absolute;
+    z-index: 1;
+    height: 40vh;
+  }
+  .signIn {
+    margin-top: 0;
+  }
+  .newUserButton {
+    display: block;
+    margin-top: 10px;
+    border-radius: 50px;
+  }
+}

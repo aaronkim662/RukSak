@@ -1,7 +1,6 @@
 import React from 'react';
-import './Login.css'
-
-
+import Form from '../Form/Form';
+import './login.css'
 
 class Login extends React.Component {
   constructor(props) {
@@ -28,11 +27,16 @@ class Login extends React.Component {
       password: e.target.value,
     });
   };
-
-
+  
   render() {
     return (
-      <div className="loginStyles">hello</div>
+      <Form handleAuthChange={(e) => this.props.handleAuthChange(e)}
+            handleLogin={(e) => this.props.handleLogin(e)}
+            authFormData={this.props.authFormData}
+            authLoginData={this.props.authLoginData}
+            handleRegister={this.props.handleRegister}
+            handleChange={this.props.handleChange}
+            handleLog={this.props.handleLog}/>
     )
   };
 };

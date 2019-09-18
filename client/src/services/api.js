@@ -2,7 +2,7 @@ const axios = require('axios');
 
 const BASE_URL = 'http://localhost:3001/';
 
-const api = axios.create({ baseUrl: BASE_URL });
+const api = axios.create({ baseURL: BASE_URL });
 
 export const oneLocation = async (location) => {
   const loc = await api.get(`/location/${location}`);
@@ -15,7 +15,7 @@ export const allGear = async () => {
 }
 
 export const oneGear = async (gearId) => {
-  const gear = await axios.get(`/gear/${gearId}`);
+  const gear = await api.get(`/gear/${gearId}`);
   return gear.data;
 }
 
@@ -39,6 +39,7 @@ export const deleteGear = async (gearId) => {
 };
 
 export const loginUser = async (loginData) => {
+  console.log(api);
   const resp = await api.post(`/auth/login`, loginData);
   return resp.data
 }
