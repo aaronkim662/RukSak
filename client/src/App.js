@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, Switch, withRouter } from 'react-router-dom'
 import Header from './Component/Header/Header';
 import Login from './Component/Login/Login';
-import Main from './Component/Main/Main';
+import Main from './Component/Main/Main.js';
 import Planning from './Component/Planning/Planning.js';
 import Profile from './Component/Profile/Profile';
 import Register from './Component/Form/Register';
@@ -98,18 +98,17 @@ handleRegisterClick = async (e) => {
   })
 };
 
-
-
   render(){
 
     return (
       <>
       <div className="App">
-        <Header />
       </div>
       <div>
         <Switch>
           <Route exact path='/'render={(props) => (
+            <>
+            <h1>RukSak</h1>
               <Login  {...props}
                       handleLogin={(e) => this.handleLogin(e)}
                       handleRegister={(e) => this.handleRegister(e)}
@@ -119,13 +118,26 @@ handleRegisterClick = async (e) => {
                       handleAuthChange={this.handleAuth}
                       handleLog={(e) => this.handleLog(e)}
                       />
+            </>
             )}/>
-          <Route path='/home' component={Main} />
-          <Route path='/planning' render={(props) => (
+          <Route path='/home' render={() => (
+            <>
+              <Header />
+              <Main />
+            </>
+          )}/>
+          <Route path='/planning' render={() => (
+            <>
+              <Header />
               <Planning />
-
-            )} />
-          <Route path='/profile' component={Profile} />
+            </>
+            )}/>
+          <Route path='/profile' render={() => (
+            <>
+              <Header />
+              <Profile />
+            </>
+          )}/>
           />
         </Switch>
       </div>
