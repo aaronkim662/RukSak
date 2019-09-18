@@ -35,6 +35,12 @@ class Planning extends React.Component {
 
             <div className="recommended"></div>
           </div>
+          {this.props.gear.map((ele,i) => {
+            return(
+              <li>{ele.gear}</li>
+            )
+          })
+        }
           <div className="itinerary"></div>
             <div className="days">
             Days {this.state.days}</div>
@@ -43,12 +49,6 @@ class Planning extends React.Component {
             <div className="location"></div>
         </div>
         <div className="gearList">
-          {this.props.gear.map((ele,i) => {
-            return(
-              <li>{ele.gear}</li>
-            )
-          })
-        }
         </div>
       </React.Fragment>
     )
