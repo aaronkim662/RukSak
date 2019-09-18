@@ -4,7 +4,7 @@ import './profile.css';
 function Profile() {
   return(
     <div className="profileContainer">
-      <div className="profileImage"><i className="far fa-user-circle fa-10x"></i></div>
+      <div className="profileImage"><i className="far fa-user-circle fa-6x"></i></div>
       <div className="profileInfo">
         <h2 className="profileHeader">Profile Info</h2>
         <ul className="unorderedList">

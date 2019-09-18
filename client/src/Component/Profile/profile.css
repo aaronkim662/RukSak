@@ -8,18 +8,34 @@
   background-color: rgba(0,0,0,0.4);
 }
 .profileImage {
-  border: 1px solid white;
-  height: 100%;
+  /* border: 1px solid white; */
+  height: 60%;
   width: 100%;
   text-align: center;
 }
+.profileImage:after {
+  content: "";
+  display: block;
+  margin: 0 auto;
+  width: 60%;
+  padding-top: 20px;
+  border-bottom: 1px solid gray;
+}
 .profileInfo {
-  border: 1px solid green;
-  height: 100%;
+  /* border: 1px solid green; */
+  height: 60%;
   text-align: left;
 }
+.profileInfo:after {
+  content: "";
+  display: block;
+  margin: 0 auto;
+  width: 60%;
+  padding-top: 20px;
+  border-bottom: 1px solid gray;
+}
 .profileTrips {
-  border: 1px solid red;
+  /* border: 1px solid red; */
   height: 100%;
   text-align: left;
 }
@@ -36,7 +52,7 @@
 }
 
 .editButton {
-  border: 1px solid red;
+  /* border: 1px solid red; */
   height: 20px;
   margin-left: 10px;
 }
