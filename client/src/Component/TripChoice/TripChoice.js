@@ -1,8 +1,6 @@
 import React from 'react';
 import './TripChoice.css'
 
-// Give the props to the image and the h2
-
 function TripChoice() {
 
   return(
