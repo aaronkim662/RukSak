@@ -118,7 +118,7 @@ console.log(this.state.gear)
         <Switch>
           <Route exact path='/'render={(props) => (
             <>
-            <h1>RukSak</h1>
+            <div className="ruksak-landing">RukSak</div>
               <Login  {...props}
                       handleLogin={(e) => this.handleLogin(e)}
                       handleRegister={(e) => this.handleRegister(e)}
