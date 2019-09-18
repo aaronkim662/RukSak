@@ -1,14 +1,12 @@
 .profileContainer {
-  border: 1px solid black;
+  border-right: 1px solid black;
   color: white;
   display: flex;
   flex-direction: column;
   width: 25%;
-  height: 100vh;
-  background-color: rgba(0,0,0,0.4);
+  background-color: rgba(0,0,0,0.3);
 }
 .profileImage {
-  /* border: 1px solid white; */
   height: 60%;
   width: 100%;
   text-align: center;
@@ -22,8 +20,7 @@
   border-bottom: 1px solid gray;
 }
 .profileInfo {
-  /* border: 1px solid green; */
-  height: 60%;
+  height: 30%;
   text-align: left;
 }
 .profileInfo:after {
@@ -35,7 +32,6 @@
   border-bottom: 1px solid gray;
 }
 .profileTrips {
-  /* border: 1px solid red; */
   height: 100%;
   text-align: left;
 }
@@ -46,13 +42,11 @@
 
 .profileList {
   list-style-type: none;
-  /* border: 1px solid white; */
   margin-bottom: 10px;
   font-size: 1.3em;
 }
 
 .editButton {
-  /* border: 1px solid red; */
   height: 20px;
   margin-left: 10px;
 }

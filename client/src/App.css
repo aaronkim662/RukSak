@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Teko:300,400,500,600,700&display=swap');
 
+.App {
+  background-color: #e9ebee;
+}
 
 .ruksak-landing {
   background-color: lightgrey;

@@ -4,14 +4,15 @@
 }
 
 .trip-choice {
-  background-color: orange;
+  background-color: #e9ebee;
+  border: 1px solid #dddfe2;
   display: flex;
   flex-direction: column;
-  margin: 10px;
+  margin: 20px;
   width: 900px;
 }
 
 .trip-name {
   padding-left: 15px;
-  margin: 5px;
+  margin: 7px;
 }
