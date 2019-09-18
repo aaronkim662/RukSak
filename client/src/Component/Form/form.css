@@ -28,7 +28,7 @@ input {
 }
 
 .signIn {
-  margin-top: 47px;
+  margin-top: 43px;
 }
 
 /* BELOW IS STYLE FOR FORM CONTAINER */
@@ -112,6 +112,10 @@ button:hover:before,button:hover:after{
   transition:800ms ease all;
 }
 
+.newUserButton {
+  display: none;
+}
+
 
 /* BELOW IS MEDIA QUERIES FOR MOBILE */
 
@@ -153,8 +157,14 @@ button:hover:before,button:hover:after{
     width: 100%;
     position: absolute;
     z-index: 1;
+    height: 40vh;
   }
   .signIn {
     margin-top: 0;
+  }
+  .newUserButton {
+    display: block;
+    margin-top: 10px;
+    border-radius: 50px;
   }
 }
