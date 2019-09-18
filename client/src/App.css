@@ -1,8 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Teko:300,400,500,600,700&display=swap');
 
-body {
-  background-color: papayawhip;
-}
 
 .ruksak-landing {
   background-color: lightgrey;
@@ -11,4 +8,5 @@ body {
   font-family: 'Teko', sans-serif;
   font-size: 55px;
   letter-spacing: 2px;
+  text-align: center;
 }
