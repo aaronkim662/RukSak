@@ -1,4 +1,11 @@
-.radioForm {
+
+
+.radioDays {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+}
+
+.radioPeople {
+  display: flex;
+  flex-direction: row;
 }

@@ -39,7 +39,6 @@ handleChange = async (e) => {
 
 handleLogin = async (e) => {
   // e.preventDefault();
-
   const userData = await loginUser(this.state.authFormData);
   this.setState({
     currentUser: userData.user
