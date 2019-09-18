@@ -13,7 +13,9 @@ handleClick = (e) => {
 }
 
 render(){
-  console.log('props', this.props.days === '1-2')
+  console.log('props', this.props.days)
+  console.log('people', this.props.people)
+
     return(
       <>
       <form className="radioDays"

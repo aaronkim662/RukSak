@@ -30,7 +30,8 @@ class Planning extends React.Component {
               <RadioForm
                 days={this.state.days}
                 people={this.state.people}
-              handleClickPeople={this.handleClickPeople}
+                handleClickPeople={this.handleClickPeople}
+                handleClick={this.handleClick}
               />
             </div>
             <div className="peopleSelection"></div>
