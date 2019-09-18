@@ -6,14 +6,17 @@ function Profile() {
     <div className="profileContainer">
       <div className="profileImage"><i className="far fa-user-circle fa-10x"></i></div>
       <div className="profileInfo">
-        <ul>
+        <h2 className="profileHeader">Profile Info</h2>
+        <ul className="unorderedList">
           <li className="profileList">Name: </li>
           <li className="profileList">Username: </li>
           <li className="profileList">Email: </li>
         </ul>
-        <button className="editButton">Edit Info <i class="far fa-edit"></i></button>
+        <button className="editButton">Edit Info</button>
       </div>
-      <div className="profileEdit">yoooo</div>
+      <div className="profileTrips">
+        <h2 className="profileHeader">Current Trips</h2>
+      </div>
     </div>
   )
 }

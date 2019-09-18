@@ -5,6 +5,7 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   height: 100%;
+  text-align: center;
 }
 
 .formHeading {
@@ -31,7 +32,7 @@ input {
   margin-top: 43px;
 }
 
-.submitSignIn {
+#buttonSignIn {
   margin-top: 46px;
   border-radius: 50px;
 }
