@@ -29,6 +29,7 @@ class Login extends React.Component {
 
   render() {
     return (
+      <div className="landingBackground">
       <Form handleAuthChange={(e) => this.props.handleAuthChange(e)}
             handleLogin={(e) => this.props.handleLogin(e)}
             authFormData={this.props.authFormData}
@@ -37,6 +38,7 @@ class Login extends React.Component {
             handleChange={this.props.handleChange}
             handleLog={this.props.handleLog}
             handleRegisterClick={(e) => this.props.handleRegisterClick(e)}/>
+      </div>
     )
   };
 };

@@ -18,13 +18,13 @@ input {
   border-radius: 50px;
 }
 
-.signIn {
-  margin-top: 43px;
-}
-
 #buttonSignIn {
   margin-top: 46px;
   border-radius: 50px;
+}
+#buttonSignIn:hover {
+  margin-top: 46px;
+  border-radius: 0;
 }
 
 /* BELOW IS STYLE FOR FORM CONTAINER */
@@ -44,6 +44,7 @@ input {
   max-width:100%;
   max-height:100%;
   overflow:auto;
+  text-align: center;
 }
 
 /* BELOW IS STYLE FOR RETURNING USERS */
@@ -191,5 +192,49 @@ input {
   }
   .submitSignIn {
     margin-top: 0;
+  }
+  .newUserButton {
+    background: #1AAB8A;
+    color: #fff;
+    border: none;
+    position: relative;
+    height: 40px;
+    padding: 0 2em;
+    font-size: 20px;
+    cursor: pointer;
+    transition: 800ms ease all;
+    outline: none;
+    margin: 5px;
+  }
+  .newUserButton:hover{
+    color:#1AAB8A;
+    background-color: white;
+    border-radius: 0;
+  }
+  .newUserButton:before,.newUserButton:after{
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 2px;
+    width: 0;
+    background: #1AAB8A;
+    transition: 400ms ease all;
+  }
+  .newUserButton:after{
+    right:inherit;
+    top:inherit;
+    left:0;
+    bottom:0;
+  }
+  .newUserButton:hover:before,.newUserButton:hover:after{
+    width:100%;
+    transition:800ms ease all;
+  }
+  #buttonSignIn {
+    margin-top: 10px;
+  }
+  .formContainer {
+    max-width: 60%;
   }
 }
