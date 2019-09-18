@@ -12,7 +12,7 @@ class Main extends React.Component {
 
   getActivities = async () => {
 
-  const response = await axios.get('https://docs.google.com/spreadsheets/d/1Xsouj8zOSQHX0Y-iL3IvBJVg55WxV0FOzMDVx-8sdtg/edit#gid=0')
+  const response = await axios.get('')
   console.log(response)
   const activity = response.data.feed.entry.map( (d,i) => {
     return {
@@ -33,7 +33,7 @@ componentDidMount() {
     return (
       <div>
         <TripChoice
-          
+
         />
       </div>
     )
