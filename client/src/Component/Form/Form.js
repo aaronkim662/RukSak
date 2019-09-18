@@ -48,7 +48,8 @@ class Form extends React.Component {
               value={this.state.form.username}
               onChange={(e) => this.props.handleChange(e)}
             />
-            <button className="submit signIn">Sign In</button>
+
+            <button className="submitSignIn">Sign In</button>
             <button
               className="newUserButton">New Users</button>
           </form>

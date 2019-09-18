@@ -1,6 +1,10 @@
 import React from 'react';
+import { Route, Switch } from 'react-router-dom'
 import Header from './Component/Header/Header';
 import Login from './Component/Login/Login';
+import Main from './Component/Main/main.js';
+import Planning from './Component/Planning/Planning';
+import Profile from './Component/Profile/Profile';
 import { allGear, oneGear, deleteGear, loginUser, registerUser} from './services/api';
 
 import './App.css';
@@ -32,7 +36,7 @@ handleChange = async (e) => {
 };
 
 handleLogin = async (e) => {
-  e.preventDefault();
+  // e.preventDefault();
   const userData = await loginUser(this.state.authFormData);
   this.setState({
     currentUser: userData.user
@@ -84,6 +88,7 @@ handleAuthLogin = async (e) => {
 
   render(){
     return (
+      <>
       <div className="App">
         <Header />
         <Login  handleLogin={(e) => this.handleLogin(e)}
@@ -95,6 +100,14 @@ handleAuthLogin = async (e) => {
                 handleLog={(e) => this.handleLog(e)}
                 />
       </div>
+      <div>
+        <Switch>
+          <Route path='/home' component={Main} />
+          <Route path='/planning' component={Planning} />
+          <Route path='/profile' component={Profile} />
+        </Switch>
+      </div>
+      </>
     );
   }
 }
