@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, Switch, withRouter } from 'react-router-dom'
 import Header from './Component/Header/Header';
 import Login from './Component/Login/Login';
-import Main from './Component/Main/Main.js';
+import Main from './Component/Main/main.js';
 import Planning from './Component/Planning/Planning.js';
 import Profile from './Component/Profile/Profile';
 import Register from './Component/Form/Register';
@@ -105,19 +105,24 @@ getGear = async (e) => {
   this.setState({gear});
 };
 
-// handleGearClick = async (e) => {
-//   const gear = e.target
-//   this.setState(prevState => {
-//     [...prevState, gear.value]
-//   })
-// };
+handleGearClick = (e) => {
+
+  this.setState(prevState => ({
+    selectedGear: [...prevState.selectedGear, e.gear]
+  }))
+};
+removeGearClick = (e) => {
+  this.setState(prevState => ({
+  selectedGear: prevState.selectedGear.filter((ele,i) => i !== e)
+  })
+)}
 
 componentDidMount() {
   this.getGear();
 }
 
   render(){
-console.log(this.state.gear)
+console.log(this.state.selectedGear)
     return (
       <>
       <div className="App">
@@ -148,9 +153,11 @@ console.log(this.state.gear)
             <>
               <Header />
               <Planning {...props}
+                    selectedGear={this.state.selectedGear}
                     getGear={this.getGear}
                     gear={this.state.gear}
-
+                    handleGearClick={(e) => this.handleGearClick(e)}
+                    handleRemoveClick={(e)=>this.removeGearClick(e)}
                 />
             </>
             )}/>
