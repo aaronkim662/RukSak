@@ -5,6 +5,7 @@
   flex-direction: column;
   width: 25%;
   height: 100vh;
+  background-color: rgba(0,0,0,0.4);
 }
 .profileImage {
   border: 1px solid white;
@@ -15,15 +16,16 @@
 .profileInfo {
   border: 1px solid green;
   height: 100%;
+  text-align: left;
 }
-.profileEdit {
+.profileTrips {
   border: 1px solid red;
   height: 100%;
+  text-align: left;
 }
 
 .far {
-  height: 100px;
-  color: white;
+  margin-top: 20%;
 }
 
 .profileList {
@@ -31,4 +33,18 @@
   /* border: 1px solid white; */
   margin-bottom: 10px;
   font-size: 1.3em;
+}
+
+.editButton {
+  border: 1px solid red;
+  height: 20px;
+  margin-left: 10px;
+}
+
+.unorderedList {
+  padding-left: 10px;
+}
+
+.profileHeader {
+  margin-left: 10px;
 }
