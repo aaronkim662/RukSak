@@ -111,6 +111,7 @@ handleGearClick = (e) => {
     selectedGear: [...prevState.selectedGear, e.gear]
   }))
 };
+
 removeGearClick = (e) => {
   this.setState(prevState => ({
   selectedGear: prevState.selectedGear.filter((ele,i) => i !== e)

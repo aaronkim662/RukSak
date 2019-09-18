@@ -40,7 +40,20 @@ User.init({
   sequelize: db,
   modelName: 'user',
 });
-
+// email: {
+//   type: Sequelize.STRING,
+//   unique: true,
+//   allowNull: false,
+//   validate: {
+//     isEmail: true,
+//   },
+// },
+// username: {
+//   type: Sequelize.STRING,
+//   allowNull: false,
+// },
+// password_digest: Sequelize.STRING,
+// }, {
 
 Trip.belongsToMany(User, { through: 'user_trips' });
 User.belongsToMany(Trip, { through: 'user_trips' });
