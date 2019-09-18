@@ -41,6 +41,7 @@ User.init({
   modelName: 'user',
 });
 
+
 Trip.belongsToMany(User, { through: 'user_trips' });
 User.belongsToMany(Trip, { through: 'user_trips' });
 

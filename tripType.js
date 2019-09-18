@@ -1,14 +1,14 @@
-let data =  [
+const tripType =  [
   {
     name: 'Camping',
-    image: 'client/src/images/Camping-banner.jpg'
+    image: 'https://imgur.com/vVIAXS0'
   }, {
     name: 'Hiking',
-    image: 'client/src/images/Hiking-banner.jpg'
+    image: 'https://imgur.com/GFZQ8B4'
   }, {
     name: 'Biking',
-    image: 'client/src/images/Biking-banner.jpg'
+    image: 'https://imgur.com/qVvoGj4'
   }
 ];
 
-export default data
+module.exports = tripType;

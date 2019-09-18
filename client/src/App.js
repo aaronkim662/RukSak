@@ -1,11 +1,11 @@
 import React from 'react';
-import { Redirect, Route, Switch } from 'react-router-dom'
+import { Redirect, Route, Switch } from 'react-router-dom';
 
 import Form from './Component/Form/Form';
 import Header from './Component/Header/Header';
-import Main from './Component/main/main'
-import Planning from './Component/planning/Planning'
-import Profile from './Component/Profile/Profile'
+import Main from './Component/main/main';
+import Planning from './Component/planning/Planning';
+import Profile from './Component/Profile/Profile';
 // import { allGear, oneGear, deleteGear,}
 
 import './App.css';
