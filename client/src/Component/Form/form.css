@@ -31,6 +31,11 @@ input {
   margin-top: 43px;
 }
 
+.submitSignIn {
+  margin-top: 46px;
+  border-radius: 50px;
+}
+
 /* BELOW IS STYLE FOR FORM CONTAINER */
 
 .formContainer {
@@ -70,7 +75,7 @@ input {
 
 /* BELOW IS STYLING FOR BUTTON */
 
-button {
+.submitSignIn, .submit {
   background: #1AAB8A;
   color: #fff;
   border: none;
@@ -85,13 +90,19 @@ button {
   /* overflow-wrap: break-word; */
   /* text-wrap: wrap; */
 }
-button:hover{
+.submitSignIn:hover{
   /* background:#fff; */
   color:#1AAB8A;
   background-color: white;
   border-radius: 0;
 }
-button:before,button:after{
+.submit:hover{
+  /* background:#fff; */
+  color:#1AAB8A;
+  background-color: white;
+  border-radius: 0;
+}
+.submitSignIn:before,.submitSignIn:after{
   content: '';
   position: absolute;
   top: 0;
@@ -101,13 +112,33 @@ button:before,button:after{
   background: #1AAB8A;
   transition: 400ms ease all;
 }
-button:after{
+.submit:before,.submit:after{
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 2px;
+  width: 0;
+  background: #1AAB8A;
+  transition: 400ms ease all;
+}
+.submitSignIn:after{
   right:inherit;
   top:inherit;
   left:0;
   bottom:0;
 }
-button:hover:before,button:hover:after{
+.submit:after{
+  right:inherit;
+  top:inherit;
+  left:0;
+  bottom:0;
+}
+.submitSignIn:hover:before,.submitSignIn:hover:after{
+  width:100%;
+  transition:800ms ease all;
+}
+.submit:hover:before,.submit:hover:after{
   width:100%;
   transition:800ms ease all;
 }
@@ -166,5 +197,8 @@ button:hover:before,button:hover:after{
     display: block;
     margin-top: 10px;
     border-radius: 50px;
+  }
+  .submitSignIn {
+    margin-top: 0;
   }
 }

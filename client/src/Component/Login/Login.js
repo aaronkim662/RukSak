@@ -27,7 +27,7 @@ class Login extends React.Component {
       password: e.target.value,
     });
   };
-  
+
   render() {
     return (
       <Form handleAuthChange={(e) => this.props.handleAuthChange(e)}
@@ -36,7 +36,8 @@ class Login extends React.Component {
             authLoginData={this.props.authLoginData}
             handleRegister={this.props.handleRegister}
             handleChange={this.props.handleChange}
-            handleLog={this.props.handleLog}/>
+            handleLog={this.props.handleLog}
+            handleRegisterClick={(e) => this.props.handleRegisterClick(e)}/>
     )
   };
 };

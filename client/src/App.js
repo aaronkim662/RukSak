@@ -2,9 +2,10 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom'
 import Header from './Component/Header/Header';
 import Login from './Component/Login/Login';
-import Main from './Component/Main/main.js';
-import Planning from './Component/Planning/Planning';
+import Main from './Component/main/main.js';
+import Planning from './Component/planning/Planning';
 import Profile from './Component/Profile/Profile';
+import Register from './Component/Form/Register';
 import { allGear, oneGear, deleteGear, loginUser, registerUser} from './services/api';
 
 import './App.css';
@@ -24,6 +25,7 @@ class App extends React.Component {
       username: "",
       password: "",
     },
+    isShowing: false,
   }
 
 handleChange = async (e) => {
@@ -86,6 +88,14 @@ handleAuthLogin = async (e) => {
   }))
 };
 
+handleRegisterClick = async (e) => {
+  this.setState({
+    isShowing: true
+  })
+};
+
+
+
   render(){
     return (
       <>
@@ -98,6 +108,7 @@ handleAuthLogin = async (e) => {
                 handleChange={this.handleAuthLogin}
                 handleAuthChange={this.handleAuth}
                 handleLog={(e) => this.handleLog(e)}
+                handleRegisterClick={(e) => this.handleRegisterClick(e)}
                 />
       </div>
       <div>
@@ -105,6 +116,7 @@ handleAuthLogin = async (e) => {
           <Route path='/home' component={Main} />
           <Route path='/planning' component={Planning} />
           <Route path='/profile' component={Profile} />
+          />
         </Switch>
       </div>
       </>
