@@ -136,7 +136,7 @@ removeGearClick = (e) => {
 makeATrip = async (tripType) => {
   const tripName = await getTripName(tripType);
   console.log('name',tripName)
-  const current = await makeTrip({trip:tripName.trip});
+  const current = await makeTrip({ trip:tripName.trip });
   this.setState({
     tripSelected: current
   })
@@ -225,9 +225,10 @@ render(){
               />
               <Main
                 selectTrip={(e) => this.selectTrip(e)}
-                removeTrip={this.removeTrip}
+                removeTrip={(e)=>this.removeTrip(e)}
                 selectedTrip={this.state.selectedTrip}
-                tripId={this.tripSelected}
+                tripId={this.state.tripSelected}
+                currentUser={this.state.currentUser}
               />
             </>
           )}/>
