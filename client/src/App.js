@@ -125,7 +125,7 @@ makeATrip = async (tripType) => {
   console.log('name',tripName)
   const current = await makeTrip({trip:tripName.trip});
   this.setState({
-    tripSelected: current.id
+    tripSelected: current
   })
 }
 
@@ -173,6 +173,7 @@ componentDidMount() {
 render(){
 console.log('act', this.state.selectedTrip)
 console.log('current', this.state.currentUser)
+console.log('selected trip', this.state.tripSelected)
 
     return (
       <div className="App">

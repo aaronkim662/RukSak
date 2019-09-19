@@ -13,7 +13,7 @@ function Profile(props) {
       </div>
       <div className="profileTrips">
         <h2 className="profileHeader">Current Trips</h2>
-        <button onClick={() => props.removeTrip(props.selectedTrip)}>Delete</button>
+        <button onClick={() => props.removeTrip(props.tripId.id)}>Delete</button>
       </div>
     </div>
   )

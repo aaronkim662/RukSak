@@ -34,13 +34,13 @@ componentDidMount() {
 }
 
   render() {
-    console.log('main', this.props.selectTrip)
+    console.log('main', this.props.tripId)
     return (
       <div className="main-background">
         <div className="main">
           <Profile removeTrip={this.props.removeTrip}
             selectedTrip={this.props.selectedTrip}
-            getTripName={this.props.getTripName}/>
+            tripId={this.props.tripId}/>
           <TripChoice
             selectTrip={(e) => this.props.selectTrip(e)}
             />
