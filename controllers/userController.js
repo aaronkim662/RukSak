@@ -1,6 +1,6 @@
 const express = require('express');
 
-const { User } = require('../model');
+const { User, Trip } = require('../model');
 const { hashPassword, genToken, checkPassword } = require('../services/auth');
 const { restrict } = require('../services/auth');
 
@@ -56,5 +56,22 @@ userController.delete('/login/:id', restrict, async (req, res) => {
   const user = await User.findByPk(req.params.id);
   await user.destroy();
 });
+
+userController.put('/:userid/trip/:tripid/', async (req, res) => {
+  try {
+    const user = await User.findOne({
+      where: { id: req.params.userid },
+      include: [
+        Trip,
+      ],
+    });
+    // update here
+    res.json(user);
+  } catch (e) {
+    res.status(500).send(e);
+  }
+});
+
+
 
 module.exports = userController;

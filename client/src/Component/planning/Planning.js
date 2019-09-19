@@ -51,7 +51,7 @@ class Planning extends React.Component {
               />
             </div>
             <button
-              onClick={(e) => this.props.handleTripClick(e)}
+          
               type="submit">Finalize</button>
           </div>
     {/* BELOW IS RECOMMENDED LIST CONTAINER */}
@@ -60,7 +60,7 @@ class Planning extends React.Component {
           <h4 className="recommended-list-header">(Select Items to Add to Gear)</h4>
           {this.props.gear.map((ele,i) => {
             return(
-              <ul className="recommended-list-ul">
+              <ul className="recommended-list-ul" key={i}>
                 <li
                 className="recommended-list-li"
                 onClick={()=>this.props.handleGearClick(ele)}>{ele.gear}</li>

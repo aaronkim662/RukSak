@@ -6,7 +6,7 @@ import Main from './Component/Main/main.js';
 import Planning from './Component/Planning/Planning.js';
 import Profile from './Component/Profile/Profile';
 import Register from './Component/Form/Register';
-import { allGear, oneGear, getGearName, deleteGear, loginUser, registerUser, tripGear, getTripName } from './services/api';
+import { allGear, oneGear, getGearName, deleteGear, loginUser, registerUser, tripGear, getTripName, userTrips, getUser } from './services/api';
 
 import './App.css';
 
@@ -119,16 +119,23 @@ removeGearClick = (e) => {
   })
 )}
 
-handleTripClick = async (e) => {
-  e.preventDefault();
-  const tripName = await getTripName(this.state.selectedTrip);
-  const hongodonog = await this.state.selectedGear.map(async (ele) => {
-    const gearName = await getGearName(ele);
-    await tripGear(tripName.id, gearName.id)
-  });
-  await Promise.all(hongodonog);
-
-}
+// handleTripClick = async (e) => {
+//   e.preventDefault();
+//   const tripName = await getTripName(this.state.selectedTrip);
+//   const toResolve = await this.state.selectedGear.map(async (ele) => {
+//     const gearName = await getGearName(ele);
+//     await tripGear(tripName.id, gearName.id)
+//   });
+//   await Promise.all(toResolve);
+// }
+//
+// handleUserClick = async (e) => {
+//   e.preventDefault();
+//   const userName = await getUser(this.state.currentUser);
+//   const tripName = await getTripName(this.state.selectedTrip);
+//   const toResolve = await userTrips(userName.id, tripName.id);
+//   await Promise.all(toResolve);
+// }
 
 selectTrip = (e) => {
   this.setState({ selectedTrip: e.target.name });
@@ -138,9 +145,10 @@ componentDidMount() {
   this.getGear();
 }
 
-  render(){
+render(){
 console.log('act', this.state.selectedTrip)
-console.log(this.selectTrip)
+console.log('current', this.state.currentUser)
+
     return (
       <div className="App">
         <Switch>
@@ -161,7 +169,6 @@ console.log(this.selectTrip)
           <Route path='/home' render={() => (
             <>
               <Header />
-             <Main />
               <Main
                 selectTrip={(e) => this.selectTrip(e)}/>
             </>
@@ -176,9 +183,7 @@ console.log(this.selectTrip)
                 handleGearClick={(e) => this.handleGearClick(e)}
                 handleRemoveClick={(e)=>this.removeGearClick(e)}
                 activity={this.state.selectTrip}
-                handleGearClick={(e) => this.handleGearClick(e)}
-                handleRemoveClick={(e)=>this.removeGearClick(e)}
-                handleTripClick={(e)=>this.handleTripClick(e)}
+        
               />
             </>
            )}/>
@@ -188,13 +193,6 @@ console.log(this.selectTrip)
                 <Profile />
               </>
             )}/>
-          <Route path='/profile' render={() => (
-            <>
-              <Header />
-              <Profile />
-            </>
-          )}/>
-          />
         </Switch>
       </div>
     );
