@@ -33,7 +33,7 @@ function TripChoice(props) {
         <Link className="trip-header" to="/planning">
           <img
           className='photo'
-          src="https://i.imgur.com/qVvoGj4.jpg" alt='Biking'
+          src="https://res.cloudinary.com/radiscipio/image/upload/c_crop,h_2700,w_8688,y_1300/v1568930994/e9mlg6xpghnpmvx99adk.jpg" alt='Biking'
           name="Biking"
           onClick = {(e) => props.selectTrip(e)}
                     />

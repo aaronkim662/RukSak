@@ -28,7 +28,6 @@ class Main extends React.Component {
               tripId={this.props.tripId}
             />
           )}
-
           <TripChoice
             selectTrip={(e) => this.props.selectTrip(e)}
             />

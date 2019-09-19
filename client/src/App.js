@@ -159,7 +159,9 @@ handleSubmit = (e) => {
   this.setState({
     location: e.target.value
   })
-  removeTrip = async (trip) => {
+}
+
+removeTrip = async (trip) => {
   await deleteTrip(trip.id);
   }
 
