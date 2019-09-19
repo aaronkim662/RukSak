@@ -6,7 +6,7 @@ import Main from './Component/Main/main.js';
 import Planning from './Component/Planning/Planning.js';
 import Profile from './Component/Profile/Profile';
 import Register from './Component/Form/Register';
-import { allGear, oneGear, getGearName, deleteGear, loginUser, registerUser, tripGear, getTripName, userTrips, getUser } from './services/api';
+import { allGear, oneGear, getGearName, deleteGear, loginUser, registerUser, tripGear, getTripName, userTrips, getUser, makeTrip, deleteTrip } from './services/api';
 
 import './App.css';
 
@@ -29,6 +29,7 @@ class App extends React.Component {
     gear:[],
     selectedGear: [],
     selectedTrip: "",
+    tripSelected: '',
   }
 
 handleChange = async (e) => {
@@ -117,7 +118,29 @@ removeGearClick = (e) => {
   this.setState(prevState => ({
   selectedGear: prevState.selectedGear.filter((ele,i) => i !== e)
   })
-)}
+)};
+
+makeATrip = async (tripType) => {
+  const tripName = await getTripName(tripType);
+  console.log('name',tripName)
+  const current = await makeTrip({trip:tripName.trip});
+  this.setState({
+    tripSelected: current.id
+  })
+}
+
+selectTrip = (e) => {
+  this.setState({ selectedTrip: e.target.name });
+  this.makeATrip(e.target.name)
+
+}
+
+removeTrip = async (trip) => {
+  await deleteTrip(trip.id);
+}
+
+
+
 
 // handleTripClick = async (e) => {
 //   e.preventDefault();
@@ -137,9 +160,11 @@ removeGearClick = (e) => {
 //   await Promise.all(toResolve);
 // }
 
-selectTrip = (e) => {
-  this.setState({ selectedTrip: e.target.name });
+destroyGear = async (gear) => {
+  const gears = await getGearName(gear);
+  await deleteGear(gears.id);
 }
+
 
 componentDidMount() {
   this.getGear();
@@ -170,7 +195,11 @@ console.log('current', this.state.currentUser)
             <>
               <Header />
               <Main
-                selectTrip={(e) => this.selectTrip(e)}/>
+                selectTrip={(e) => this.selectTrip(e)}
+                removeTrip={this.removeTrip}
+                selectedTrip={this.state.selectedTrip}
+                tripId={this.tripSelected}
+              />
             </>
           )}/>
         <Route path='/planning' render={(props) => (
@@ -183,7 +212,7 @@ console.log('current', this.state.currentUser)
                 handleGearClick={(e) => this.handleGearClick(e)}
                 handleRemoveClick={(e)=>this.removeGearClick(e)}
                 activity={this.state.selectTrip}
-        
+
               />
             </>
            )}/>

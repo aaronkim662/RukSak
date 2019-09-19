@@ -1,7 +1,7 @@
 import React from 'react';
 import './profile.css';
 
-function Profile() {
+function Profile(props) {
   return(
     <div className="profileContainer">
       <div className="profileImage"><i className="far fa-user-circle fa-6x"></i></div>
@@ -13,6 +13,7 @@ function Profile() {
       </div>
       <div className="profileTrips">
         <h2 className="profileHeader">Current Trips</h2>
+        <button onClick={() => props.removeTrip(props.selectedTrip)}>Delete</button>
       </div>
     </div>
   )

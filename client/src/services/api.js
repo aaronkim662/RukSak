@@ -73,3 +73,13 @@ export const userTrips = async (userid, tripid) => {
   const resp = await api.put(`/user/${userid}/trip/${tripid}`);
   return resp.data;
 };
+
+export const makeTrip = async (tripData) => {
+  const resp = await api.post('/trip', tripData);
+  return resp.data;
+}
+
+export const deleteTrip = async (tripid) => {
+  const resp = await api.delete(`/trip/${tripid}`);
+  return resp.data;
+}
