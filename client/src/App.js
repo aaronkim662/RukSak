@@ -131,53 +131,49 @@ componentDidMount() {
   render(){
 console.log(this.state.selectedGear)
     return (
-      <>
       <div className="App">
-      </div>
-      <div>
-        <Switch>
-          <Route exact path='/'render={(props) => (
-            <>
-            <div className="ruksak-landing">RukSak</div>
-              <Login  {...props}
-                      handleLogin={(e) => this.handleLogin(e)}
-                      handleRegister={(e) => this.handleRegister(e)}
-                      authFormData={this.state.authFormData}
-                      authLoginData={this.state.authLoginData}
-                      handleChange={this.handleAuthLogin}
-                      handleAuthChange={this.handleAuth}
-                      handleLog={(e) => this.handleLog(e)}
-                      />
-            </>
+          <Switch>
+            <Route exact path='/'render={(props) => (
+              <>
+              <div className="ruksak-landing">RukSak</div>
+                <Login  {...props}
+                        handleLogin={(e) => this.handleLogin(e)}
+                        handleRegister={(e) => this.handleRegister(e)}
+                        authFormData={this.state.authFormData}
+                        authLoginData={this.state.authLoginData}
+                        handleChange={this.handleAuthLogin}
+                        handleAuthChange={this.handleAuth}
+                        handleLog={(e) => this.handleLog(e)}
+                        />
+              </>
+              )}/>
+            <Route path='/home' render={() => (
+              <>
+                <Header />
+                <Main />
+              </>
             )}/>
-          <Route path='/home' render={() => (
-            <>
-              <Header />
-              <Main />
-            </>
-          )}/>
-        <Route path='/planning' render={(props) => (
-            <>
-              <Header />
-              <Planning {...props}
-                    selectedGear={this.state.selectedGear}
-                    getGear={this.getGear}
-                    gear={this.state.gear}
-                    handleGearClick={(e) => this.handleGearClick(e)}
-                    handleRemoveClick={(e)=>this.removeGearClick(e)}
-                />
-            </>
+          <Route path='/planning' render={(props) => (
+              <>
+                <Header />
+                <Planning {...props}
+                      selectedGear={this.state.selectedGear}
+                      getGear={this.getGear}
+                      gear={this.state.gear}
+                      handleGearClick={(e) => this.handleGearClick(e)}
+                      handleRemoveClick={(e)=>this.removeGearClick(e)}
+                  />
+              </>
+              )}/>
+            <Route path='/profile' render={() => (
+              <>
+                <Header />
+                <Profile />
+              </>
             )}/>
-          <Route path='/profile' render={() => (
-            <>
-              <Header />
-              <Profile />
-            </>
-          )}/>
-          />
-        </Switch>
+            />
+          </Switch>
       </div>
-      </>
     );
   }
 }
