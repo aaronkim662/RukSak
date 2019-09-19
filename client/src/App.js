@@ -161,6 +161,7 @@ console.log(this.selectTrip)
           <Route path='/home' render={() => (
             <>
               <Header />
+             <Main />
               <Main
                 selectTrip={(e) => this.selectTrip(e)}/>
             </>
@@ -169,14 +170,16 @@ console.log(this.selectTrip)
             <>
               <Header />
               <Planning {...props}
-                    selectedGear={this.state.selectedGear}
-                    getGear={this.getGear}
-                    gear={this.state.gear}
-                    activity={this.state.selectTrip}
-                    handleGearClick={(e) => this.handleGearClick(e)}
-                    handleRemoveClick={(e)=>this.removeGearClick(e)}
-                    handleTripClick={(e)=>this.handleTripClick(e)}
-                />
+                selectedGear={this.state.selectedGear}
+                getGear={this.getGear}
+                gear={this.state.gear}
+                handleGearClick={(e) => this.handleGearClick(e)}
+                handleRemoveClick={(e)=>this.removeGearClick(e)}
+                activity={this.state.selectTrip}
+                handleGearClick={(e) => this.handleGearClick(e)}
+                handleRemoveClick={(e)=>this.removeGearClick(e)}
+                handleTripClick={(e)=>this.handleTripClick(e)}
+              />
             </>
            )}/>
           <Route path='/profile' render={() => (
@@ -185,8 +188,14 @@ console.log(this.selectTrip)
                 <Profile />
               </>
             )}/>
-            />
-          </Switch>
+          <Route path='/profile' render={() => (
+            <>
+              <Header />
+              <Profile />
+            </>
+          )}/>
+          />
+        </Switch>
       </div>
     );
   }

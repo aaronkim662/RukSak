@@ -30,10 +30,7 @@ class Planning extends React.Component {
         src="https://res.cloudinary.com/radiscipio/image/upload/c_fill,g_center,h_1000,w_4356,y_100/v1568906055/w3e5kc1ahvg0ivzucyim.jpg" alt='Planning'/>
       </div>
         <div className="planning-container">
-
-
           {/* BELOW IS TRIP TYPE DAY/PEOPLE CONTAINER */}
-
           <div className="camping">
             <h2 className="tripHeader">Plan Your Trip!</h2>
             <div className="tripSelectors">
@@ -57,7 +54,6 @@ class Planning extends React.Component {
               onClick={(e) => this.props.handleTripClick(e)}
               type="submit">Finalize</button>
           </div>
-
     {/* BELOW IS RECOMMENDED LIST CONTAINER */}
         <div className="recommended-list-container">
           <h2 className="recommended-list-header">Recommended List</h2>
@@ -96,9 +92,8 @@ class Planning extends React.Component {
                 }
               </div>
             </div>
-            </div>
           </div>
-
+        </div>
       </React.Fragment>
     )
   }
