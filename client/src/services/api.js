@@ -62,3 +62,13 @@ export const getTripName = async (tripName) => {
   const resp = await api.get(`/trip/name/${tripName}`);
   return resp.data;
 }
+
+export const verifyUser = async () => {
+  const token = localStorage.getItem("jwt")
+  if(token) {
+    const resp = await api.get(`/auth/verify`, { headers: { Authorization: `Bearer ${token}` } });
+    return resp.data;
+  } else {
+    return false;
+  }
+}

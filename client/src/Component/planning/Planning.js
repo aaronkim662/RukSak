@@ -34,14 +34,20 @@ class Planning extends React.Component {
           <div className="camping">
             <h2 className="tripHeader">Plan Your Trip!</h2>
             <div className="tripSelectors">
-              <label
-                for="location">Enter Location: </label>
-              <input
-                className="tripSelectors typeLocation"
-                type="text"
-                name="location"
-                placeholder="location"
-              />
+                <label
+                  for="location">Location: </label>
+                <input
+                  className="tripSelectors typeLocation"
+                  type="text"
+                  name="Location"
+                />
+                <label
+                  for="location">Gear: </label>
+                <input
+                  className="tripSelectors typeGear"
+                  type="text"
+                  name="Gear"
+                />
               <RadioForm
                 className="tripSelectors"
                 days={this.state.days}
@@ -49,10 +55,11 @@ class Planning extends React.Component {
                 handleClickPeople={this.handleClickPeople}
                 handleClick={this.handleClick}
               />
+              <button
+                className="finalize-button"
+                onClick={(e) => this.props.handleTripClick(e)}
+                type="submit">Finalize Itinerary</button>
             </div>
-            <button
-              onClick={(e) => this.props.handleTripClick(e)}
-              type="submit">Finalize</button>
           </div>
     {/* BELOW IS RECOMMENDED LIST CONTAINER */}
         <div className="recommended-list-container">
@@ -73,7 +80,7 @@ class Planning extends React.Component {
           <div className="current-list-container">
             <h2>Itinerary</h2>
             <div className="location">
-              Location: {this.state.location}</div>
+              Location:</div>
             <div className="days">
               Days: {this.state.days}</div>
             <div className="people">
