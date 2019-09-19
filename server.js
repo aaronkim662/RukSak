@@ -10,6 +10,7 @@ const PORT = process.env.PORT || 3001;
 const gearController = require('./controllers/gearController');
 const locationController = require('./controllers/locationController');
 const userController = require('./controllers/userController');
+const tripController = require('./controllers/tripController');
 
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -22,5 +23,6 @@ app.get('/', (req, res) => {
 app.use('/location', locationController);
 app.use('/gear', gearController);
 app.use('/auth', userController);
+app.use('/trip', tripController);
 // eslint-disable-next-line
 app.listen(PORT, () => console.log('up and running'));

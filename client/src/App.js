@@ -6,7 +6,7 @@ import Main from './Component/Main/main.js';
 import Planning from './Component/Planning/Planning.js';
 import Profile from './Component/Profile/Profile';
 import Register from './Component/Form/Register';
-import { allGear, oneGear, deleteGear, loginUser, registerUser} from './services/api';
+import { allGear, oneGear, deleteGear, loginUser, registerUser, tripGear } from './services/api';
 
 import './App.css';
 
@@ -117,6 +117,12 @@ removeGearClick = (e) => {
   selectedGear: prevState.selectedGear.filter((ele,i) => i !== e)
   })
 )}
+
+handleTripClick = async (e) => {
+  e.preventDefault();
+  await tripGear(1,1 )
+}
+
 
 componentDidMount() {
   this.getGear();

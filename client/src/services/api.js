@@ -48,3 +48,8 @@ export const registerUser = async (resgisterData) => {
   const resp = await api.post(`/auth/register`, resgisterData);
   return resp.data;
 }
+
+export const tripGear = async (tripId, gearId) => {
+  const resp = await api.put(`/trip/${tripId}/gears/${gearId}`)
+  return resp.data;
+}
