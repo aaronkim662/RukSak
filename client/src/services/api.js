@@ -83,3 +83,13 @@ export const deleteTrip = async (tripid) => {
   const resp = await api.delete(`/trip/${tripid}`);
   return resp.data;
 }
+
+export const verifyUser = async () => {
+  const token = localStorage.getItem("jwt")
+  if(token) {
+    const resp = await api.get(`/auth/verify`, { headers: { Authorization: `Bearer ${token}` } });
+    return resp.data;
+  } else {
+    return false;
+  }
+}

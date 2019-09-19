@@ -7,10 +7,10 @@ const { restrict } = require('../services/auth');
 const userController = express.Router();
 
 const buildAuthResponse = (user) => {
-  const { id, username } = user;
+  const { id, username, email } = user;
   const tokenData = { id, username };
   const token = genToken(tokenData);
-  return { user: { id, username }, token };
+  return { user: { id, username, email }, token };
 };
 // testing user data
 userController.get('/', async (req, res, next) => {
@@ -24,10 +24,10 @@ userController.get('/', async (req, res, next) => {
 
 userController.post('/register', async (req, res, next) => {
   try {
-    const { username, password } = req.body;
+    const { username, password, email } = req.body;
     // eslint-disable-next-line
     const password_digest = await hashPassword(password);
-    const user = await User.create({ username, password_digest });
+    const user = await User.create({ username, password_digest, email });
     const respData = buildAuthResponse(user);
     res.json(respData);
   } catch (e) {
@@ -43,10 +43,19 @@ userController.post('/login', async (req, res, next) => {
     });
     if (await checkPassword(password, user.password_digest)) {
       const respData = buildAuthResponse(user);
-      res.json({ user: respData });
+      res.json(respData);
     } else {
       res.status(401).send('invalid Credentials');
     }
+  } catch (e) {
+    res.status(500).send(e.message);
+  }
+});
+
+userController.get('/verify', restrict, async (req, res, next) => {
+  try {
+    const user = await User.findByPk(res.locals.user.id)
+    res.json(user)
   } catch (e) {
     res.status(500).send(e.message);
   }

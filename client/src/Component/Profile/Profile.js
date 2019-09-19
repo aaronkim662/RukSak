@@ -7,8 +7,8 @@ function Profile(props) {
       <div className="profileImage"><i className="far fa-user-circle fa-6x"></i></div>
       <div className="profileInfo">
         <ul className="unorderedList">
-          <li className="profileList">Username: </li>
-          <li className="profileList">Email: </li>
+          <li className="profileList">Username: {props.currentUser.username}</li>
+          <li className="profileList">Email: {props.currentUser.email}</li>
         </ul>
       </div>
       <div className="profileTrips">

@@ -2,7 +2,7 @@ import React from 'react'
 import './header.css'
 import { Link } from 'react-router-dom'
 
-function Header() {
+function Header(props) {
 
   return (
     <div className="navbar">
@@ -12,8 +12,12 @@ function Header() {
       </div>
       <div className="nav-links">
         <li><Link className="link" to="/home">Home</Link></li>
-        <li><Link className="link" to="/planning">Plan</Link></li>
-        <li><Link className="link" to="/profile">Profile</Link></li>
+        <li><Link className="link" to="/planning">Plan Your Trip</Link></li>
+        <li><Link
+          handleLogout={props.handleLogout}
+          className='link'
+          to='/'>Logout</Link>
+        </li>
       </div>
     </div>
   )

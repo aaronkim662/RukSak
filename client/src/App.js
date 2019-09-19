@@ -6,7 +6,7 @@ import Main from './Component/Main/main.js';
 import Planning from './Component/Planning/Planning.js';
 import Profile from './Component/Profile/Profile';
 import Register from './Component/Form/Register';
-import { allGear, oneGear, getGearName, deleteGear, loginUser, registerUser, tripGear, getTripName, userTrips, getUser, makeTrip, deleteTrip } from './services/api';
+import { allGear, oneGear, getGearName, deleteGear, loginUser, registerUser, tripGear, getTripName, userTrips, getUser, makeTrip, deleteTrip, verifyUser } from './services/api';
 
 import './App.css';
 
@@ -40,6 +40,19 @@ handleChange = async (e) => {
     }
   }));
 };
+
+handleLogout = () => {
+  this.setState({ currentUser: null });
+  localStorage.removeItem('jwt');
+  this.props.history.push('/');
+}
+
+checkUser = async () => {
+  const currentUser = await verifyUser();
+  if (currentUser) {
+  this.setState({currentUser});
+  }
+}
 
 handleLogin = async (e) => {
   // e.preventDefault();
@@ -168,13 +181,15 @@ destroyGear = async (gear) => {
 
 componentDidMount() {
   this.getGear();
+  this.checkUser();
 }
 
-render(){
-console.log('act', this.state.selectedTrip)
-console.log('current', this.state.currentUser)
-console.log('selected trip', this.state.tripSelected)
 
+render(){
+  console.log('act', this.state.selectedTrip)
+  console.log('current', this.state.currentUser)
+  console.log('selected trip', this.state.tripSelected)
+  console.log(this.selectTrip)
     return (
       <div className="App">
         <Switch>
@@ -182,19 +197,21 @@ console.log('selected trip', this.state.tripSelected)
             <>
             <div className="ruksak-landing">RukSak</div>
               <Login  {...props}
-                      handleLogin={(e) => this.handleLogin(e)}
-                      handleRegister={(e) => this.handleRegister(e)}
-                      authFormData={this.state.authFormData}
-                      authLoginData={this.state.authLoginData}
-                      handleChange={this.handleAuthLogin}
-                      handleAuthChange={this.handleAuth}
-                      handleLog={(e) => this.handleLog(e)}
-                      />
+                handleLogin={(e) => this.handleLogin(e)}
+                handleRegister={(e) => this.handleRegister(e)}
+                authFormData={this.state.authFormData}
+                authLoginData={this.state.authLoginData}
+                handleChange={this.handleAuthLogin}
+                handleAuthChange={this.handleAuth}
+                handleLog={(e) => this.handleLog(e)}
+              />
             </>
             )}/>
           <Route path='/home' render={() => (
             <>
-              <Header />
+               <Header
+                handleLogout={this.state.handleLogout}
+              />
               <Main
                 selectTrip={(e) => this.selectTrip(e)}
                 removeTrip={this.removeTrip}
@@ -205,7 +222,9 @@ console.log('selected trip', this.state.tripSelected)
           )}/>
         <Route path='/planning' render={(props) => (
             <>
-              <Header />
+              <Header
+              handleLogout={this.state.handleLogout}
+            />
               <Planning {...props}
                 selectedGear={this.state.selectedGear}
                 getGear={this.getGear}
@@ -213,13 +232,15 @@ console.log('selected trip', this.state.tripSelected)
                 handleGearClick={(e) => this.handleGearClick(e)}
                 handleRemoveClick={(e)=>this.removeGearClick(e)}
                 activity={this.state.selectTrip}
-
+                handleTripClick={(e)=>this.handleTripClick(e)}
               />
             </>
            )}/>
           <Route path='/profile' render={() => (
               <>
-                <Header />
+                <Header
+              handleLogout={this.state.handleLogout}
+            />
                 <Profile />
               </>
             )}/>
