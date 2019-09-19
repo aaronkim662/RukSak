@@ -4,6 +4,19 @@ const { Gear } = require('../model');
 
 const gearController = express.Router();
 
+gearController.get('/name/:name', async (req, res) => {
+  try {
+    const find = await Gear.findOne({
+      where: {
+        gear: req.params.name,
+      },
+    });
+    res.json(find);
+  } catch (e) {
+    res.status(500).send(e.message);
+  }
+});
+
 gearController.get('/', async (req, res) => {
   try {
     const gear = await Gear.findAll();

@@ -11,7 +11,7 @@ function TripChoice(props) {
           <img
           className='photo'
           src="https://i.imgur.com/vVIAXS0.jpg" alt='Camping'
-          name="camping"
+          name="Camping"
           onClick = {(e) => props.selectTrip(e)}
           />
         <h2 className="trip-name"

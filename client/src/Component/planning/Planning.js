@@ -49,6 +49,7 @@ class Planning extends React.Component {
 
 
 
+
     {/* BELOW IS TRIP TYPE DAY/PEOPLE CONTAINER */}
 
           <div className="camping">
@@ -70,6 +71,9 @@ class Planning extends React.Component {
                 handleClick={this.handleClick}
               />
             </div>
+            <button
+              onClick={(e) => this.props.handleTripClick(e)}
+              type="submit">Finalize</button>
           </div>
 
 
@@ -93,6 +97,7 @@ class Planning extends React.Component {
             }
           </div>
         </div>
+
       </React.Fragment>
     )
   }

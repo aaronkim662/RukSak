@@ -6,7 +6,7 @@ import Main from './Component/Main/main';
 import Planning from './Component/Planning/Planning.js';
 import Profile from './Component/Profile/Profile';
 import Register from './Component/Form/Register';
-import { allGear, oneGear, deleteGear, loginUser, registerUser, tripGear } from './services/api';
+import { allGear, oneGear, getGearName, deleteGear, loginUser, registerUser, tripGear, getTripName } from './services/api';
 
 import './App.css';
 
@@ -119,14 +119,19 @@ removeGearClick = (e) => {
   })
 )}
 
-// handleTripClick = async (e) => {
-//   e.preventDefault();
-//   await tripGear(e)
-// }
+handleTripClick = async (e) => {
+  e.preventDefault();
+  const tripName = await getTripName(this.state.selectedTrip);
+  const hongodonog = await this.state.selectedGear.map(async (ele) => {
+    const gearName = await getGearName(ele);
+    await tripGear(tripName.id, gearName.id)
+  });
+  await Promise.all(hongodonog);
+
+}
 
 selectTrip = (e) => {
-  this.setState({
-  selectedTrip: e.target.name});
+  this.setState({ selectedTrip: e.target.name });
 }
 
 componentDidMount() {
@@ -170,8 +175,10 @@ console.log(this.selectTrip)
                     selectedGear={this.state.selectedGear}
                     getGear={this.getGear}
                     gear={this.state.gear}
+                    activity={this.state.selectTrip}
                     handleGearClick={(e) => this.handleGearClick(e)}
                     handleRemoveClick={(e)=>this.removeGearClick(e)}
+                    handleTripClick={(e)=>this.handleTripClick(e)}
                 />
             </>
             )}/>
