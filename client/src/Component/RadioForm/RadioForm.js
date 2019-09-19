@@ -22,8 +22,13 @@ render(){
       <div className="radioForm">
         <form className="radioDays"
         >
+        <label
+          for="radioButtonLabel"
+          >
+          Days: </label>
           <input
             className="radioButton"
+            id="radioButtonLabel"
             type="radio"
             name="day1"
             value='1-2'
@@ -58,8 +63,13 @@ render(){
           </form>
           <form className="radioPeople"
           >
+          <label
+            for="radioButtonPeople"
+            >
+            People: </label>
             <input
               type="radio"
+              id="radioButtonPeople"
               name="people1"
               value='1-2'
               checked={this.props.people === '1-2' ? true : false}

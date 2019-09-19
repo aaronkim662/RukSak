@@ -1,11 +1,11 @@
 .planning-container {
   border: 1px solid green;
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   height: 80vh;
 }
 .gearList {
-  border: 1px solid black;
+  border: 1px solid blue;
   list-style-type: none;
   width: 25%;
   text-align: center;
@@ -19,4 +19,16 @@
 }
 .camping {
   border: 1px solid blue;
+}
+.current-list-container {
+  border: 1px solid red;
+  list-style-type: none;
+  width: 20%;
+  text-align: center;
+}
+.recommended-list-container {
+  border: 1px solid black;
+}
+.photoPlanning {
+  width: 100%;
 }

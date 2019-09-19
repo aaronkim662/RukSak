@@ -24,8 +24,27 @@ class Planning extends React.Component {
     console.log('plan', this.props.gear)
     return (
       <React.Fragment>
-      <div className="planning-container">
-        <div className="planning">
+        <img
+        className='photoPlanning'
+        src="https://i.imgur.com/vVIAXS0.jpg" alt='Camping'/>
+        <div className="planning-container">
+
+    {/* BELOW IS RECOMMENDED LIST CONTAINER */}
+
+          <div className="recommended-list-container">
+            <h4>Recommended List (Select Items to Add to Itinerary)</h4>
+            {this.props.gear.map((ele,i) => {
+              return(
+                <li onClick={()=>this.props.handleGearClick(ele)}>{ele.gear}</li>
+                )
+              })
+            }
+          </div>
+
+
+
+    {/* BELOW IS TRIP TYPE DAY/PEOPLE CONTAINER */}
+
           <div className="camping">
             <h2>Camping</h2>
               <RadioForm
@@ -34,40 +53,26 @@ class Planning extends React.Component {
                 handleClickPeople={this.handleClickPeople}
                 handleClick={this.handleClick}
               />
-            <div className="recommended"></div>
           </div>
-          <div>Recommended List</div>
-          {this.props.gear.map((ele,i) => {
-            return(
-              <li onClick={()=>this.props.handleGearClick(ele)}>{ele.gear}</li>
-            )
-          })
-        }
-        <div>Current List</div>
-          {this.props.selectedGear.map((ele,i) => {
-            return(
-              <li index={i}
-                onClick={() => this.props.handleRemoveClick(i)}>{ele}</li>
-            )
-          })
-        }
-          <div className="itinerary"></div>
+
+
+
+        {/* BELOW IS CURRENT LIST CONTAINER */}
+
+          <div className="current-list-container">
+            <h4>Current List</h4>
             <div className="days">
-            Days {this.state.days}</div>
+              Days {this.state.days}</div>
             <div className="people">
             People {this.state.people}</div>
-            <div className="location"></div>
-        </div>
-        <div className="gearList">
-
-          <h3 className="gearListHeader">Itinerary</h3>
-          {this.props.gear.map((ele,i) => {
-            return(
-              <li>{ele.gear}</li>
-            )
-          })
-        }
-        </div>
+              {this.props.selectedGear.map((ele,i) => {
+                return(
+                  <li index={i}
+                    onClick={() => this.props.handleRemoveClick(i)}>{ele}</li>
+                )
+              })
+            }
+          </div>
         </div>
       </React.Fragment>
     )
