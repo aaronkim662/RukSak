@@ -35,7 +35,7 @@ render(){
             checked={this.props.days === '1-2' ? true : false}
             onClick={this.props.handleClick}
             />
-            <div>1-2</div>
+            <div className="radioButtonStyle">1-2</div>
           <input
             className="radioInputStyleD"
             type="radio"
@@ -44,7 +44,7 @@ render(){
             checked={this.props.days === '3-4' ? true : false}
             onClick={this.props.handleClick}
             />
-            <div>3-4</div>
+            <div className="radioButtonStyle">3-4</div>
           <input
             className="radioInputStyleD"
             type="radio"
@@ -53,7 +53,7 @@ render(){
             checked={this.props.days === '5-6' ? true : false}
             onClick={this.props.handleClick}
             />
-            <div>5-6</div>
+            <div className="radioButtonStyle">5-6</div>
           <input
             className="radioInputStyleD"
             type="radio"
@@ -62,7 +62,7 @@ render(){
             checked={this.props.days === '7+' ? true : false}
             onClick={this.props.handleClick}
             />
-            <div>7+</div>
+            <div className="radioButtonStyle">7+</div>
           </form>
           <form className="radioPeople"
           >
@@ -79,7 +79,7 @@ render(){
               checked={this.props.people === '1-2' ? true : false}
               onClick={this.props.handleClickPeople}
               />
-              <div>1-2</div>
+              <div className="radioButtonStyle">1-2</div>
             <input
               className="radioInputStyleP"
               type="radio"
@@ -88,7 +88,7 @@ render(){
               checked={this.props.people === '3-4' ? true : false}
               onClick={this.props.handleClickPeople}
               />
-              <div>3-4</div>
+              <div className="radioButtonStyle">3-4</div>
             <input
               className="radioInputStyleP"
               type="radio"
@@ -97,7 +97,7 @@ render(){
               checked={this.props.people === '5-6' ? true : false}
               onClick={this.props.handleClickPeople}
               />
-              <div>5-6</div>
+              <div className="radioButtonStyle">5-6</div>
             <input
               className="radioInputStyleP"
               type="radio"
@@ -106,7 +106,7 @@ render(){
               checked={this.props.people === '7+' ? true : false}
               onClick={this.props.handleClickPeople}
               />
-              <div>7+</div>
+              <div className="radioButtonStyle">7+</div>
             </form>
           </div>
         </>

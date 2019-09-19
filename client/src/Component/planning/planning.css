@@ -1,32 +1,60 @@
+@import url('https://fonts.googleapis.com/css?family=Metrophobic&display=swap');
+
 /* STYLING FOR ENTIRE CONTAINER */
 .planning-container {
   /* border: 1px solid green; */
+  font-family: 'Metrophobic', sans-serif;
   display: flex;
-  height: 80vh;
+  height: 60vh;
+  background-color: rgba(169,169,169,0.8);
 }
 
 /* CURRENT LIST STYLE */
 .current-list-container {
-  border: 1px solid red;
+  /* border: 1px solid red; */
   list-style-type: none;
   width: 20%;
   text-align: center;
+  border-left: 1px solid rgba(255,255,255,0.7);
+}
+.current-list-li {
+  margin: 10px 0;
+  font-size: 20px;
+  cursor: pointer;
+}
+.current-list-li:before {
+  content: "\f06d";
+  font-family: FontAwesome;
+  padding: 0 15px;
+  color: red;
+}
+.days, .people {
+  font-size: 20px;
 }
 
 /* TRIP SELECT STYLE */
 .camping {
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
   flex-grow: 2;
 }
 .tripHeader {
+  text-align: center;
+  font-size: 40px;
+  margin-top: 10px;
+}
+.tripSelectors {
+  margin-left: 15px;
+  margin-bottom: 25px;
   text-align: center;
 }
 
 /* RECOMMENDED LIST STYLE */
 .recommended-list-container {
-  border: 1px solid green;
+  /* border: 1px solid green; */
   width: 25%;
+  border-right: 1px solid rgba(255,255,255,0.7);
 }
+
 .recommended-list-header {
   text-align: center;
 }
@@ -37,6 +65,7 @@
 }
 .recommended-list-li {
   font-size: 20px;
+  cursor: pointer;
 }
 .recommended-list-li:before {
   content: "\f1bb";

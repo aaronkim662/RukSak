@@ -32,7 +32,7 @@ class Planning extends React.Component {
     {/* BELOW IS RECOMMENDED LIST CONTAINER */}
 
           <div className="recommended-list-container">
-            <h3 className="recommended-list-header">Recommended List</h3>
+            <h2 className="recommended-list-header">Recommended List</h2>
             <h4 className="recommended-list-header">(Select Items to Add to Itinerary)</h4>
             {this.props.gear.map((ele,i) => {
               return(
@@ -52,19 +52,24 @@ class Planning extends React.Component {
     {/* BELOW IS TRIP TYPE DAY/PEOPLE CONTAINER */}
 
           <div className="camping">
-            <h2 className="tripHeader">Camping</h2>
-            <label for="location">Enter Location: </label>
-            <input
-              type="text"
-              name="location"
-              placeholder="enter location"
+            <h2 className="tripHeader">Plan Your Trip!</h2>
+            <div className="tripSelectors">
+              <label
+                for="location">Enter Location: </label>
+              <input
+                className="tripSelectors"
+                type="text"
+                name="location"
+                placeholder="location"
               />
               <RadioForm
+                className="tripSelectors"
                 days={this.state.days}
                 people={this.state.people}
                 handleClickPeople={this.handleClickPeople}
                 handleClick={this.handleClick}
               />
+            </div>
           </div>
 
 
@@ -72,14 +77,16 @@ class Planning extends React.Component {
         {/* BELOW IS CURRENT LIST CONTAINER */}
 
           <div className="current-list-container">
-            <h4>Current List</h4>
+            <h2>Current List</h2>
             <div className="days">
-              Days {this.state.days}</div>
+              Days: {this.state.days}</div>
             <div className="people">
-            People {this.state.people}</div>
+            People: {this.state.people}</div>
               {this.props.selectedGear.map((ele,i) => {
                 return(
-                  <li index={i}
+                  <li
+                    className="current-list-li"
+                    index={i}
                     onClick={() => this.props.handleRemoveClick(i)}>{ele}</li>
                 )
               })

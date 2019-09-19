@@ -1,17 +1,58 @@
+@import url('https://fonts.googleapis.com/css?family=Metrophobic&display=swap');
+
+/* RADIO BUTTON/LABEL */
 .radioDays {
   display: flex;
   flex-direction: row;
+  margin-bottom: 25px;
+  justify-content: center;
 }
 .radioPeople {
   display: flex;
   flex-direction: row;
+  justify-content: center;
 }
 .radioInputStyleP {
   margin-left: 15px;
+  cursor: pointer;
 }
 .radioInputStyleD {
   margin-left: 15px;
+  cursor: pointer;
 }
 .radioInputStyleD1 {
-  margin-left: 28px;
+  margin-left: 26px;
+}
+.radioButtonStyle {
+  margin-left: 10px;
+  /* display: none; */
+}
+.radioInputStyleD1 {
+  cursor: pointer;
+}
+
+/* RADIO BUTTON EFFECT */
+
+.radioInputStyleD1:hover {
+  animation: shadow-pulse 2s infinite;
+}
+.radioInputStyleD:hover {
+  animation: shadow-pulse 2s infinite;
+}
+.radioInputStyleP:hover {
+  animation: shadow-pulse 2s infinite;
+}
+
+/* RADIO BUTTON KEYFRAMES */
+
+@keyframes shadow-pulse
+{
+  0% {
+    box-shadow: 0 0 0 0px rgba(0, 0, 0, 0.2);
+    border-radius: 50%;
+     }
+  100% {
+    box-shadow: 0 0 0 20px rgba(0, 0, 0, 0);
+    border-radius: 50%;
+     }
 }
