@@ -50,7 +50,7 @@
 
 .returnUsers {
   /* border: 1px solid red; */
-  background-color: rgba(0,0,0,0.6);
+  background-color: rgba(0,0,0,0.7);
   margin-right: 2em;
   width: 40%;
   border-radius: 10px;
@@ -59,7 +59,7 @@
 /* BELOW IS STYLE FOR NEW USERS */
 
 .newUsers {
-  background-color: rgba(0,0,0,0.6);
+  background-color: rgba(0,0,0,0.7);
   width: 40%;
   border-radius: 10px;
 }
