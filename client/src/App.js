@@ -134,6 +134,21 @@ selectTrip = (e) => {
   this.setState({ selectedTrip: e.target.name });
 }
 
+handleChangeLoc = (e) => {
+  console.log('this is handleChange', e.target.value);
+  this.setState({
+    location: e.target.value
+  })
+};
+
+handleSubmit = (e) => {
+  this.setState({
+    location: e.target.value
+  })
+}
+
+
+
 componentDidMount() {
   this.getGear();
 }
@@ -155,6 +170,7 @@ console.log(this.selectTrip)
                       handleChange={this.handleAuthLogin}
                       handleAuthChange={this.handleAuth}
                       handleLog={(e) => this.handleLog(e)}
+                      handleSubmit={(e) => this.handleSubmit(e)}
                       />
             </>
             )}/>
@@ -176,6 +192,8 @@ console.log(this.selectTrip)
                     handleGearClick={(e) => this.handleGearClick(e)}
                     handleRemoveClick={(e)=>this.removeGearClick(e)}
                     handleTripClick={(e)=>this.handleTripClick(e)}
+                    handleChangeLoc={(e)=>this.handleChangeLoc(e)}
+                    location={this.state.location}
                 />
             </>
            )}/>
