@@ -1,10 +1,10 @@
 .profileContainer {
   border-right: 1px solid black;
-  color: white;
+  color: black;
   display: flex;
   flex-direction: column;
   width: 25%;
-  background-color: rgba(0,0,0,0.3);
+  background-color: rgb(255, 255, 255, .6);
 }
 .profileImage {
   height: 60%;
@@ -17,7 +17,7 @@
   margin: 0 auto;
   width: 60%;
   padding-top: 20px;
-  border-bottom: 1px solid gray;
+  border-bottom: 1px solid black;
 }
 .profileInfo {
   height: 30%;
@@ -29,7 +29,7 @@
   margin: 0 auto;
   width: 60%;
   padding-top: 20px;
-  border-bottom: 1px solid gray;
+  border-bottom: 1px solid black;
 }
 .profileTrips {
   height: 100%;
@@ -38,6 +38,7 @@
 
 .far {
   margin-top: 20%;
+  color: black;
 }
 
 .profileList {
