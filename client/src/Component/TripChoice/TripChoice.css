@@ -2,6 +2,7 @@
   width: 900px;
   height: 160px;
   opacity: .9;
+
 }
 
 .photo:hover {
@@ -17,6 +18,10 @@
   flex-direction: column;
   margin: 50px 150px 50px 0px;
   width: 900px;
+}
+.trip-choice:hover {
+  transition: transform 0.5s;
+  transform:scale(1.02);
 }
 
 .trip-header {

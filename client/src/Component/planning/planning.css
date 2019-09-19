@@ -84,7 +84,11 @@ label {
 
 .typeGear, .typeLocation {
   border: 1px solid white;
-  padding-left: 15px;
+  width: 80px;
+  transition: width 0.8s ease;
+}
+.typeLocation:focus {
+  width: 40%;
 }
 
 .typeLocation:hover {

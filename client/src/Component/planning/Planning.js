@@ -3,10 +3,13 @@ import RadioForm from '../RadioForm/RadioForm';
 import './planning.css'
 
 class Planning extends React.Component {
+  constructor(props){
+    super(props)
+  }
   state = {
     days: "",
     people: "",
-    location: "",
+    location: this.props.location,
   }
 
   handleClick = (e) => {
@@ -20,8 +23,10 @@ class Planning extends React.Component {
       people: e.target.value
     })
   }
+
   render() {
     console.log('plan', this.props.gear)
+    console.log('change', this.state.location)
     return (
       <React.Fragment>
       <div className="photo-container">
@@ -34,13 +39,16 @@ class Planning extends React.Component {
           <div className="camping">
             <h2 className="tripHeader">Plan Your Trip!</h2>
             <div className="tripSelectors">
-                <label
-                  for="location">Location: </label>
-                <input
-                  className="tripSelectors typeLocation"
-                  type="text"
-                  name="Location"
-                />
+              <label
+                for="location">Enter Location: </label>
+              <input
+                onChange={this.props.handleChangeLoc}
+                className="tripSelectors typeLocation"
+                type="text"
+                name="location"
+                placeholder="location"
+                onSubmit={this.props.handleSubmit}
+              />
                 <label
                   for="location">Gear: </label>
                 <input
@@ -84,7 +92,8 @@ class Planning extends React.Component {
           <div className="current-list-container">
             <h2>Itinerary</h2>
             <div className="location">
-              Location:</div>
+              Location: {this.props.location}</div>
+
             <div className="days">
               Days: {this.state.days}</div>
             <div className="people">

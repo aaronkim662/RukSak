@@ -148,12 +148,20 @@ selectTrip = (e) => {
 
 }
 
-removeTrip = async (trip) => {
+handleChangeLoc = (e) => {
+  console.log('this is handleChange', e.target.value);
+  this.setState({
+    location: e.target.value
+  })
+};
+
+handleSubmit = (e) => {
+  this.setState({
+    location: e.target.value
+  })
+  removeTrip = async (trip) => {
   await deleteTrip(trip.id);
-}
-
-
-
+  }
 
 // handleTripClick = async (e) => {
 //   e.preventDefault();
@@ -178,7 +186,6 @@ destroyGear = async (gear) => {
   await deleteGear(gears.id);
 }
 
-
 componentDidMount() {
   this.getGear();
   this.checkUser();
@@ -197,6 +204,7 @@ render(){
             <>
             <div className="ruksak-landing">RukSak</div>
               <Login  {...props}
+
                 handleLogin={(e) => this.handleLogin(e)}
                 handleRegister={(e) => this.handleRegister(e)}
                 authFormData={this.state.authFormData}
@@ -204,6 +212,7 @@ render(){
                 handleChange={this.handleAuthLogin}
                 handleAuthChange={this.handleAuth}
                 handleLog={(e) => this.handleLog(e)}
+                handleSubmit={(e) => this.handleSubmit(e)}
               />
             </>
             )}/>
@@ -226,14 +235,17 @@ render(){
               handleLogout={this.state.handleLogout}
             />
               <Planning {...props}
-                selectedGear={this.state.selectedGear}
-                getGear={this.getGear}
-                gear={this.state.gear}
-                handleGearClick={(e) => this.handleGearClick(e)}
-                handleRemoveClick={(e)=>this.removeGearClick(e)}
-                activity={this.state.selectTrip}
-                handleTripClick={(e)=>this.handleTripClick(e)}
-              />
+                    selectedGear={this.state.selectedGear}
+                    getGear={this.getGear}
+                    gear={this.state.gear}
+                    activity={this.state.selectTrip}
+                    handleGearClick={(e) => this.handleGearClick(e)}
+                    handleRemoveClick={(e)=>this.removeGearClick(e)}
+                    handleTripClick={(e)=>this.handleTripClick(e)}
+                    handleChangeLoc={(e)=>this.handleChangeLoc(e)}
+                    location={this.state.location}
+                />
+
             </>
            )}/>
           <Route path='/profile' render={() => (
