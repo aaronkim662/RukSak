@@ -33,17 +33,23 @@ tripController.get('/:tripid/gear/:gearid/', async (req, res) => {
   }
 });
 
-tripController.post('/:tripid/gear/:gearid/', async (req, res) => {
+tripController.post('/', async (req, res) => {
   try {
-    const tripGear = await Trip.create({
-      where: { id: req.params.tripid },
-      include: [
-        User, Gear,
-      ],
-    });
+    const tripGear = await Trip.create(req.body);
+    // get the trip type from the id
+    // associate trip with trip type
     res.json(tripGear);
   } catch (e) {
     res.status(500).send(e);
+  }
+});
+
+tripController.delete('/:id', async (req, res, next) => {
+  try {
+    const trip = await Trip.findByPk(req.params.id);
+    await trip.destroy();
+  } catch (e) {
+    next(e);
   }
 });
 
