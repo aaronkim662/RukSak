@@ -35,9 +35,7 @@ class Planning extends React.Component {
         src="https://res.cloudinary.com/radiscipio/image/upload/c_fill,g_center,h_1000,w_4356,y_100/v1568906055/w3e5kc1ahvg0ivzucyim.jpg" alt='Planning'/>
       </div>
         <div className="planning-container">
-
           {/* BELOW IS TRIP TYPE DAY/PEOPLE CONTAINER */}
-
           <div className="camping">
             <h2 className="tripHeader">Plan Your Trip!</h2>
             <div className="tripSelectors">
@@ -51,6 +49,13 @@ class Planning extends React.Component {
                 placeholder="location"
                 onSubmit={this.props.handleSubmit}
               />
+                <label
+                  for="location">Gear: </label>
+                <input
+                  className="tripSelectors typeGear"
+                  type="text"
+                  name="Gear"
+                />
               <RadioForm
                 className="tripSelectors"
                 days={this.state.days}
@@ -58,19 +63,23 @@ class Planning extends React.Component {
                 handleClickPeople={this.handleClickPeople}
                 handleClick={this.handleClick}
               />
+              <button
+                className="finalize-button"
+                onClick={(e) => this.props.handleTripClick(e)}
+                type="submit">Finalize Itinerary</button>
             </div>
+
             <button
-              onClick={(e) => this.props.handleTripClick(e)}
+        
               type="submit">Finalize</button>
           </div>
-
     {/* BELOW IS RECOMMENDED LIST CONTAINER */}
         <div className="recommended-list-container">
           <h2 className="recommended-list-header">Recommended List</h2>
           <h4 className="recommended-list-header">(Select Items to Add to Gear)</h4>
           {this.props.gear.map((ele,i) => {
             return(
-              <ul className="recommended-list-ul">
+              <ul className="recommended-list-ul" key={i}>
                 <li
                 className="recommended-list-li"
                 onClick={()=>this.props.handleGearClick(ele)}>{ele.gear}</li>
@@ -84,6 +93,7 @@ class Planning extends React.Component {
             <h2>Itinerary</h2>
             <div className="location">
               Location: {this.props.location}</div>
+
             <div className="days">
               Days: {this.state.days}</div>
             <div className="people">
@@ -102,9 +112,8 @@ class Planning extends React.Component {
                 }
               </div>
             </div>
-            </div>
           </div>
-
+        </div>
       </React.Fragment>
     )
   }

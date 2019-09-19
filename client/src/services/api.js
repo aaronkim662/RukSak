@@ -12,17 +12,18 @@ export const oneLocation = async (location) => {
 export const allGear = async () => {
   const gear = await api.get(`/gear`);
   return gear.data;
-}
+};
 
 export const oneGear = async (gearId) => {
   const gear = await api.get(`/gear/${gearId}`);
   return gear.data;
-}
+};
 
 export const getGearName = async (gearName) => {
   const gear = await api.get(`/gear/name/${gearName}`);
   return gear.data;
-}
+};
+
 export const putGear = async (item,gearId) => {
   const gear = await api.put(`/gear/${gearId}`, item, { headers: { Authorization: `Bearer ${localStorage.getItem("jwt")}` } }, item);
   return gear.data;
@@ -42,23 +43,53 @@ export const deleteGear = async (gearId) => {
     };
 };
 
+export const getUser = async (userid) => {
+  const resp = await api.get(`/auth${userid}`);
+  return resp.data;
+}
+
 export const loginUser = async (loginData) => {
   console.log(api);
   const resp = await api.post(`/auth/login`, loginData);
   return resp.data
-}
+};
 
 export const registerUser = async (resgisterData) => {
   const resp = await api.post(`/auth/register`, resgisterData);
   return resp.data;
-}
+};
 
 export const tripGear = async (tripId, gearId) => {
   const resp = await api.put(`/trip/${tripId}/gears/${gearId}`);
   return resp.data;
-}
+};
 
 export const getTripName = async (tripName) => {
   const resp = await api.get(`/trip/name/${tripName}`);
   return resp.data;
+};
+
+export const userTrips = async (userid, tripid) => {
+  const resp = await api.put(`/user/${userid}/trip/${tripid}`);
+  return resp.data;
+};
+
+export const makeTrip = async (tripData) => {
+  const resp = await api.post('/trip', tripData);
+  return resp.data;
+}
+
+export const deleteTrip = async (tripid) => {
+  const resp = await api.delete(`/trip/${tripid}`);
+  return resp.data;
+}
+
+export const verifyUser = async () => {
+  const token = localStorage.getItem("jwt")
+  if(token) {
+    const resp = await api.get(`/auth/verify`, { headers: { Authorization: `Bearer ${token}` } });
+    return resp.data;
+  } else {
+    return false;
+  }
 }

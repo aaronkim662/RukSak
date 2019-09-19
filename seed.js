@@ -6,6 +6,7 @@ const seed = async () => {
     const location2 = await Location.create({ location: 'Mountain Creek' });
     const location3 = await Location.create({ location: 'Catskills' });
 
+
     const hike = await Trip.create({ trip: 'Hiking' });
     const camp = await Trip.create({ trip: 'Camping' });
     const bike = await Trip.create({ trip: 'Biking' });
