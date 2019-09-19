@@ -57,7 +57,7 @@ class Planning extends React.Component {
               <label
                 for="location">Enter Location: </label>
               <input
-                className="tripSelectors"
+                className="tripSelectors typeLocation"
                 type="text"
                 name="location"
                 placeholder="location"

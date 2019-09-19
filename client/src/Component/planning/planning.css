@@ -16,18 +16,20 @@
   width: 20%;
   text-align: center;
   border-left: 1px solid rgba(255,255,255,0.7);
+  /* background-color: rgba(170,212,211,0.7); */
 }
 .current-list-li {
   margin: 10px 0;
   font-size: 20px;
   cursor: pointer;
+  animation: fadeIn 0.3s ease-in both;
 }
-.current-list-li:before {
+/* .current-list-li:before {
   content: "\f06d";
   font-family: FontAwesome;
   padding: 0 15px;
   color: red;
-}
+} */
 .days, .people {
   font-size: 20px;
 }
@@ -41,11 +43,28 @@
   text-align: center;
   font-size: 40px;
   margin-top: 10px;
+  text-shadow: 1px 1px rgba(255,255,255,0.4);
 }
 .tripSelectors {
   margin-left: 15px;
   margin-bottom: 25px;
   text-align: center;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 5px;
+}
+.tripSelectors::placeholder {
+  color: white;
+  text-align: left;
+  padding-left: 5px;
+  text-shadow: 1px 1px black;
+}
+.typeLocation {
+  background-color: rgba(0,0,0,0.5);
+}
+.typeLocation:hover {
+  transition: background-color 0.4s;
+  background-color: lightgrey;
 }
 
 /* RECOMMENDED LIST STYLE */
@@ -53,6 +72,7 @@
   /* border: 1px solid green; */
   width: 25%;
   border-right: 1px solid rgba(255,255,255,0.7);
+  /* background-color: rgba(170,212,211,0.7); */
 }
 
 .recommended-list-header {
@@ -77,4 +97,17 @@
 /* TRIP IMAGE STYLE */
 .photoPlanning {
   width: 100%;
+}
+
+
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+		transform: translate3d(0, -20%, 0);
+	}
+	to {
+		opacity: 1;
+		transform: translate3d(0, 0, 0);
+	}
 }
