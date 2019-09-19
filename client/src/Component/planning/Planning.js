@@ -70,6 +70,7 @@ class Planning extends React.Component {
                 handleClick={this.handleClick}
               />
             </div>
+            <button type="submit">Finalize</button>
           </div>
 
 
