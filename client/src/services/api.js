@@ -19,6 +19,10 @@ export const oneGear = async (gearId) => {
   return gear.data;
 }
 
+export const getGearName = async (gearName) => {
+  const gear = await api.get(`/gear/name/${gearName}`);
+  return gear.data;
+}
 export const putGear = async (item,gearId) => {
   const gear = await api.put(`/gear/${gearId}`, item, { headers: { Authorization: `Bearer ${localStorage.getItem("jwt")}` } }, item);
   return gear.data;
@@ -50,6 +54,11 @@ export const registerUser = async (resgisterData) => {
 }
 
 export const tripGear = async (tripId, gearId) => {
-  const resp = await api.put(`/trip/${tripId}/gears/${gearId}`)
+  const resp = await api.put(`/trip/${tripId}/gears/${gearId}`);
+  return resp.data;
+}
+
+export const getTripName = async (tripName) => {
+  const resp = await api.get(`/trip/name/${tripName}`);
   return resp.data;
 }

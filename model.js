@@ -40,6 +40,11 @@ User.init({
   sequelize: db,
   modelName: 'user',
 });
+
+// class Itin extends Sequelize.Model {}
+// Itin.init({
+//   days: Sequelize.INTEGER
+// })
 // email: {
 //   type: Sequelize.STRING,
 //   unique: true,
@@ -63,7 +68,6 @@ Trip.belongsToMany(Gear, { through: 'trip_gear' });
 
 Location.hasMany(Trip);
 Trip.belongsTo(Location);
-
 
 module.exports = {
   db,

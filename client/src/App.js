@@ -6,7 +6,7 @@ import Main from './Component/Main/main.js';
 import Planning from './Component/Planning/Planning.js';
 import Profile from './Component/Profile/Profile';
 import Register from './Component/Form/Register';
-import { allGear, oneGear, deleteGear, loginUser, registerUser, tripGear } from './services/api';
+import { allGear, oneGear, getGearName, deleteGear, loginUser, registerUser, tripGear, getTripName } from './services/api';
 
 import './App.css';
 
@@ -28,6 +28,7 @@ class App extends React.Component {
     isShowing: false,
     gear:[],
     selectedGear: [],
+    selectedTrip: "",
   }
 
 handleChange = async (e) => {
@@ -120,16 +121,26 @@ removeGearClick = (e) => {
 
 handleTripClick = async (e) => {
   e.preventDefault();
-  await tripGear(1,1 )
+  const tripName = await getTripName(this.state.selectedTrip);
+  const hongodonog = await this.state.selectedGear.map(async (ele) => {
+    const gearName = await getGearName(ele);
+    await tripGear(tripName.id, gearName.id)
+  });
+  await Promise.all(hongodonog);
+
 }
 
+selectTrip = (e) => {
+  this.setState({ selectedTrip: e.target.name });
+}
 
 componentDidMount() {
   this.getGear();
 }
 
   render(){
-console.log(this.state.selectedGear)
+console.log('act', this.state.selectedTrip)
+console.log(this.selectTrip)
     return (
       <>
       <div className="App">
@@ -153,7 +164,8 @@ console.log(this.state.selectedGear)
           <Route path='/home' render={() => (
             <>
               <Header />
-              <Main />
+              <Main
+                selectTrip={(e) => this.selectTrip(e)}/>
             </>
           )}/>
         <Route path='/planning' render={(props) => (
@@ -163,8 +175,10 @@ console.log(this.state.selectedGear)
                     selectedGear={this.state.selectedGear}
                     getGear={this.getGear}
                     gear={this.state.gear}
+                    activity={this.state.selectTrip}
                     handleGearClick={(e) => this.handleGearClick(e)}
                     handleRemoveClick={(e)=>this.removeGearClick(e)}
+                    handleTripClick={(e)=>this.handleTripClick(e)}
                 />
             </>
             )}/>
