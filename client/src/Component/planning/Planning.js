@@ -32,13 +32,19 @@ class Planning extends React.Component {
     {/* BELOW IS RECOMMENDED LIST CONTAINER */}
 
           <div className="recommended-list-container">
-            <h4>Recommended List (Select Items to Add to Itinerary)</h4>
+            <h3 className="recommended-list-header">Recommended List</h3>
+            <h4 className="recommended-list-header">(Select Items to Add to Itinerary)</h4>
             {this.props.gear.map((ele,i) => {
               return(
-                <li onClick={()=>this.props.handleGearClick(ele)}>{ele.gear}</li>
+                <ul className="recommended-list-ul">
+                  <li
+                  className="recommended-list-li"
+                  onClick={()=>this.props.handleGearClick(ele)}>{ele.gear}</li>
+                 </ul>
                 )
               })
             }
+
           </div>
 
 
@@ -46,7 +52,13 @@ class Planning extends React.Component {
     {/* BELOW IS TRIP TYPE DAY/PEOPLE CONTAINER */}
 
           <div className="camping">
-            <h2>Camping</h2>
+            <h2 className="tripHeader">Camping</h2>
+            <label for="location">Enter Location: </label>
+            <input
+              type="text"
+              name="location"
+              placeholder="enter location"
+              />
               <RadioForm
                 days={this.state.days}
                 people={this.state.people}

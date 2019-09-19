@@ -27,7 +27,7 @@ render(){
           >
           Days: </label>
           <input
-            className="radioButton"
+            className="radioInputStyleD1"
             id="radioButtonLabel"
             type="radio"
             name="day1"
@@ -37,6 +37,7 @@ render(){
             />
             <div>1-2</div>
           <input
+            className="radioInputStyleD"
             type="radio"
             name="day1"
             value='3-4'
@@ -45,6 +46,7 @@ render(){
             />
             <div>3-4</div>
           <input
+            className="radioInputStyleD"
             type="radio"
             name="day1"
             value='5-6'
@@ -53,6 +55,7 @@ render(){
             />
             <div>5-6</div>
           <input
+            className="radioInputStyleD"
             type="radio"
             name="day1"
             value='7+'
@@ -68,6 +71,7 @@ render(){
             >
             People: </label>
             <input
+              className="radioInputStyleP"
               type="radio"
               id="radioButtonPeople"
               name="people1"
@@ -77,6 +81,7 @@ render(){
               />
               <div>1-2</div>
             <input
+              className="radioInputStyleP"
               type="radio"
               name="people2"
               value='3-4'
@@ -85,6 +90,7 @@ render(){
               />
               <div>3-4</div>
             <input
+              className="radioInputStyleP"
               type="radio"
               name="people3"
               value='5-6'
@@ -93,6 +99,7 @@ render(){
               />
               <div>5-6</div>
             <input
+              className="radioInputStyleP"
               type="radio"
               name="people4"
               value='7+'

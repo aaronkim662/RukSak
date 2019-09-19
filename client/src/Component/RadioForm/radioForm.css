@@ -2,12 +2,16 @@
   display: flex;
   flex-direction: row;
 }
-
 .radioPeople {
   display: flex;
   flex-direction: row;
 }
-
-.radioButton {
-  color: black;
+.radioInputStyleP {
+  margin-left: 15px;
+}
+.radioInputStyleD {
+  margin-left: 15px;
+}
+.radioInputStyleD1 {
+  margin-left: 28px;
 }

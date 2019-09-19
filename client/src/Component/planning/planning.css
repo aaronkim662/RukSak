@@ -1,34 +1,51 @@
+/* STYLING FOR ENTIRE CONTAINER */
 .planning-container {
-  border: 1px solid green;
+  /* border: 1px solid green; */
   display: flex;
-  /* justify-content: space-between; */
   height: 80vh;
 }
-.gearList {
-  border: 1px solid blue;
-  list-style-type: none;
-  width: 25%;
-  text-align: center;
-}
-.gearListHeader {
-  text-decoration: underline;
-}
-.planning {
-  border: 1px solid red;
-  width: 25%;
-}
-.camping {
-  border: 1px solid blue;
-}
+
+/* CURRENT LIST STYLE */
 .current-list-container {
   border: 1px solid red;
   list-style-type: none;
   width: 20%;
   text-align: center;
 }
-.recommended-list-container {
-  border: 1px solid black;
+
+/* TRIP SELECT STYLE */
+.camping {
+  border: 1px solid blue;
+  flex-grow: 2;
 }
+.tripHeader {
+  text-align: center;
+}
+
+/* RECOMMENDED LIST STYLE */
+.recommended-list-container {
+  border: 1px solid green;
+  width: 25%;
+}
+.recommended-list-header {
+  text-align: center;
+}
+.recommended-list-ul {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 25px;
+}
+.recommended-list-li {
+  font-size: 20px;
+}
+.recommended-list-li:before {
+  content: "\f1bb";
+  font-family: FontAwesome;
+  padding: 0 15px;
+  color: green;
+}
+
+/* TRIP IMAGE STYLE */
 .photoPlanning {
   width: 100%;
 }
