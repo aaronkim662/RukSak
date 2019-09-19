@@ -1,6 +1,14 @@
 .main {
-  background-color: #f5f5f5;
+  background-color: rgba(0,0,0,.3);
   display: flex;
   justify-content: space-between;
   margin-top: -3px;
+}
+
+.main-background {
+  background-image: url('https://res.cloudinary.com/darrin-im/image/upload/v1568667109/project3-background_fafbvd.jpg');
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }

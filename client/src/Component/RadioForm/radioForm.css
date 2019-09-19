@@ -1,3 +1,13 @@
+.location {
+  border: 1px solid black;
+}
+
+.radioLocation {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+}
+
 .radioDays {
   display: flex;
   flex-direction: row;

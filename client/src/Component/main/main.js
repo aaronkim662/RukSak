@@ -35,7 +35,7 @@ componentDidMount() {
 
   render() {
     return (
-      <div>
+      <div className="main-background">
         <div className="main">
           <Profile />
           <TripChoice />
