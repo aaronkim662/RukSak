@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, Switch, withRouter } from 'react-router-dom'
 import Header from './Component/Header/Header';
 import Login from './Component/Login/Login';
-import Main from './Component/Main/Main.js';
+import Main from './Component/Main/main';
 import Planning from './Component/Planning/Planning.js';
 import Profile from './Component/Profile/Profile';
 import Register from './Component/Form/Register';
@@ -28,6 +28,7 @@ class App extends React.Component {
     isShowing: false,
     gear:[],
     selectedGear: [],
+    selectedTrip: "",
   }
 
 handleChange = async (e) => {
@@ -118,18 +119,23 @@ removeGearClick = (e) => {
   })
 )}
 
-handleTripClick = async (e) => {
-  e.preventDefault();
-  await tripGear(1,1 )
-}
+// handleTripClick = async (e) => {
+//   e.preventDefault();
+//   await tripGear(e)
+// }
 
+selectTrip = (e) => {
+  this.setState({
+  selectedTrip: e.target.name});
+}
 
 componentDidMount() {
   this.getGear();
 }
 
   render(){
-console.log(this.state.selectedGear)
+console.log('act', this.state.selectedTrip)
+console.log(this.selectTrip)
     return (
       <>
       <div className="App">
@@ -153,7 +159,8 @@ console.log(this.state.selectedGear)
           <Route path='/home' render={() => (
             <>
               <Header />
-              <Main />
+              <Main
+                selectTrip={(e) => this.selectTrip(e)}/>
             </>
           )}/>
         <Route path='/planning' render={(props) => (

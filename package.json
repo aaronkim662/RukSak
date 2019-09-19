@@ -33,5 +33,10 @@
     "pg": "^7.12.1",
     "react-router-dom": "^5.0.1",
     "sequelize": "^5.18.4"
+  },
+  "devDependencies": {
+    "@babel/parser": "^7.6.0",
+    "babel-eslint": "^10.0.3",
+    "eslint": "^6.4.0"
   }
 }

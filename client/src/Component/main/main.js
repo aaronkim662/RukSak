@@ -25,7 +25,7 @@ class Main extends React.Component {
     }
   })
   this.setState({
-    activity: activity
+    activity
   })
 }
 
@@ -34,11 +34,14 @@ componentDidMount() {
 }
 
   render() {
+    console.log('main', this.props.selectTrip)
     return (
       <div className="main-background">
         <div className="main">
           <Profile />
-          <TripChoice />
+          <TripChoice
+            selectTrip={(e) => this.props.selectTrip(e)}
+            />
         </div>
       </div>
     )
