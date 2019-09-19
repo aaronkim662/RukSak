@@ -16,7 +16,7 @@
   width: 20%;
   text-align: center;
   border-left: 1px solid rgba(255,255,255,0.7);
-  /* background-color: rgba(170,212,211,0.7); */
+  background-color: rgba(170,212,211,0.7);
 }
 .current-list-li {
   margin: 10px 0;
@@ -72,7 +72,7 @@
   /* border: 1px solid green; */
   width: 25%;
   border-right: 1px solid rgba(255,255,255,0.7);
-  /* background-color: rgba(170,212,211,0.7); */
+  background-color: rgba(170,212,211,0.7);
 }
 
 .recommended-list-header {
