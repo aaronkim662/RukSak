@@ -80,6 +80,7 @@ export const makeTrip = async (tripData) => {
 }
 
 export const deleteTrip = async (tripid) => {
+    console.log('delete')
   const resp = await api.delete(`/trip/${tripid}`);
   return resp.data;
 }

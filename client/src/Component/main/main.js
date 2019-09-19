@@ -15,19 +15,21 @@ class Main extends React.Component {
   }
 
   render() {
-    console.log('main', this.props.tripId)
+    console.log('main', this.props)
     return (
       <div className="main-background">
         <div className="main">
           {
-            this.props.currentUser && (
+            this.props.currentUser && this.props.currentUser ? (
             <Profile
               currentUser={this.props.currentUser}
-              removeTrip={this.props.removeTrip}
+              removeTrip={(e)=>this.props.removeTrip(e)}
               selectedTrip={this.props.selectedTrip}
               tripId={this.props.tripId}
             />
-          )}
+
+        ): ''}
+
 
           <TripChoice
             selectTrip={(e) => this.props.selectTrip(e)}

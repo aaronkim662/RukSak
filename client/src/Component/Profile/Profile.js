@@ -2,6 +2,7 @@ import React from 'react';
 import './profile.css';
 
 function Profile(props) {
+  console.log('profile', props)
   return(
     <div className="profileContainer">
       <div className="profileImage"><i className="far fa-user-circle fa-6x"></i></div>
