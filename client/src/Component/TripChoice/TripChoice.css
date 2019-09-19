@@ -2,7 +2,6 @@
   width: 900px;
   height: 160px;
   opacity: .9;
-
 }
 
 .photo:hover {
@@ -16,7 +15,7 @@
   box-shadow: -10px 0px 13px -7px #000000, 10px 0px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
   display: flex;
   flex-direction: column;
-  margin: 50px 150px 50px 0px;
+  margin: 50px 150px 50px 150px;
   width: 900px;
 }
 .trip-choice:hover {

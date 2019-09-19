@@ -162,7 +162,7 @@ handleSubmit = (e) => {
 }
 
 removeTrip = async (trip) => {
-  await deleteTrip(10);
+  await deleteTrip(trip.id);
   }
 
 // handleTripClick = async (e) => {

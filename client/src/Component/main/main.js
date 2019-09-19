@@ -27,7 +27,9 @@ class Main extends React.Component {
               selectedTrip={this.props.selectedTrip}
               tripId={this.props.tripId}
             />
+
         ): ''}
+
 
           <TripChoice
             selectTrip={(e) => this.props.selectTrip(e)}
