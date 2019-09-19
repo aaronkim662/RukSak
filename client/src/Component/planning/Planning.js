@@ -57,7 +57,7 @@ class Planning extends React.Component {
               onClick={(e) => this.props.handleTripClick(e)}
               type="submit">Finalize</button>
           </div>
-        </div>
+
     {/* BELOW IS RECOMMENDED LIST CONTAINER */}
         <div className="recommended-list-container">
           <h2 className="recommended-list-header">Recommended List</h2>
@@ -95,6 +95,7 @@ class Planning extends React.Component {
                   })
                 }
               </div>
+            </div>
             </div>
           </div>
 
