@@ -31,27 +31,31 @@ class Planning extends React.Component {
       </div>
         <div className="planning-container">
 
-  {/* BELOW IS TRIP TYPE DAY/PEOPLE CONTAINER */}
-        <div className="camping">
-          <h2 className="tripHeader">Plan Your Trip</h2>
-          <div className="tripSelectors">
-            <label
-              for="location"
-              location="this.state.location"
-              >Enter Location: </label>
-            <input
-              className="tripSelectors typeLocation"
-              type="text"
-              name="location"
-              placeholder="Location"
-            />
-            <RadioForm
-              className="tripSelectors"
-              days={this.state.days}
-              people={this.state.people}
-              handleClickPeople={this.handleClickPeople}
-              handleClick={this.handleClick}
-            />
+
+          {/* BELOW IS TRIP TYPE DAY/PEOPLE CONTAINER */}
+
+          <div className="camping">
+            <h2 className="tripHeader">Plan Your Trip!</h2>
+            <div className="tripSelectors">
+              <label
+                for="location">Enter Location: </label>
+              <input
+                className="tripSelectors typeLocation"
+                type="text"
+                name="location"
+                placeholder="location"
+              />
+              <RadioForm
+                className="tripSelectors"
+                days={this.state.days}
+                people={this.state.people}
+                handleClickPeople={this.handleClickPeople}
+                handleClick={this.handleClick}
+              />
+            </div>
+            <button
+              onClick={(e) => this.props.handleTripClick(e)}
+              type="submit">Finalize</button>
           </div>
         </div>
     {/* BELOW IS RECOMMENDED LIST CONTAINER */}
@@ -94,6 +98,7 @@ class Planning extends React.Component {
             </div>
           </div>
         </div>
+
       </React.Fragment>
     )
   }
