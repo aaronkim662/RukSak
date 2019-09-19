@@ -97,7 +97,7 @@ class Planning extends React.Component {
               </div>
             </div>
           </div>
-        </div>
+
 
       </React.Fragment>
     )
