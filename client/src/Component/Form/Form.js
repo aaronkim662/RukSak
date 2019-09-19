@@ -32,10 +32,11 @@ class Form extends React.Component {
         <div className="returnUsers">
 
           <h2 className="formHeading">Sign In</h2>
-          <form className="returningForm" id="login"
+          <form className="form returningForm" id="login"
             onSubmit={(e) => this.props.handleLog(e)}
           >
             <input
+              className="formInput"
               type="text"
               name="username"
               placeholder="username"
@@ -43,6 +44,7 @@ class Form extends React.Component {
               onChange={this.props.handleChange}
             />
             <input
+              className="formInput"
               type="password"
               name="password"
               placeholder="password"
@@ -59,10 +61,11 @@ class Form extends React.Component {
 
         <div className="newUsers">
          <h2 className="formHeading">Register</h2>
-          <form className="returningForm" id="register"
+          <form className="form returningForm" id="register"
             onSubmit={this.props.handleRegister}
           >
           <input
+            className="formInput"
             type="text"
             name="email"
             placeholder="email"
@@ -70,6 +73,7 @@ class Form extends React.Component {
             onChange={this.props.handleAuthChange}
           />
             <input
+              className="formInput"
               type="text"
               name="username"
               placeholder="username"
@@ -77,6 +81,7 @@ class Form extends React.Component {
               onChange={this.props.handleAuthChange}
             />
             <input
+              className="formInput"
               type="password"
               name="password"
               placeholder="password"

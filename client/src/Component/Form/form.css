@@ -2,13 +2,13 @@
   color: white;
 }
 
-form {
+.form {
   display: flex;
   flex-direction: column;
   padding: 15px;
 }
 
-input {
+.formInput {
   margin-bottom: 10px;
   border: none;
   padding: 10px;
@@ -19,7 +19,7 @@ input {
 }
 
 #buttonSignIn {
-  margin-top: 46px;
+  margin-top: 49px;
   border-radius: 50px;
 }
 #buttonSignIn:hover {

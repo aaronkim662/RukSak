@@ -3,17 +3,21 @@
 .link {
   text-decoration: none;
   margin: 0px 25px;
+  color: white;
+
 }
 
 .navbar {
   align-items: center;
-  background-color: lightgrey;
+  background-color: black;
+  border-bottom: 1px solid #f5f5f5;
   display: flex;
   justify-content: space-between;
 }
 
 .nav-links {
   display: flex;
+  color: white;
   font-family: 'Teko', sans-serif;
   font-size: 30px;
   list-style-type: none;
@@ -22,8 +26,9 @@
 }
 
 .ruksak {
-  display: flex;
   align-items: baseline;
+  color: white;
+  display: flex;
   font-family: 'Teko', sans-serif;
   font-size: 55px;
   letter-spacing: 2px;
