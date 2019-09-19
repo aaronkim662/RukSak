@@ -142,10 +142,7 @@ componentDidMount() {
 console.log('act', this.state.selectedTrip)
 console.log(this.selectTrip)
     return (
-      <>
       <div className="App">
-
-      <div>
         <Switch>
           <Route exact path='/'render={(props) => (
             <>
@@ -181,18 +178,16 @@ console.log(this.selectTrip)
                     handleTripClick={(e)=>this.handleTripClick(e)}
                 />
             </>
-            )}/>
+           )}/>
           <Route path='/profile' render={() => (
-            <>
-              <Header />
-              <Profile />
-            </>
-          )}/>
-          />
-        </Switch>
+              <>
+                <Header />
+                <Profile />
+              </>
+            )}/>
+            />
+          </Switch>
       </div>
-      </div>
-      </>
     );
   }
 }
