@@ -20,87 +20,98 @@ render(){
   return(
     <>
       <div className="radioForm">
-        <div className="radioLocation">
-          <div>Location:</div>
+        <form className="radioDays"
+        >
+        <label
+          for="radioButtonLabel"
+          >
+          Days: </label>
           <input
-          className="location"
-          placeholder="Enter a location"
-          type="input"
-          />
-        </div>
-        <form className="radioDays">
-          <div>Days: </div>
-          <input
-            className="radioButton"
+            className="radioInputStyleD1"
+            id="radioButtonLabel"
             type="radio"
             name="day1"
             value='1-2'
             checked={this.props.days === '1-2' ? true : false}
             onClick={this.props.handleClick}
-          />
-            <div>1-2</div>
+
+            />
+            <div className="radioButtonStyle">1-2</div>
+
           <input
+            className="radioInputStyleD"
             type="radio"
             name="day1"
             value='3-4'
             checked={this.props.days === '3-4' ? true : false}
             onClick={this.props.handleClick}
-          />
-            <div>3-4</div>
+            />
+            <div className="radioButtonStyle">3-4</div>
           <input
+            className="radioInputStyleD"
             type="radio"
             name="day1"
             value='5-6'
             checked={this.props.days === '5-6' ? true : false}
             onClick={this.props.handleClick}
-          />
-            <div>5-6</div>
+            />
+            <div className="radioButtonStyle">5-6</div>
           <input
+            className="radioInputStyleD"
             type="radio"
             name="day1"
             value='7+'
             checked={this.props.days === '7+' ? true : false}
             onClick={this.props.handleClick}
-          />
-            <div>7+</div>
+            />
+            <div className="radioButtonStyle">7+</div>
           </form>
-          <form className="radioPeople">
-            <div>People:</div>
+          <form className="radioPeople"
+          >
+          <label
+            for="radioButtonPeople"
+            >
+            People: </label>
             <input
+              className="radioInputStyleP"
               type="radio"
+              id="radioButtonPeople"
               name="people1"
               value='1-2'
               checked={this.props.people === '1-2' ? true : false}
               onClick={this.props.handleClickPeople}
-            />
-              <div>1-2</div>
+              />
+              <div className="radioButtonStyle">1-2</div>
             <input
+              className="radioInputStyleP"
               type="radio"
               name="people2"
               value='3-4'
               checked={this.props.people === '3-4' ? true : false}
               onClick={this.props.handleClickPeople}
-            />
-              <div>3-4</div>
+              />
+              <div className="radioButtonStyle">3-4</div>
             <input
+              className="radioInputStyleP"
               type="radio"
               name="people3"
               value='5-6'
               checked={this.props.people === '5-6' ? true : false}
               onClick={this.props.handleClickPeople}
-            />
-              <div>5-6</div>
+              />
+              <div className="radioButtonStyle">5-6</div>
             <input
+              className="radioInputStyleP"
               type="radio"
               name="people4"
               value='7+'
               checked={this.props.people === '7+' ? true : false}
               onClick={this.props.handleClickPeople}
-            />
-            <div>7+</div>
-          </form>
-        </div>
-      </>
+              />
+              <div className="radioButtonStyle">7+</div>
+            </form>
+          </div>
+        </>
     )
   }
 }
