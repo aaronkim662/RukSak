@@ -15,11 +15,15 @@ function Profile(props) {
       <div className="profileTrips">
         <h2 className="profileHeader">Current Trips</h2>
         <div className="temporaryText">Your Trips!</div>
-
             <div>{props.tripSelected && props.tripSelected.trip}</div>
-
-      </div>
+            <h3>Your Gear: </h3>
+            {props.selectedGear && props.selectedGear.map((ele) => {
+              return (
+                <div>{ele.gear}</div>
+              )
+            })}
     </div>
+  </div>
   )
 }
 

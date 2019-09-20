@@ -6,7 +6,7 @@ import Main from './Component/Main/main.js';
 import Planning from './Component/Planning/Planning.js';
 import Profile from './Component/Profile/Profile';
 import Register from './Component/Form/Register';
-import { allGear, oneGear, getGearName, deleteGear, createGear, loginUser, registerUser, tripGear, getTrip, userTrips, getUser, makeTrip, deleteTrip, verifyUser, allTrips } from './services/api';
+import { allGear, oneGear, getGearName, deleteGear, createGear, loginUser, registerUser, tripGear, getTrip, userTrips, getUser, makeTrip, deleteTrip, verifyUser, allTrips, oneTrip, getTg } from './services/api';
 
 import './App.css';
 
@@ -32,6 +32,7 @@ class App extends React.Component {
     selectedTrip: "",
     tripSelected: "",
     allTripsSelected: "",
+    currentGear: ''
   }
 
 handleChange = async (e) => {
@@ -148,7 +149,7 @@ removeGearClick = async (e) => {
 )};
 
 makeATrip = async (tripType) => {
-  const tripName = await getTrip(tripType);
+  const tripName = await oneTrip(tripType);
   console.log('name',tripName)
   const current = await makeTrip({ trip:tripName.trip });
   this.setState({
@@ -190,6 +191,12 @@ handleTripClick = async (e) => {
   await Promise.all(toResolve);
 }
 
+tripGears = async (tripId) => {
+  const tripgear =await getTg(tripId);
+  this.setState(prevState => ({
+    selectedGear: [...prevState, tripgear],
+  }))
+}
 // handleUserClick = async (e) => {
 //   e.preventDefault();
 //   const userName = await getUser(this.state.currentUser);
@@ -201,6 +208,7 @@ handleTripClick = async (e) => {
 componentDidMount() {
   this.getGear();
   this.checkUser();
+  this.tripGears();
 }
 
 
@@ -210,7 +218,7 @@ render(){
   // console.log('selected trip', this.state.tripSelected)
   // console.log(this.selectTrip)
   console.log('list', this.state.gear)
-  console.log('gear', this.state.inputGear)
+  console.log('gears', this.state.selectedGear)
 
     return (
       <div className="App">
@@ -244,6 +252,7 @@ render(){
                 currentUser={this.state.currentUser}
                 selectAllTrip={()=>this.selectAllTrip()}
                 tripSelected={this.state.tripSelected}
+                selectedGear={this.state.selectedGear}
               />
             </>
           )}/>
