@@ -4,7 +4,9 @@
   text-decoration: none;
   margin: 0px 25px;
   color: white;
-
+}
+.hide-menu-btn {
+  display: none;
 }
 
 .navbar {
@@ -55,12 +57,10 @@
     margin-right: 10px;
   }
   .ruksak {
-    margin-left: 5px;
+    margin-left: 20px;
   }
   .tagline {
-    /* display: none; */
-    margin-left: -10px;
-    font-size: 25px;
+    display: none;
   }
   .link {
     color: white;
@@ -79,11 +79,8 @@
   height: 50%;
   transition: 0.7s;
    background-color: black;
-}
-
+  }
   .show-menu-btn, .hide-menu-btn {
   display: block;
-}
-
-
+  }
 }

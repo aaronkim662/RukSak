@@ -177,11 +177,18 @@ handleChangeLoc = (e) => {
 handleSubmit = (e) => {
   this.setState({
     location: e.target.value
-
   })}
 removeTrip = async (trip) => {
   await deleteTrip(trip.id);
 }
+
+handleRegisterClick = async (e) => {
+  e.preventDefault();
+  this.setState({
+    isShowing: true
+  })
+};
+
 
 // handleTripClick = async (e) => {
 //   e.preventDefault();
@@ -235,6 +242,7 @@ render(){
                 handleAuthChange={this.handleAuth}
                 handleLog={(e) => this.handleLog(e)}
                 handleSubmit={(e) => this.handleSubmit(e)}
+                handleRegisterClick={(e) => this.handleRegisterClick(e)}
               />
             </>
             )}/>
@@ -280,9 +288,8 @@ render(){
           <Route path='/profile' render={() => (
               <>
                 <Header
-              handleLogout={this.state.handleLogout}
+                  handleLogout={this.state.handleLogout}
             />
-                <Profile />
               </>
             )}/>
         </Switch>
