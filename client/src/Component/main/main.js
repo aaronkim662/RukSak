@@ -26,6 +26,7 @@ class Main extends React.Component {
               removeTrip={(e)=>this.props.removeTrip(e)}
               selectedTrip={this.props.selectedTrip}
               tripId={this.props.tripId}
+              allTripsSelected={this.props.allTripsSelected}
             />
         ): ''}
 

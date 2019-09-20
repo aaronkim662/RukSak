@@ -14,6 +14,12 @@ function Profile(props) {
       </div>
       <div className="profileTrips">
         <h2 className="profileHeader">Current Trips</h2>
+        <div>here</div>
+        {props.allTripsSelected && props.allTripsSelected.map((ele) => {
+          return (
+            <div>{ele.trip}</div>
+          )
+        })}
         <button onClick={() => props.removeTrip(props.tripId.id)}>Delete</button>
       </div>
     </div>

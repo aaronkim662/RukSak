@@ -6,7 +6,7 @@ import Main from './Component/Main/main.js';
 import Planning from './Component/Planning/Planning.js';
 import Profile from './Component/Profile/Profile';
 import Register from './Component/Form/Register';
-import { allGear, oneGear, getGearName, deleteGear, loginUser, registerUser, tripGear, getTripName, userTrips, getUser, makeTrip, deleteTrip, verifyUser } from './services/api';
+import { allGear, oneGear, getGearName, deleteGear, loginUser, registerUser, tripGear, getTripName, userTrips, getUser, makeTrip, deleteTrip, verifyUser, allTrips } from './services/api';
 
 import './App.css';
 
@@ -29,7 +29,8 @@ class App extends React.Component {
     gear:[],
     selectedGear: [],
     selectedTrip: "",
-    tripSelected: '',
+    tripSelected: "",
+    allTripsSelected: "",
   }
 
 handleChange = async (e) => {
@@ -148,6 +149,10 @@ selectTrip = (e) => {
 
 }
 
+selectAllTrip = async () => {
+  await allTrips();
+}
+
 handleChangeLoc = (e) => {
   console.log('this is handleChange', e.target.value);
   this.setState({
@@ -229,6 +234,8 @@ render(){
                 selectedTrip={this.state.selectedTrip}
                 tripId={this.state.tripSelected}
                 currentUser={this.state.currentUser}
+                selectAllTrip={()=>this.selectAllTrip()}
+                allTripsSelected={this.state.allTripsSelected}
               />
             </>
           )}/>

@@ -69,6 +69,11 @@ export const getTripName = async (tripName) => {
   return resp.data;
 };
 
+export const allTrips = async () => {
+  const resp = await api.get(`/trip`);
+  return resp.data;
+}
+
 export const userTrips = async (userid, tripid) => {
   const resp = await api.put(`/user/${userid}/trip/${tripid}`);
   return resp.data;
