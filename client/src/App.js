@@ -5,7 +5,6 @@ import Login from './Component/Login/Login';
 import Main from './Component/Main/main.js';
 import Planning from './Component/Planning/Planning.js';
 import Profile from './Component/Profile/Profile';
-import Register from './Component/Form/Register';
 import { allGear, oneGear, getGearName, deleteGear, createGear, loginUser, registerUser, tripGear, getTrip, userTrips, getUser, makeTrip, deleteTrip, verifyUser, allTrips, oneTrip, getTg } from './services/api';
 
 import './App.css';
@@ -53,7 +52,6 @@ class App extends React.Component {
     const currentUser = await verifyUser();
     if (currentUser) {
     this.setState({currentUser});
-    currentGear: ''
       }
     };
 
@@ -143,7 +141,7 @@ class App extends React.Component {
   )};
 
   makeATrip = async (tripType) => {
-    const tripName = await getTripName(tripType);
+    const tripName = await oneTrip(tripType);
     const current = await makeTrip({ trip:tripName.trip });
     this.setState({
       tripSelected: current
@@ -170,7 +168,7 @@ class App extends React.Component {
       location: e.target.value
    })
   };
-  
+
   removeTrip = async (trip) => {
     await deleteTrip(trip.id);
   };
@@ -178,7 +176,7 @@ class App extends React.Component {
   handleUserClick = async (e) => {
     e.preventDefault();
     const userName = await getUser(this.state.currentUser);
-    const tripName = await getTripName(this.state.selectedTrip);
+    const tripName = await oneTrip(this.state.selectedTrip);
     const toResolve = await userTrips(userName.id, tripName.id);
     await Promise.all(toResolve);
   };
