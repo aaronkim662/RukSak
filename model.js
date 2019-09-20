@@ -1,6 +1,7 @@
 const Sequelize = require('sequelize');
 
 const db = new Sequelize({
+  (process.env.DATABASE_URL || 'postgres://localhost:5432/ruksak_db'),
   database: 'ruksak_db',
   dialect: 'postgres',
   define: {
