@@ -1,16 +1,32 @@
+.editButton {
+  height: 20px;
+  margin-left: 10px;
+}
+
+.far {
+  color: black;
+  margin-top: 20%;
+}
+
 .profileContainer {
+  background-color: rgb(240, 240, 240);
   border-right: 1px solid black;
   color: black;
   display: flex;
   flex-direction: column;
   width: 15%;
-  background-color: rgb(240, 240, 240);
 }
+
+.profileHeader {
+  margin-left: 10px;
+}
+
 .profileImage {
   height: 60%;
-  width: 100%;
   text-align: center;
+  width: 100%;
 }
+
 .profileImage:after {
   content: "";
   display: block;
@@ -19,10 +35,12 @@
   padding-top: 20px;
   border-bottom: 1px solid black;
 }
+
 .profileInfo {
   height: 30%;
   text-align: left;
 }
+
 .profileInfo:after {
   content: "";
   display: block;
@@ -31,15 +49,6 @@
   padding-top: 20px;
   border-bottom: 1px solid black;
 }
-.profileTrips {
-  height: 100%;
-  text-align: left;
-}
-
-.far {
-  margin-top: 20%;
-  color: black;
-}
 
 .profileList {
   list-style-type: none;
@@ -47,24 +56,29 @@
   font-size: 1.3em;
 }
 
-.editButton {
-  height: 20px;
-  margin-left: 10px;
+.profileTrips {
+  height: 100%;
+  text-align: left;
 }
 
 .unorderedList {
   padding-left: 10px;
 }
 
-.profileHeader {
-  margin-left: 10px;
-}
-
-
 
 @media (max-width:768px) {
+
+  .deleteButton {
+    cursor: pointer;
+    color: white;
+    margin-top: 10px;
+    margin-left: 10px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: rgba(0,0,0,0.7)
+  }
+
   .profileContainer {
-    /* border: 1px solid red; */
     font-size: 12px;
     position: absolute;
     height: 170px;
@@ -80,37 +94,30 @@
     border-top: 1px solid white;
     border-bottom: 50px solid black;
     border-radius: 15px;
+  }
 
-  }
-  .profileImage {
-    display: none;
-  }
-  .unorderedList {
-    position: absolute;
-  }
-  .profileTrips {
-    position: relative;
-    top: 50px;
-  }
-  .profileInfo {
-    /* border: 1px solid green; */
-  }
   .profileHeader {
     padding-top: 20px;
     font-size: 17px;
     margin-left: 10px;
   }
+
+  .profileImage {
+    display: none;
+  }
+
+  .profileTrips {
+    position: relative;
+    top: 50px;
+  }
+
   .temporaryText {
     margin-top: -7px;
     margin-left: 10px;
   }
-  .deleteButton {
-    cursor: pointer;
-    color: white;
-    margin-top: 10px;
-    margin-left: 10px;
-    padding: 5px 10px;
-    border-radius: 5px;
-    background-color: rgba(0,0,0,0.7)
+
+  .unorderedList {
+    position: absolute;
   }
+
 }

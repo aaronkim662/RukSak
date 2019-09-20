@@ -66,6 +66,10 @@
 
 /* BELOW IS STYLING FOR BUTTON */
 
+.newUserButton {
+  display: none;
+}
+
 .submitSignIn, .submit {
   background: #1AAB8A;
   color: #fff;
@@ -78,21 +82,14 @@
   transition: 800ms ease all;
   outline: none;
   margin: 5px;
-  /* overflow-wrap: break-word; */
-  /* text-wrap: wrap; */
 }
-#buttonSignIn:hover{
-  /* background:#fff; */
-  color:#1AAB8A;
-  background-color: white;
-  border-radius: 0;
-}
+
 .submit:hover{
-  /* background:#fff; */
   color:#1AAB8A;
   background-color: white;
   border-radius: 0;
 }
+
 .submitSignIn:before,.submitSignIn:after{
   content: '';
   position: absolute;
@@ -103,6 +100,7 @@
   background: #1AAB8A;
   transition: 400ms ease all;
 }
+
 .submit:before,.submit:after{
   content: '';
   position: absolute;
@@ -113,33 +111,38 @@
   background: #1AAB8A;
   transition: 400ms ease all;
 }
+
 .submitSignIn:after{
   right:inherit;
   top:inherit;
   left:0;
   bottom:0;
 }
+
 .submit:after{
   right:inherit;
   top:inherit;
   left:0;
   bottom:0;
 }
+
 .submitSignIn:hover:before,.submitSignIn:hover:after{
   width:100%;
   transition:800ms ease all;
 }
+
 .submit:hover:before,.submit:hover:after{
   width:100%;
   transition:800ms ease all;
 }
 
-.newUserButton {
-  display: none;
+#buttonSignIn:hover{
+  color:#1AAB8A;
+  background-color: white;
+  border-radius: 0;
 }
 
-
-/* BELOW IS MEDIA QUERIES FOR MOBILE */
+/* BELOW ARE MEDIA QUERIES FOR MOBILE */
 
 @media(max-width: 768px) {
 
@@ -148,29 +151,35 @@
     display: block;
     width: 80%;
   }
+  
   .newUsers {
     position: absolute;
     width: 100%;
     z-index: -1;
     opacity: 0;
   }
+  
   .returnUsers {
     width: 100%;
     position: absolute;
     z-index: 1;
     height: 40vh;
   }
+  
   .signIn {
     margin-top: 0;
   }
+  
   .newUserButton {
     display: block;
     margin-top: 10px;
     border-radius: 50px;
   }
+  
   .submitSignIn {
     margin-top: 0;
   }
+  
   .newUserButton {
     background: #1AAB8A;
     color: #fff;
@@ -184,11 +193,14 @@
     outline: none;
     margin: 5px;
   }
+
+  
   .newUserButton:hover{
     color:#1AAB8A;
     background-color: white;
     border-radius: 0;
   }
+
   .newUserButton:before,.newUserButton:after{
     content: '';
     position: absolute;
@@ -199,19 +211,23 @@
     background: #1AAB8A;
     transition: 400ms ease all;
   }
+
   .newUserButton:after{
     right:inherit;
     top:inherit;
     left:0;
     bottom:0;
   }
+
   .newUserButton:hover:before,.newUserButton:hover:after{
     width:100%;
     transition:800ms ease all;
   }
+
   #buttonSignIn {
     margin-top: 10px;
   }
+
   .formContainer {
     max-width: 60%;
   }
