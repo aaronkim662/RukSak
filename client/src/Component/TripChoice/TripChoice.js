@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 function TripChoice(props) {
   console.log(props.selectTrip)
   return(
-    <div>
+    <div className="trip-choice-container">
       <div className="trip-choice">
         <Link className="trip-header" to="/planning">
           <img
