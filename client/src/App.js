@@ -6,7 +6,7 @@ import Main from './Component/Main/main.js';
 import Planning from './Component/Planning/Planning.js';
 import Profile from './Component/Profile/Profile';
 import Register from './Component/Form/Register';
-import { allGear, oneGear, getGearName, deleteGear, loginUser, registerUser, tripGear, getTripName, userTrips, getUser, makeTrip, deleteTrip, verifyUser, allTrips } from './services/api';
+import { allGear, oneGear, getGearName, deleteGear, createGear, loginUser, registerUser, tripGear, getTripName, userTrips, getUser, makeTrip, deleteTrip, verifyUser, allTrips } from './services/api';
 
 import './App.css';
 
@@ -27,6 +27,7 @@ class App extends React.Component {
     },
     isShowing: false,
     gear:[],
+    inputGear: "",
     selectedGear: [],
     selectedTrip: "",
     tripSelected: "",
@@ -121,6 +122,17 @@ getGear = async (e) => {
   this.setState({gear});
 };
 
+makeGear = async (e) => {
+  const newGear = await createGear(this.state.inputGear);
+  this.setState(prevState => ({
+      gear: [...prevState.gear, newGear],
+  }))
+}
+
+obliterateGear = async (gearId) => {
+  await deleteGear(gearId);
+}
+
 handleGearClick = (e) => {
 
   this.setState(prevState => ({
@@ -128,7 +140,8 @@ handleGearClick = (e) => {
   }))
 };
 
-removeGearClick = (e) => {
+removeGearClick = async (e) => {
+  // await deleteGear()
   this.setState(prevState => ({
   selectedGear: prevState.selectedGear.filter((ele,i) => i !== e)
   })
@@ -166,9 +179,8 @@ handleSubmit = (e) => {
 
   })}
 removeTrip = async (trip) => {
-
   await deleteTrip(trip.id);
-  }
+}
 
 // handleTripClick = async (e) => {
 //   e.preventDefault();
@@ -188,10 +200,10 @@ removeTrip = async (trip) => {
 //   await Promise.all(toResolve);
 // }
 
-destroyGear = async (gear) => {
-  const gears = await getGearName(gear);
-  await deleteGear(gears.id);
-}
+// destroyGear = async (gear) => {
+//   const gears = await getGearName(gear);
+//   await deleteGear(gears.id);
+// }
 
 componentDidMount() {
   this.getGear();
@@ -204,6 +216,8 @@ render(){
   console.log('current', this.state.currentUser)
   console.log('selected trip', this.state.tripSelected)
   console.log(this.selectTrip)
+  console.log('gear', this.state.selectedGear)
+
     return (
       <div className="App">
         <Switch>
@@ -254,6 +268,9 @@ render(){
                     handleTripClick={(e)=>this.handleTripClick(e)}
                     handleChangeLoc={(e)=>this.handleChangeLoc(e)}
                     location={this.state.location}
+                    remove={(e)=>this.obliterateGear(e)}
+                    makeGear={(e)=>this.makeGear(e)}
+                    newGear={this.state.newGear}
                 />
 
             </>

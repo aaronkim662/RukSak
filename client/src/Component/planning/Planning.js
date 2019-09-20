@@ -55,7 +55,9 @@ class Planning extends React.Component {
                   className="tripSelectors typeGear"
                   type="text"
                   name="Gear"
+                  onSubmit={this.props.newGear}
                 />
+              
               <RadioForm
                 className="tripSelectors"
                 days={this.state.days}
@@ -83,6 +85,7 @@ class Planning extends React.Component {
                 <li
                 className="recommended-list-li"
                 onClick={()=>this.props.handleGearClick(ele)}>{ele.gear}</li>
+              <button onClick={(e)=> this.props.remove(ele.id)}>Delete</button>
                </ul>
               )
             })

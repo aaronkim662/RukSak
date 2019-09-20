@@ -67,6 +67,9 @@ User.belongsToMany(Trip, { through: 'user_trip' });
 Gear.belongsToMany(Trip, { through: 'trip_gear' });
 Trip.belongsToMany(Gear, { through: 'trip_gear' });
 
+Gear.belongsTo(User, { through: 'user_gear' });
+User.belongsToMany(Gear, { through: 'user_gear' });
+
 Location.hasMany(Trip);
 Trip.belongsTo(Location);
 
