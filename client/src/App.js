@@ -85,6 +85,7 @@ class App extends React.Component {
       await registerUser(this.state.authFormData);
       this.handleLogin();
     }
+
   };
 
   handleLogout = () => {
@@ -214,6 +215,7 @@ class App extends React.Component {
                 handleAuthChange={this.handleAuth}
                 handleLog={(e) => this.handleLog(e)}
                 handleSubmit={(e) => this.handleSubmit(e)}
+                handleRegisterClick={(e) => this.handleRegisterClick(e)}
               />
             </>
             )}/>
@@ -262,7 +264,6 @@ class App extends React.Component {
                 handleLogout={this.state.handleLogout}
               />
               <Profile />
-
             </>
           )}/>
         </Switch>
