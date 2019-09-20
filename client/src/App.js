@@ -6,7 +6,7 @@ import Main from './Component/Main/main.js';
 import Planning from './Component/Planning/Planning.js';
 import Profile from './Component/Profile/Profile';
 import Register from './Component/Form/Register';
-import { allGear, oneGear, getGearName, deleteGear, createGear, loginUser, registerUser, tripGear, getTripName, userTrips, getUser, makeTrip, deleteTrip, verifyUser, allTrips } from './services/api';
+import { allGear, oneGear, getGearName, deleteGear, createGear, loginUser, registerUser, tripGear, getTrip, userTrips, getUser, makeTrip, deleteTrip, verifyUser, allTrips } from './services/api';
 
 import './App.css';
 
@@ -136,7 +136,7 @@ obliterateGear = async (gearId) => {
 handleGearClick = (e) => {
 
   this.setState(prevState => ({
-    selectedGear: [...prevState.selectedGear, e.gear]
+    selectedGear: [...prevState.selectedGear, e]
   }))
 };
 
@@ -148,7 +148,7 @@ removeGearClick = async (e) => {
 )};
 
 makeATrip = async (tripType) => {
-  const tripName = await getTripName(tripType);
+  const tripName = await getTrip(tripType);
   console.log('name',tripName)
   const current = await makeTrip({ trip:tripName.trip });
   this.setState({
@@ -182,23 +182,21 @@ removeTrip = async (trip) => {
   await deleteTrip(trip.id);
 }
 
-// handleTripClick = async (e) => {
-//   e.preventDefault();
-//   const tripName = await getTripName(this.state.selectedTrip);
-//   const toResolve = await this.state.selectedGear.map(async (ele) => {
-//     const gearName = await getGearName(ele);
-//     await tripGear(tripName.id, gearName.id)
-//   });
-//   await Promise.all(toResolve);
-// }
-//
-handleUserClick = async (e) => {
+handleTripClick = async (e) => {
   e.preventDefault();
-  const userName = await getUser(this.state.currentUser);
-  const tripName = await getTripName(this.state.selectedTrip);
-  const toResolve = await userTrips(userName.id, tripName.id);
+  const toResolve = await this.state.selectedGear.map(async (ele) => {
+    await tripGear(this.state.tripSelected.id, ele.id)
+  });
   await Promise.all(toResolve);
 }
+
+// handleUserClick = async (e) => {
+//   e.preventDefault();
+//   const userName = await getUser(this.state.currentUser);
+//   const tripName = await getTripName(this.state.selectedTrip);
+//   const toResolve = await userTrips(userName.id, tripName.id);
+//   await Promise.all(toResolve);
+// }
 
 componentDidMount() {
   this.getGear();
@@ -245,7 +243,7 @@ render(){
                 tripId={this.state.tripSelected}
                 currentUser={this.state.currentUser}
                 selectAllTrip={()=>this.selectAllTrip()}
-                allTripsSelected={this.state.allTripsSelected}
+                tripSelected={this.state.tripSelected}
               />
             </>
           )}/>
@@ -261,7 +259,7 @@ render(){
                     activity={this.state.selectTrip}
                     handleGearClick={(e) => this.handleGearClick(e)}
                     handleRemoveClick={(e)=>this.removeGearClick(e)}
-                    handleUserClick={(e)=>this.handleUserClick(e)}
+                    handleTripClick={(e)=>this.handleTripClick(e)}
                     handleChangeLoc={(e)=>this.handleChangeLoc(e)}
                     location={this.state.location}
                     tripSelected={this.state.selectedTrip}

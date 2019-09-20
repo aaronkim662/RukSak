@@ -92,7 +92,7 @@ class Planning extends React.Component {
               />
               <button
                 className="finalize-button"
-                onClick={(e) => this.props.handleUserClick(e)}
+                onClick={(e) => this.props.handleTripClick(e)}
                 type="submit">Finalize Itinerary</button>
             </div>
 
@@ -134,7 +134,7 @@ class Planning extends React.Component {
                     <li
                       className="current-list-li"
                       index={i}
-                      onClick={() => this.props.handleRemoveClick(i)}>- {ele}</li>
+                      onClick={() => this.props.handleRemoveClick(i)}>- {ele.gear}</li>
                     )
                   })
                 }

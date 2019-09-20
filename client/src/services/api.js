@@ -60,12 +60,12 @@ export const registerUser = async (resgisterData) => {
 };
 
 export const tripGear = async (tripId, gearId) => {
-  const resp = await api.put(`/trip/${tripId}/gears/${gearId}`);
+  const resp = await api.put(`/trip/${tripId}/gear/${gearId}`);
   return resp.data;
 };
 
-export const getTripName = async (tripName) => {
-  const resp = await api.get(`/trip/name/${tripName}`);
+export const getTrip = async (tripId) => {
+  const resp = await api.get(`/trip/name/${tripId}`);
   return resp.data;
 };
 

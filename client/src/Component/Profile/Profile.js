@@ -2,6 +2,7 @@ import React from 'react';
 import './profile.css';
 
 function Profile(props) {
+  console.log('prop', props.tripSelected)
   return(
     <div className="profileContainer">
       <div className="profileImage"><i className="far fa-user-circle fa-6x"></i></div>
@@ -14,12 +15,9 @@ function Profile(props) {
       <div className="profileTrips">
         <h2 className="profileHeader">Current Trips</h2>
         <div className="temporaryText">Your Trips!</div>
-        {props.allTripsSelected && props.allTripsSelected.map((ele) => {
-          return (
-            <div>{ele.trip}</div>
-          )
-        })}
-        <button className="deleteButton" onClick={() => props.removeTrip(props.tripId.id)}>Delete</button>
+
+            <div>{props.tripSelected && props.tripSelected.trip}</div>
+
       </div>
     </div>
   )
