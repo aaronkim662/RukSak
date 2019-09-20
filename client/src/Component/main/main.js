@@ -27,6 +27,7 @@ class Main extends React.Component {
               selectedTrip={this.props.selectedTrip}
               tripId={this.props.tripId}
               tripSelected={this.props.tripSelected}
+              selectedGear={this.props.selectedGear}
             />
 
         ): ''}

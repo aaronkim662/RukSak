@@ -58,19 +58,29 @@ export const registerUser = async (resgisterData) => {
   const resp = await api.post(`/auth/register`, resgisterData);
   return resp.data;
 };
-
+//put
 export const tripGear = async (tripId, gearId) => {
   const resp = await api.put(`/trip/${tripId}/gear/${gearId}`);
   return resp.data;
 };
 
+export const getTg = async (tripId, gearId) => {
+  const resp = await api.get(`/trip/${tripId}/gear`);
+  return resp.data;
+};
+
 export const getTrip = async (tripId) => {
-  const resp = await api.get(`/trip/name/${tripId}`);
+  const resp = await api.get(`/trip/${tripId}`);
   return resp.data;
 };
 
 export const allTrips = async () => {
   const resp = await api.get(`/trip`);
+  return resp.data;
+}
+
+export const oneTrip = async (name) => {
+  const resp = await api.get(`/trip/name/${name}`)
   return resp.data;
 }
 
@@ -82,7 +92,7 @@ export const userTrips = async (userid, tripid) => {
 export const makeTrip = async (tripData) => {
   const resp = await api.post('/trip', tripData);
   return resp.data;
-}
+};
 
 export const deleteTrip = async (tripid) => {
     console.log('delete')

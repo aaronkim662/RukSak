@@ -18,6 +18,7 @@ tripController.get('/', async (req, res) => {
     res.status(500).send(e);
   }
 });
+
 tripController.put('/:tripid/gear/:gearid/', async (req, res) => {
   try {
     const tripGear = await Trip.findOne({
@@ -35,7 +36,7 @@ tripController.put('/:tripid/gear/:gearid/', async (req, res) => {
   }
 });
 
-tripController.get('/:tripid/gear/:gearid/', async (req, res) => {
+tripController.get('/:tripid/gear', async (req, res) => {
   try {
     const tripGear = await Trip.findOne({
       where: { id: req.params.tripid },
@@ -83,6 +84,18 @@ tripController.get('/name/:id', async (req, res) => {
   }
 });
 
+tripController.get('/name/:name', async (req, res) => {
+  try {
+    const find = await Trip.findOne({
+      where: {
+        gear: req.params.name,
+      },
+    });
+    res.json(find);
+  } catch (e) {
+    res.status(500).send(e.message);
+  }
+});
 module.exports = tripController;
 
 // const tripGear = await Trip.findByPk(req.params.tripid);
