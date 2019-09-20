@@ -123,11 +123,10 @@ getGear = async (e) => {
 };
 
 makeGear = async (e) => {
-  e.preventDefault();
-  const newGear = await createGear({e});
-  // this.setState(prevState => ({
-  //     gear: [...prevState.gear, newGear],
-  // }))
+  const newGear = await createGear({gear: e});
+  this.setState(prevState => ({
+      gear: [...prevState.gear, newGear],
+  }))
 }
 
 obliterateGear = async (gearId) => {
@@ -201,11 +200,6 @@ handleUserClick = async (e) => {
   await Promise.all(toResolve);
 }
 
-// destroyGear = async (gear) => {
-//   const gears = await getGearName(gear);
-//   await deleteGear(gears.id);
-// }
-
 componentDidMount() {
   this.getGear();
   this.checkUser();
@@ -217,6 +211,7 @@ render(){
   // console.log('current', this.state.currentUser)
   // console.log('selected trip', this.state.tripSelected)
   // console.log(this.selectTrip)
+  console.log('list', this.state.gear)
   console.log('gear', this.state.inputGear)
 
     return (

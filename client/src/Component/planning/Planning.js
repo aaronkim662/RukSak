@@ -11,17 +11,25 @@ class Planning extends React.Component {
   }
 
   handleClick = (e) => {
+    e.preventDefault();
     this.setState({
       days: e.target.value
     })
   }
 
   handleClickPeople = (e) => {
+    e.preventDefault();
+
     this.setState({
       people: e.target.value
     })
   }
-
+  handleSubmit = (e) => {
+    e.preventDefault();
+    this.setState({
+      gearValue: e.target.value
+    })
+  }
   handleChange = (e) => {
     e.preventDefault();
     console.log('changes', e.target.value)
@@ -34,6 +42,7 @@ class Planning extends React.Component {
     // console.log('plan', this.props.gear)
     // console.log('change', this.state.location)
     console.log("changes", this.state.gearValue)
+    console.log('submit', this.state.gearValue)
     return (
       <React.Fragment>
       <div className="photo-container">
@@ -55,21 +64,24 @@ class Planning extends React.Component {
                 name="location"
                 placeholder="location"
                 onSubmit={(e)=>this.props.handleSubmit(e)}
+
               />
                 <label
                   for="location">Gear: </label>
 
                 <form
+                  onSubmit={(e)=>this.props.makeGear(this.state.gearValue)}
+
                   >
                 <input
                   className="tripSelectors typeGear"
                   type="text"
                   name="Gear"
+                  value={this.state.gearValue}
                   onChange={(e)=>this.handleChange(e)}
+                  onSubmit={(e)=>this.handleSubmit(e)}
+
                   />
-                <button
-                  onSubmit={()=>this.props.makeGear(this.state.gearValue)}
->Submit</button>
                 </form>
               <RadioForm
                 className="tripSelectors"
