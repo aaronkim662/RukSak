@@ -14,17 +14,11 @@ handleClick = (e) => {
 }
 
 render(){
-  // console.log('props', this.props.days)
-  // console.log('people', this.props.people)
-  return(
+  return (
     <>
       <div className="radioForm">
-        <form className="radioDays"
-        >
-        <label
-          for="radioButtonLabel"
-          >
-          Days: </label>
+        <form className="radioDays">
+        <label for="radioButtonLabel">Days: </label>
           <input
             className="radioInputStyleD1"
             id="radioButtonLabel"
@@ -33,10 +27,8 @@ render(){
             value='1-2'
             checked={this.props.days === '1-2' ? true : false}
             onClick={this.props.handleClick}
-
-            />
+          />
             <div className="radioButtonStyle">1-2</div>
-
           <input
             className="radioInputStyleD"
             type="radio"
@@ -44,7 +36,7 @@ render(){
             value='3-4'
             checked={this.props.days === '3-4' ? true : false}
             onClick={this.props.handleClick}
-            />
+          />
             <div className="radioButtonStyle">3-4</div>
           <input
             className="radioInputStyleD"
@@ -53,7 +45,7 @@ render(){
             value='5-6'
             checked={this.props.days === '5-6' ? true : false}
             onClick={this.props.handleClick}
-            />
+          />
             <div className="radioButtonStyle">5-6</div>
           <input
             className="radioInputStyleD"
@@ -62,23 +54,19 @@ render(){
             value='7+'
             checked={this.props.days === '7+' ? true : false}
             onClick={this.props.handleClick}
-            />
+          />
             <div className="radioButtonStyle">7+</div>
           </form>
-          <form className="radioPeople"
-          >
-          <label
-            for="radioButtonPeople"
-            >
-            People: </label>
-            <input
-              className="radioInputStyleP"
-              type="radio"
-              id="radioButtonPeople"
-              name="people1"
-              value='1-2'
-              checked={this.props.people === '1-2' ? true : false}
-              onClick={this.props.handleClickPeople}
+          <form className="radioPeople">
+            <label for="radioButtonPeople">People: </label>
+              <input
+                className="radioInputStyleP"
+                type="radio"
+                id="radioButtonPeople"
+                name="people1"
+                value='1-2'
+                checked={this.props.people === '1-2' ? true : false}
+                onClick={this.props.handleClickPeople}
               />
               <div className="radioButtonStyle">1-2</div>
             <input
@@ -108,11 +96,10 @@ render(){
               onClick={this.props.handleClickPeople}
               />
               <div className="radioButtonStyle">7+</div>
-            </form>
-          </div>
-        </>
-    )
-  }
-}
+          </form>
+        </div>
+    </>
+  )};
+};
 
 export default RadioForm;
