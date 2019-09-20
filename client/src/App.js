@@ -121,8 +121,8 @@ class App extends React.Component {
   };
 
   makeGear = async (e) => {
-    e.preventDefault();
-    const newGear = await createGear({e});
+
+    await createGear({e});
   };
 
   obliterateGear = async (gearId) => {
@@ -131,7 +131,7 @@ class App extends React.Component {
 
   handleGearClick = (e) => {
     this.setState(prevState => ({
-      selectedGear: [...prevState.selectedGear, e.gear]
+      selectedGear: [...prevState.selectedGear, e]
     }))
   };
 
@@ -174,7 +174,7 @@ class App extends React.Component {
     await deleteTrip(trip.id);
   };
 
-  handleUserClick = async (e) => {
+  handleTripClick = async (e) => {
     e.preventDefault();
     const userName = await getUser(this.state.currentUser);
     const tripName = await oneTrip(this.state.selectedTrip);
@@ -194,12 +194,7 @@ class App extends React.Component {
 //   await Promise.all(toResolve);
 // }
   render(){
-
-
-
-
-
-
+    console.log('select', this.state.inputGear)
     return (
       <div className="App">
         <Switch>
@@ -248,7 +243,7 @@ class App extends React.Component {
               activity={this.state.selectTrip}
               handleGearClick={(e) => this.handleGearClick(e)}
               handleRemoveClick={(e)=>this.removeGearClick(e)}
-              handleUserClick={(e)=>this.handleUserClick(e)}
+              handleTripClick={(e)=>this.handleTripClick(e)}
               handleChangeLoc={(e)=>this.handleChangeLoc(e)}
               location={this.state.location}
               tripSelected={this.state.selectedTrip}

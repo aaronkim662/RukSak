@@ -24,7 +24,7 @@ class Planning extends React.Component {
       people: e.target.value
     })
   };
-  
+
   handleSubmit = (e) => {
     e.preventDefault();
     this.setState({
@@ -40,6 +40,7 @@ class Planning extends React.Component {
   };
 
   render() {
+    console.log('gear', this.props.inputGear)
     return (
       <React.Fragment>
         <div className="photo-container">
@@ -78,7 +79,7 @@ class Planning extends React.Component {
 
                   />
                 <button
-                  onSubmit={()=>this.props.makeGear(this.state.gearValue)}
+                  onSubmit={(e)=>this.props.makeGear(this.state.gearValue)}
                   >Submit</button>
                 </form>
               <RadioForm
@@ -93,7 +94,7 @@ class Planning extends React.Component {
                 onClick={(e) => this.props.handleTripClick(e)}
                 type="submit">Finalize Itinerary</button>
             </div>
-            <button type="submit">Finalize</button>
+
           </div>
         <div className="recommended-list-container">
           <h2 className="recommended-list-header">Recommended List</h2>
