@@ -96,4 +96,19 @@ userController.put('/:userid/gear/:gearid/', async (req, res) => {
   }
 });
 
+userController.get('/:userid/gear/:gearid/', async (req, res) => {
+  try {
+    const user = await User.findOne({
+      where: { id: req.params.userid },
+      include: [
+        Gear,
+      ],
+    });
+    // update here
+    res.json(user);
+  } catch (e) {
+    res.status(500).send(e);
+  }
+});
+
 module.exports = userController;

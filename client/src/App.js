@@ -6,7 +6,7 @@ import Main from './Component/Main/main.js';
 import Planning from './Component/Planning/Planning.js';
 import Profile from './Component/Profile/Profile';
 import Register from './Component/Form/Register';
-import { allGear, oneGear, getGearName, deleteGear, createGear, loginUser, registerUser, tripGear, getTripName, userTrips, getUser, makeTrip, deleteTrip, verifyUser, allTrips } from './services/api';
+import { allGear, oneGear, getGearName, deleteGear, createGear, loginUser, registerUser, tripGear, getTrip, userTrips, getUser, makeTrip, deleteTrip, verifyUser, allTrips, oneTrip, getTg } from './services/api';
 
 import './App.css';
 
@@ -53,8 +53,9 @@ class App extends React.Component {
     const currentUser = await verifyUser();
     if (currentUser) {
     this.setState({currentUser});
-    }
-  };
+    currentGear: ''
+      }
+    };
 
   handleLogin = async (e) => {
     // e.preventDefault();
@@ -78,11 +79,10 @@ class App extends React.Component {
     localStorage.setItem("jwt", userData.token)
     this.props.history.push('/home')
     }
-  };
+   };
 
   handleRegister = async (e) => {
     e.preventDefault();
-
     if(this.state.authFormData.username !== "" && this.state.authFormData.email !== "" && this.state.authFormData.password !== ""){
       await registerUser(this.state.authFormData);
       this.handleLogin();
@@ -131,7 +131,6 @@ class App extends React.Component {
   };
 
   handleGearClick = (e) => {
-
     this.setState(prevState => ({
       selectedGear: [...prevState.selectedGear, e.gear]
     }))
@@ -169,8 +168,9 @@ class App extends React.Component {
   handleSubmit = (e) => {
     this.setState({
       location: e.target.value
-
-    })}
+   })
+  };
+  
   removeTrip = async (trip) => {
     await deleteTrip(trip.id);
   };
@@ -187,8 +187,19 @@ class App extends React.Component {
     this.getGear();
     this.checkUser();
   };
-
+// handleUserClick = async (e) => {
+//   e.preventDefault();
+//   const userName = await getUser(this.state.currentUser);
+//   const tripName = await getTripName(this.state.selectedTrip);
+//   const toResolve = await userTrips(userName.id, tripName.id);
+//   await Promise.all(toResolve);
+// }
   render(){
+
+
+
+
+
 
     return (
       <div className="App">
@@ -220,7 +231,8 @@ class App extends React.Component {
                 tripId={this.state.tripSelected}
                 currentUser={this.state.currentUser}
                 selectAllTrip={()=>this.selectAllTrip()}
-                allTripsSelected={this.state.allTripsSelected}
+                tripSelected={this.state.tripSelected}
+                selectedGear={this.state.selectedGear}
               />
             </>
           )}/>
@@ -252,6 +264,7 @@ class App extends React.Component {
                 handleLogout={this.state.handleLogout}
               />
               <Profile />
+
             </>
           )}/>
         </Switch>

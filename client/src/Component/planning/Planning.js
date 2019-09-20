@@ -11,14 +11,24 @@ class Planning extends React.Component {
   };
 
   handleClick = (e) => {
+    e.preventDefault();
     this.setState({
       days: e.target.value
     })
   };
 
   handleClickPeople = (e) => {
+    e.preventDefault();
+
     this.setState({
       people: e.target.value
+    })
+  };
+  
+  handleSubmit = (e) => {
+    e.preventDefault();
+    this.setState({
+      gearValue: e.target.value
     })
   };
 
@@ -50,16 +60,22 @@ class Planning extends React.Component {
                 name="location"
                 placeholder="location"
                 onSubmit={(e)=>this.props.handleSubmit(e)}
+
               />
                 <label
                   for="location">Gear: </label>
                 <form
+                  onSubmit={(e)=>this.props.makeGear(this.state.gearValue)}
+
                   >
                 <input
                   className="tripSelectors typeGear"
                   type="text"
                   name="Gear"
+                  value={this.state.gearValue}
                   onChange={(e)=>this.handleChange(e)}
+                  onSubmit={(e)=>this.handleSubmit(e)}
+
                   />
                 <button
                   onSubmit={()=>this.props.makeGear(this.state.gearValue)}
@@ -74,7 +90,7 @@ class Planning extends React.Component {
               />
               <button
                 className="finalize-button"
-                onClick={(e) => this.props.handleUserClick(e)}
+                onClick={(e) => this.props.handleTripClick(e)}
                 type="submit">Finalize Itinerary</button>
             </div>
             <button type="submit">Finalize</button>
@@ -110,7 +126,7 @@ class Planning extends React.Component {
                     <li
                       className="current-list-li"
                       index={i}
-                      onClick={() => this.props.handleRemoveClick(i)}>- {ele}</li>
+                      onClick={() => this.props.handleRemoveClick(i)}>- {ele.gear}</li>
                     )
                   })
                 }

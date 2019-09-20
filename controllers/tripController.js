@@ -1,17 +1,24 @@
 const express = require('express');
 
-const { Trip, Gear, User } = require('../model');
+const {
+  Trip, Gear, User, Location,
+} = require('../model');
 
 const tripController = express.Router();
 
 tripController.get('/', async (req, res) => {
   try {
-    const allTrip = await Trip.findAll();
+    const allTrip = await Trip.findAll({
+      include: [
+        Gear, Location,
+      ],
+    });
     res.json(allTrip);
   } catch (e) {
     res.status(500).send(e);
   }
 });
+
 tripController.put('/:tripid/gear/:gearid/', async (req, res) => {
   try {
     const tripGear = await Trip.findOne({
@@ -20,14 +27,16 @@ tripController.put('/:tripid/gear/:gearid/', async (req, res) => {
         User, Gear,
       ],
     });
+    const gear = await Gear.findByPk(req.params.gearid);
     // update here
+    await tripGear.addGear(gear);
     res.json(tripGear);
   } catch (e) {
     res.status(500).send(e);
   }
 });
 
-tripController.get('/:tripid/gear/:gearid/', async (req, res) => {
+tripController.get('/:tripid/gear', async (req, res) => {
   try {
     const tripGear = await Trip.findOne({
       where: { id: req.params.tripid },
@@ -62,11 +71,11 @@ tripController.delete('/:id', async (req, res, next) => {
   }
 });
 
-tripController.get('/name/:name', async (req, res) => {
+tripController.get('/name/:id', async (req, res) => {
   try {
     const tripName = await Trip.findOne({
       where: {
-        trip: req.params.name,
+        trip: req.params.id,
       },
     });
     res.json(tripName);
@@ -75,6 +84,18 @@ tripController.get('/name/:name', async (req, res) => {
   }
 });
 
+tripController.get('/name/:name', async (req, res) => {
+  try {
+    const find = await Trip.findOne({
+      where: {
+        gear: req.params.name,
+      },
+    });
+    res.json(find);
+  } catch (e) {
+    res.status(500).send(e.message);
+  }
+});
 module.exports = tripController;
 
 // const tripGear = await Trip.findByPk(req.params.tripid);
