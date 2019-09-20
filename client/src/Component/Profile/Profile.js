@@ -22,7 +22,7 @@ function Profile(props) {
         <button className="deleteButton" onClick={() => props.removeTrip(props.tripId.id)}>Delete</button>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default Profile;

@@ -8,41 +8,36 @@ class Planning extends React.Component {
     people: "",
     location: this.props.location,
     gearValue: this.props.inputGear
-  }
+  };
 
   handleClick = (e) => {
     this.setState({
       days: e.target.value
     })
-  }
+  };
 
   handleClickPeople = (e) => {
     this.setState({
       people: e.target.value
     })
-  }
+  };
 
   handleChange = (e) => {
     e.preventDefault();
-    console.log('changes', e.target.value)
     this.setState({
       gearValue: e.target.value
     })
-  }
+  };
 
   render() {
-    // console.log('plan', this.props.gear)
-    // console.log('change', this.state.location)
-    console.log("changes", this.state.gearValue)
     return (
       <React.Fragment>
-      <div className="photo-container">
-        <img
-        className='photoPlanning'
-        src="https://res.cloudinary.com/radiscipio/image/upload/c_fill,g_center,h_1000,w_4356,y_100/v1568906055/w3e5kc1ahvg0ivzucyim.jpg" alt='Planning'/>
-      </div>
+        <div className="photo-container">
+          <img
+          className='photoPlanning'
+          src="https://res.cloudinary.com/radiscipio/image/upload/c_fill,g_center,h_1000,w_4356,y_100/v1568906055/w3e5kc1ahvg0ivzucyim.jpg" alt='Planning'/>
+        </div>
         <div className="planning-container">
-          {/* BELOW IS TRIP TYPE DAY/PEOPLE CONTAINER */}
           <div className="camping">
             <h2 className="tripHeader">Plan Your Trip!</h2>
             <div className="tripSelectors">
@@ -58,7 +53,6 @@ class Planning extends React.Component {
               />
                 <label
                   for="location">Gear: </label>
-
                 <form
                   >
                 <input
@@ -69,7 +63,7 @@ class Planning extends React.Component {
                   />
                 <button
                   onSubmit={()=>this.props.makeGear(this.state.gearValue)}
->Submit</button>
+                  >Submit</button>
                 </form>
               <RadioForm
                 className="tripSelectors"
@@ -83,12 +77,8 @@ class Planning extends React.Component {
                 onClick={(e) => this.props.handleUserClick(e)}
                 type="submit">Finalize Itinerary</button>
             </div>
-
-            <button
-
-              type="submit">Finalize</button>
+            <button type="submit">Finalize</button>
           </div>
-    {/* BELOW IS RECOMMENDED LIST CONTAINER */}
         <div className="recommended-list-container">
           <h2 className="recommended-list-header">Recommended List</h2>
           <h4 className="recommended-list-header">(Select Items to Add to Gear)</h4>
@@ -104,12 +94,10 @@ class Planning extends React.Component {
             })
           }
         </div>
-        {/* BELOW IS CURRENT LIST CONTAINER */}
           <div className="current-list-container">
             <h2 className="itineraryHeader">Itinerary</h2>
             <div className="location">
               Location: {this.props.location}</div>
-
             <div className="days">
               Days: {this.state.days}</div>
             <div className="people">
@@ -132,7 +120,7 @@ class Planning extends React.Component {
         </div>
       </React.Fragment>
     )
-  }
-}
+  };
+};
 
 export default Planning

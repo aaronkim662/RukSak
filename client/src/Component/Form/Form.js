@@ -12,7 +12,6 @@ class Form extends React.Component {
     };
   };
 
-
   handleChange = async (e) => {
     const{ name,value } = e.target
     this.setState(prevState => ({
@@ -23,14 +22,9 @@ class Form extends React.Component {
   };
 
   render() {
-    // console.log('form ', this.props.authLoginData)
-    // console.log('reg', this.props.handleRegisterClick)
-
     return (
       <div className="formContainer">
-
         <div className="returnUsers">
-
           <h2 className="formHeading">Sign In</h2>
           <form className="form returningForm" id="login"
             onSubmit={(e) => this.props.handleLog(e)}
@@ -51,14 +45,12 @@ class Form extends React.Component {
               value={this.state.form.username}
               onChange={(e) => this.props.handleChange(e)}
             />
-
             <button className="submitSignIn" id="buttonSignIn">Sign In</button>
             <button
               className="newUserButton"
               onClick={(e) => this.props.handleRegisterClick(e)}>New Users</button>
           </form>
         </div>
-
         <div className="newUsers">
          <h2 className="formHeading">Register</h2>
           <form className="form returningForm" id="register"

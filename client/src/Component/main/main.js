@@ -12,7 +12,7 @@ class Main extends React.Component {
     this.state = {
       activity: []
     }
-  }
+  };
 
   render() {
     console.log('main', this.props)
@@ -27,18 +27,15 @@ class Main extends React.Component {
               selectedTrip={this.props.selectedTrip}
               tripId={this.props.tripId}
               allTripsSelected={this.props.allTripsSelected}
-            />
-
-        ): ''}
-
-
+            /> ) : ''
+          }
           <TripChoice
             selectTrip={(e) => this.props.selectTrip(e)}
-            />
+          />
         </div>
       </div>
     )
-  }
-}
+  };
+};
 
 export default Main;

@@ -29,10 +29,6 @@ User can register and log on to their profile.
 User can select what trip they want to take.
 They can view and edit their trips.
 
-#### Profile
-
-User profile will display their username, current trip, and past trips.
-
 #### Trip
 
 Users will be displayed the information of the trip
@@ -41,17 +37,17 @@ Users can add and remove gear. They can select the recommended or customize and 
 ##### PostMVP
 
 Users can add others to the trip.
+Users can see their profile and view current and recommended trips
+Users can see their current trips on the profile bar on home screen
 
 #### Itinerary Page
 
 This component will show people in the involved in the trip, display the full itinerary.
 
 
-
-
 #### Navigation
 
-Home, Profile, Planning, About
+Home, Planning, About
 
 ##### MVP
 
@@ -84,16 +80,17 @@ Each itinerary has many items
 
 | Component | Priority | Estimated Time | Time Invested | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
-| Create a login page | H |  1 Hr |  |  |
-| Create an API | H | 1 Hr |  |  |
-| Create the skeleton | H | 1 Hr | |  |
-| Create an itinerary | H | 1 Hr |  | |
-| Display info | H | 1 Hr | |  |
-| Add People to group | H | 2 Hr |  |  |
-| Styling | H | 5 Hr | | |
+| Create a login page | H |  1 Hr | 2 Hr | 2 Hrs |
+| Create an API | H | 1 Hr | 1 Hr | 1 Hr |
+| Create the skeleton | H | 1 Hr | 1 Hr | 1Hr |
+| Create an itinerary | H | 1 Hr | 2 Hr | 2Hr |
+| Display info | H | 1 Hr | 1 Hr | 1 Hr |
+| Add People to group | H | 2 Hr | 3 Hr | 3 Hr |
+| Add and delete gear | H | 2 Hr | 3 Hr | 5 Hr |
+| Styling | H | 5 Hr | 12+ Hrs | Maybe 15+ Hrs |
 | PostMVP | | | |
-| Send out information | M | 2 Hr | |
-| Combine list with other users | M | 2 Hr | |
+| Send out information | M | 2 Hr | 0 Hr |  0 Hr |
+| Combine list with other users | M | 2 Hr | 0 Hr |
 | Checkboxes will be changed in real time based on click| M | 30 mins | |
-| Add Photos  | L | ??? | |
-| Rating system and post | L | 1 Hr | |
+| Add Photos  | L | ??? | 0 |
+| Rating system and post | L | 1 Hr | 0 Hr |

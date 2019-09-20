@@ -32,201 +32,171 @@ class App extends React.Component {
     selectedTrip: "",
     tripSelected: "",
     allTripsSelected: "",
-  }
+  };
 
-handleChange = async (e) => {
-  const{ name,value } = e.target
-  this.setState(prevState => ({
-    form: {
-      [name]: value
+  handleChange = async (e) => {
+    const{ name,value } = e.target
+    this.setState(prevState => ({
+      form: {
+        [name]: value
+      }
+    }));
+  };
+
+  handleLogout = () => {
+    this.setState({ currentUser: null });
+    localStorage.removeItem('jwt');
+    this.props.history.push('/');
+  };
+
+  checkUser = async () => {
+    const currentUser = await verifyUser();
+    if (currentUser) {
+    this.setState({currentUser});
     }
-  }));
-};
+  };
 
-handleLogout = () => {
-  this.setState({ currentUser: null });
-  localStorage.removeItem('jwt');
-  this.props.history.push('/');
-}
+  handleLogin = async (e) => {
+    // e.preventDefault();
+    const userData = await loginUser(this.state.authFormData);
+    this.setState({
+      currentUser: userData.user
+    })
+    localStorage.setItem("jwt", userData.token)
+      this.props.history.push('/home')
+  };
 
-checkUser = async () => {
-  const currentUser = await verifyUser();
-  if (currentUser) {
-  this.setState({currentUser});
-  }
-}
+  handleLog = async (e) => {
+    e.preventDefault();
 
-handleLogin = async (e) => {
-  // e.preventDefault();
-  const userData = await loginUser(this.state.authFormData);
-  this.setState({
-    currentUser: userData.user
-  })
-  localStorage.setItem("jwt", userData.token)
+    if(this.state.authLoginData.username !== ""  && this.state.authLoginData.password !== ""){
+
+    const userData = await loginUser(this.state.authLoginData);
+    this.setState({
+      currentUser: userData.user
+    })
+    localStorage.setItem("jwt", userData.token)
     this.props.history.push('/home')
-};
-
-handleLog = async (e) => {
-  e.preventDefault();
-
-  if(this.state.authLoginData.username !== ""  && this.state.authLoginData.password !== ""){
-
-  const userData = await loginUser(this.state.authLoginData);
-  this.setState({
-    currentUser: userData.user
-  })
-  localStorage.setItem("jwt", userData.token)
-  this.props.history.push('/home')
-  }
-};
-
-handleRegister = async (e) => {
-  e.preventDefault();
-
-  if(this.state.authFormData.username !== "" && this.state.authFormData.email !== "" && this.state.authFormData.password !== ""){
-
-  await registerUser(this.state.authFormData);
-  this.handleLogin();
-  }
-};
-
-handleLogout = () => {
-  localStorage.removeItem("jwt");
-  this.setState({
-    currentUser: null
-  })
-}
-
-handleAuth = async (e) => {
-  const { name, value } = e.target
-  this.setState(prevState => ({
-    authFormData: {
-      ...prevState.authFormData,
-      [name]: value,
     }
-  }))
-};
+  };
 
-handleAuthLogin = async (e) => {
-  const { name, value } = e.target
-  this.setState(prevState => ({
-    authLoginData: {
-      ...prevState.authLoginData,
-      [name]: value,
+  handleRegister = async (e) => {
+    e.preventDefault();
+
+    if(this.state.authFormData.username !== "" && this.state.authFormData.email !== "" && this.state.authFormData.password !== ""){
+      await registerUser(this.state.authFormData);
+      this.handleLogin();
     }
-  }))
-};
+  };
 
-getGear = async (e) => {
-  const gear = await allGear();
-  this.setState({gear});
-};
+  handleLogout = () => {
+    localStorage.removeItem("jwt");
+    this.setState({
+      currentUser: null
+    })
+  };
 
-makeGear = async (e) => {
-  e.preventDefault();
-  const newGear = await createGear({e});
-  // this.setState(prevState => ({
-  //     gear: [...prevState.gear, newGear],
-  // }))
-}
+  handleAuth = async (e) => {
+    const { name, value } = e.target
+    this.setState(prevState => ({
+      authFormData: {
+        ...prevState.authFormData,
+        [name]: value,
+      }
+    }))
+  };
 
-obliterateGear = async (gearId) => {
-  await deleteGear(gearId);
-}
+  handleAuthLogin = async (e) => {
+    const { name, value } = e.target
+    this.setState(prevState => ({
+      authLoginData: {
+        ...prevState.authLoginData,
+        [name]: value,
+      }
+    }))
+  };
 
-handleGearClick = (e) => {
+  getGear = async (e) => {
+    const gear = await allGear();
+    this.setState({gear});
+  };
 
-  this.setState(prevState => ({
-    selectedGear: [...prevState.selectedGear, e.gear]
-  }))
-};
+  makeGear = async (e) => {
+    e.preventDefault();
+    const newGear = await createGear({e});
+  };
 
-removeGearClick = async (e) => {
-  // await deleteGear()
-  this.setState(prevState => ({
-  selectedGear: prevState.selectedGear.filter((ele,i) => i !== e)
-  })
-)};
+  obliterateGear = async (gearId) => {
+    await deleteGear(gearId);
+  };
 
-makeATrip = async (tripType) => {
-  const tripName = await getTripName(tripType);
-  console.log('name',tripName)
-  const current = await makeTrip({ trip:tripName.trip });
-  this.setState({
-    tripSelected: current
-  })
-}
+  handleGearClick = (e) => {
 
-selectTrip = (e) => {
-  this.setState({ selectedTrip: e.target.name });
-  this.makeATrip(e.target.name)
+    this.setState(prevState => ({
+      selectedGear: [...prevState.selectedGear, e.gear]
+    }))
+  };
 
-}
+  removeGearClick = async (e) => {
+    this.setState(prevState => ({
+    selectedGear: prevState.selectedGear.filter((ele,i) => i !== e)
+    })
+  )};
 
-selectAllTrip = async () => {
-  await allTrips();
-}
+  makeATrip = async (tripType) => {
+    const tripName = await getTripName(tripType);
+    const current = await makeTrip({ trip:tripName.trip });
+    this.setState({
+      tripSelected: current
+    })
+  };
 
-handleChangeLoc = (e) => {
-  console.log('this is handleChange', e.target.value);
-  this.setState({
-    location: e.target.value
-  })
-};
+  selectTrip = (e) => {
+    this.setState({ selectedTrip: e.target.name });
+    this.makeATrip(e.target.name)
+  };
 
-handleSubmit = (e) => {
-  this.setState({
-    location: e.target.value
+  selectAllTrip = async () => {
+    await allTrips();
+  };
 
-  })}
-removeTrip = async (trip) => {
-  await deleteTrip(trip.id);
-}
+  handleChangeLoc = (e) => {
+    this.setState({
+      location: e.target.value
+    })
+  };
 
-// handleTripClick = async (e) => {
-//   e.preventDefault();
-//   const tripName = await getTripName(this.state.selectedTrip);
-//   const toResolve = await this.state.selectedGear.map(async (ele) => {
-//     const gearName = await getGearName(ele);
-//     await tripGear(tripName.id, gearName.id)
-//   });
-//   await Promise.all(toResolve);
-// }
-//
-handleUserClick = async (e) => {
-  e.preventDefault();
-  const userName = await getUser(this.state.currentUser);
-  const tripName = await getTripName(this.state.selectedTrip);
-  const toResolve = await userTrips(userName.id, tripName.id);
-  await Promise.all(toResolve);
-}
+  handleSubmit = (e) => {
+    this.setState({
+      location: e.target.value
 
-// destroyGear = async (gear) => {
-//   const gears = await getGearName(gear);
-//   await deleteGear(gears.id);
-// }
+    })}
+  removeTrip = async (trip) => {
+    await deleteTrip(trip.id);
+  };
 
-componentDidMount() {
-  this.getGear();
-  this.checkUser();
-}
+  handleUserClick = async (e) => {
+    e.preventDefault();
+    const userName = await getUser(this.state.currentUser);
+    const tripName = await getTripName(this.state.selectedTrip);
+    const toResolve = await userTrips(userName.id, tripName.id);
+    await Promise.all(toResolve);
+  };
 
+  componentDidMount() {
+    this.getGear();
+    this.checkUser();
+  };
 
-render(){
-  // console.log('act', this.state.selectedTrip)
-  // console.log('current', this.state.currentUser)
-  // console.log('selected trip', this.state.tripSelected)
-  // console.log(this.selectTrip)
-  console.log('gear', this.state.inputGear)
+  render(){
 
     return (
       <div className="App">
         <Switch>
           <Route exact path='/'render={(props) => (
             <>
-            <div className="ruksak-landing">RukSak</div>
+              <div className="ruksak-landing">RukSak</div>
               <Login  {...props}
-
                 handleLogin={(e) => this.handleLogin(e)}
                 handleRegister={(e) => this.handleRegister(e)}
                 authFormData={this.state.authFormData}
@@ -240,7 +210,7 @@ render(){
             )}/>
           <Route path='/home' render={() => (
             <>
-               <Header
+              <Header
                 handleLogout={this.state.handleLogout}
               />
               <Main
@@ -255,40 +225,39 @@ render(){
             </>
           )}/>
         <Route path='/planning' render={(props) => (
+          <>
+            <Header
+            handleLogout={this.state.handleLogout}
+            />
+            <Planning {...props}
+              selectedGear={this.state.selectedGear}
+              getGear={this.getGear}
+              gear={this.state.gear}
+              activity={this.state.selectTrip}
+              handleGearClick={(e) => this.handleGearClick(e)}
+              handleRemoveClick={(e)=>this.removeGearClick(e)}
+              handleUserClick={(e)=>this.handleUserClick(e)}
+              handleChangeLoc={(e)=>this.handleChangeLoc(e)}
+              location={this.state.location}
+              tripSelected={this.state.selectedTrip}
+              remove={(e)=>this.obliterateGear(e)}
+              makeGear={(e)=>this.makeGear(e)}
+              inputGear={this.state.inputGear}
+            />
+          </>
+        )}/>
+          <Route path='/profile' render={() => (
             <>
               <Header
-              handleLogout={this.state.handleLogout}
-            />
-              <Planning {...props}
-                    selectedGear={this.state.selectedGear}
-                    getGear={this.getGear}
-                    gear={this.state.gear}
-                    activity={this.state.selectTrip}
-                    handleGearClick={(e) => this.handleGearClick(e)}
-                    handleRemoveClick={(e)=>this.removeGearClick(e)}
-                    handleUserClick={(e)=>this.handleUserClick(e)}
-                    handleChangeLoc={(e)=>this.handleChangeLoc(e)}
-                    location={this.state.location}
-                    tripSelected={this.state.selectedTrip}
-                    remove={(e)=>this.obliterateGear(e)}
-                    makeGear={(e)=>this.makeGear(e)}
-                    inputGear={this.state.inputGear}
-                />
-
+                handleLogout={this.state.handleLogout}
+              />
+              <Profile />
             </>
-           )}/>
-          <Route path='/profile' render={() => (
-              <>
-                <Header
-              handleLogout={this.state.handleLogout}
-            />
-                <Profile />
-              </>
-            )}/>
+          )}/>
         </Switch>
       </div>
     );
-  }
-}
+  };
+};
 
 export default withRouter(App);
