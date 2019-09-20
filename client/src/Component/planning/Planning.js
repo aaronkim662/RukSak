@@ -24,7 +24,7 @@ class Planning extends React.Component {
       people: e.target.value
     })
   };
-  
+
   handleSubmit = (e) => {
     e.preventDefault();
     this.setState({
@@ -104,7 +104,9 @@ class Planning extends React.Component {
                 <li
                 className="recommended-list-li"
                 onClick={()=>this.props.handleGearClick(ele)}>{ele.gear}</li>
-              <button onClick={(e)=> this.props.remove(ele.id)}>Delete</button>
+              <button
+                className="deleteButtonStyle"
+                onClick={(e)=> this.props.remove(ele.id)}>Delete</button>
                </ul>
               )
             })

@@ -3,6 +3,12 @@
 label {
   padding-left: 25px;
 }
+.deleteButtonStyle {
+  border: none;
+  color: white;
+  background-color: black;
+  cursor: pointer;
+}
 
 /* STYLING FOR ENTIRE CONTAINER */
 .planning-container {
