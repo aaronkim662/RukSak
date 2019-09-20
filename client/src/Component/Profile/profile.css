@@ -59,3 +59,58 @@
 .profileHeader {
   margin-left: 10px;
 }
+
+
+
+@media (max-width:768px) {
+  .profileContainer {
+    /* border: 1px solid red; */
+    font-size: 12px;
+    position: absolute;
+    height: 170px;
+    width: 100%;
+    top: 100%;
+    bottom: ;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: row;
+    background-color: black;
+    color: white;
+    border-top: 1px solid white;
+    border-bottom: 50px solid black;
+    border-radius: 15px;
+
+  }
+  .profileImage {
+    display: none;
+  }
+  .unorderedList {
+    position: absolute;
+  }
+  .profileTrips {
+    position: relative;
+    top: 50px;
+  }
+  .profileInfo {
+    /* border: 1px solid green; */
+  }
+  .profileHeader {
+    padding-top: 20px;
+    font-size: 17px;
+    margin-left: 10px;
+  }
+  .temporaryText {
+    margin-top: -7px;
+    margin-left: 10px;
+  }
+  .deleteButton {
+    cursor: pointer;
+    color: white;
+    margin-top: 10px;
+    margin-left: 10px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: rgba(0,0,0,0.7)
+  }
+}

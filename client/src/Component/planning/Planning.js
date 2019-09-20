@@ -106,7 +106,7 @@ class Planning extends React.Component {
         </div>
         {/* BELOW IS CURRENT LIST CONTAINER */}
           <div className="current-list-container">
-            <h2>Itinerary</h2>
+            <h2 className="itineraryHeader">Itinerary</h2>
             <div className="location">
               Location: {this.props.location}</div>
 
