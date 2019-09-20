@@ -4,6 +4,14 @@ const { Trip, Gear, User } = require('../model');
 
 const tripController = express.Router();
 
+tripController.get('/', async (req, res) => {
+  try {
+    const allTrip = await Trip.findAll();
+    res.json(allTrip);
+  } catch (e) {
+    res.status(500).send(e);
+  }
+});
 tripController.put('/:tripid/gear/:gearid/', async (req, res) => {
   try {
     const tripGear = await Trip.findOne({
@@ -18,6 +26,7 @@ tripController.put('/:tripid/gear/:gearid/', async (req, res) => {
     res.status(500).send(e);
   }
 });
+
 tripController.get('/:tripid/gear/:gearid/', async (req, res) => {
   try {
     const tripGear = await Trip.findOne({
