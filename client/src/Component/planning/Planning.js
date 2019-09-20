@@ -3,13 +3,11 @@ import RadioForm from '../RadioForm/RadioForm';
 import './planning.css'
 
 class Planning extends React.Component {
-  constructor(props){
-    super(props)
-  }
   state = {
     days: "",
     people: "",
     location: this.props.location,
+    gearValue: this.props.inputGear
   }
 
   handleClick = (e) => {
@@ -24,9 +22,18 @@ class Planning extends React.Component {
     })
   }
 
+  handleChange = (e) => {
+    e.preventDefault();
+    console.log('changes', e.target.value)
+    this.setState({
+      gearValue: e.target.value
+    })
+  }
+
   render() {
-    console.log('plan', this.props.gear)
-    console.log('change', this.state.location)
+    // console.log('plan', this.props.gear)
+    // console.log('change', this.state.location)
+    console.log("changes", this.state.gearValue)
     return (
       <React.Fragment>
       <div className="photo-container">
@@ -47,17 +54,23 @@ class Planning extends React.Component {
                 type="text"
                 name="location"
                 placeholder="location"
-                onSubmit={this.props.handleSubmit}
+                onSubmit={(e)=>this.props.handleSubmit(e)}
               />
                 <label
                   for="location">Gear: </label>
+
+                <form
+                  >
                 <input
                   className="tripSelectors typeGear"
                   type="text"
                   name="Gear"
-                  onSubmit={this.props.newGear}
-                />
-              
+                  onChange={(e)=>this.handleChange(e)}
+                  />
+                <button
+                  onSubmit={()=>this.props.makeGear(this.state.gearValue)}
+>Submit</button>
+                </form>
               <RadioForm
                 className="tripSelectors"
                 days={this.state.days}
@@ -67,7 +80,7 @@ class Planning extends React.Component {
               />
               <button
                 className="finalize-button"
-                onClick={(e) => this.props.handleTripClick(e)}
+                onClick={(e) => this.props.handleUserClick(e)}
                 type="submit">Finalize Itinerary</button>
             </div>
 

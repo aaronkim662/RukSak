@@ -123,10 +123,11 @@ getGear = async (e) => {
 };
 
 makeGear = async (e) => {
-  const newGear = await createGear(this.state.inputGear);
-  this.setState(prevState => ({
-      gear: [...prevState.gear, newGear],
-  }))
+  e.preventDefault();
+  const newGear = await createGear({e});
+  // this.setState(prevState => ({
+  //     gear: [...prevState.gear, newGear],
+  // }))
 }
 
 obliterateGear = async (gearId) => {
@@ -192,13 +193,13 @@ removeTrip = async (trip) => {
 //   await Promise.all(toResolve);
 // }
 //
-// handleUserClick = async (e) => {
-//   e.preventDefault();
-//   const userName = await getUser(this.state.currentUser);
-//   const tripName = await getTripName(this.state.selectedTrip);
-//   const toResolve = await userTrips(userName.id, tripName.id);
-//   await Promise.all(toResolve);
-// }
+handleUserClick = async (e) => {
+  e.preventDefault();
+  const userName = await getUser(this.state.currentUser);
+  const tripName = await getTripName(this.state.selectedTrip);
+  const toResolve = await userTrips(userName.id, tripName.id);
+  await Promise.all(toResolve);
+}
 
 // destroyGear = async (gear) => {
 //   const gears = await getGearName(gear);
@@ -212,11 +213,11 @@ componentDidMount() {
 
 
 render(){
-  console.log('act', this.state.selectedTrip)
-  console.log('current', this.state.currentUser)
-  console.log('selected trip', this.state.tripSelected)
-  console.log(this.selectTrip)
-  console.log('gear', this.state.selectedGear)
+  // console.log('act', this.state.selectedTrip)
+  // console.log('current', this.state.currentUser)
+  // console.log('selected trip', this.state.tripSelected)
+  // console.log(this.selectTrip)
+  console.log('gear', this.state.inputGear)
 
     return (
       <div className="App">
@@ -265,12 +266,13 @@ render(){
                     activity={this.state.selectTrip}
                     handleGearClick={(e) => this.handleGearClick(e)}
                     handleRemoveClick={(e)=>this.removeGearClick(e)}
-                    handleTripClick={(e)=>this.handleTripClick(e)}
+                    handleUserClick={(e)=>this.handleUserClick(e)}
                     handleChangeLoc={(e)=>this.handleChangeLoc(e)}
                     location={this.state.location}
+                    tripSelected={this.state.selectedTrip}
                     remove={(e)=>this.obliterateGear(e)}
                     makeGear={(e)=>this.makeGear(e)}
-                    newGear={this.state.newGear}
+                    inputGear={this.state.inputGear}
                 />
 
             </>

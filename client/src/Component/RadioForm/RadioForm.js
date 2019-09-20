@@ -14,9 +14,8 @@ handleClick = (e) => {
 }
 
 render(){
-  console.log('props', this.props.days)
-  console.log('people', this.props.people)
-
+  // console.log('props', this.props.days)
+  // console.log('people', this.props.people)
   return(
     <>
       <div className="radioForm">

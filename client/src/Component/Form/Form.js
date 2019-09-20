@@ -23,8 +23,8 @@ class Form extends React.Component {
   };
 
   render() {
-    console.log('form ', this.props.authLoginData)
-    console.log('reg', this.props.handleRegisterClick)
+    // console.log('form ', this.props.authLoginData)
+    // console.log('reg', this.props.handleRegisterClick)
 
     return (
       <div className="formContainer">

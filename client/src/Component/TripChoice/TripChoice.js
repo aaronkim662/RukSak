@@ -3,7 +3,7 @@ import './TripChoice.css'
 import { Link } from 'react-router-dom'
 
 function TripChoice(props) {
-  console.log(props.selectTrip)
+  // console.log(props.selectTrip)
   return(
     <div>
       <div className="trip-choice">
