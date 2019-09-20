@@ -70,7 +70,7 @@ class Planning extends React.Component {
             </div>
 
             <button
-        
+
               type="submit">Finalize</button>
           </div>
     {/* BELOW IS RECOMMENDED LIST CONTAINER */}

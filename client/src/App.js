@@ -163,11 +163,16 @@ handleChangeLoc = (e) => {
 handleSubmit = (e) => {
   this.setState({
     location: e.target.value
+<<<<<<< HEAD
+  })}
+  removeTrip = async (trip) => {
+=======
   })
 }
 
 removeTrip = async (trip) => {
-  await deleteTrip(10);
+>>>>>>> 70cc21ea90b950020c4c085be0c8aded82bda8f0
+  await deleteTrip(trip.id);
   }
 
 // handleTripClick = async (e) => {
