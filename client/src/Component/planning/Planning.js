@@ -40,7 +40,7 @@ class Planning extends React.Component {
   };
 
   render() {
-    console.log('planning props')
+    console.log('gaer', this.state.gearValue)
     return (
       <React.Fragment>
         <div className="photo-container">
@@ -62,12 +62,12 @@ class Planning extends React.Component {
                 onSubmit={(e) => this.props.handleSubmit(e)}
 
               />
+
               <div className="gear-label">
               <label
                 for="location">Gear: </label>
               <form
                 onSubmit={(e) => this.props.makeGear(this.state.gearValue)}
-
               >
                 <input
                   className="tripSelectors typeGear"
@@ -76,14 +76,11 @@ class Planning extends React.Component {
                   value={this.state.gearValue}
                   onChange={(e) => this.handleChange(e)}
                   onSubmit={(e) => this.handleSubmit(e)}
-
-                />
-                <button
-                  onSubmit={(e) => this.props.makeGear(this.state.gearValue)}
-                >Submit</button>
-              </form>
-                
+                  />
+                <button>Submit</button>
+                </form>
               </div>
+
               <RadioForm
                 className="tripSelectors"
                 days={this.state.days}
