@@ -77,7 +77,6 @@ class Planning extends React.Component {
                   onChange={(e) => this.handleChange(e)}
                   onSubmit={(e) => this.handleSubmit(e)}
                   />
-                <button>Submit</button>
                 </form>
               </div>
 
