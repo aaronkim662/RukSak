@@ -34,7 +34,7 @@ class Login extends React.Component {
           handleLogin={(e) => this.props.handleLogin(e)}
           authFormData={this.props.authFormData}
           authLoginData={this.props.authLoginData}
-          handleRegister={this.props.handleRegisterClick}
+          handleRegister={this.props.handleRegister}
           handleChange={this.props.handleChange}
           handleLog={this.props.handleLog}
         />
