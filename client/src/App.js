@@ -2,8 +2,8 @@ import React from 'react';
 import { Route, Switch, withRouter } from 'react-router-dom'
 import Header from './Component/Header/Header';
 import Login from './Component/Login/Login';
-import Main from './Component/Main/main.js';
-import Planning from './Component/Planning/Planning.js';
+import Main from './Component/main/main.js';
+import Planning from './Component/planning/Planning.js';
 import Profile from './Component/Profile/Profile';
 import { allGear, oneGear, getGearName, deleteGear, createGear, loginUser, registerUser, tripGear, getTrip, userTrips, getUser, makeTrip, deleteTrip, verifyUser, allTrips, oneTrip, getTg } from './services/api';
 
@@ -25,7 +25,7 @@ class App extends React.Component {
       password: "",
     },
     isShowing: false,
-    gear:[],
+    gear: [],
     inputGear: "",
     selectedGear: [],
     selectedTrip: "",
@@ -34,7 +34,7 @@ class App extends React.Component {
   };
 
   handleChange = async (e) => {
-    const{ name,value } = e.target
+    const { name, value } = e.target
     this.setState(prevState => ({
       form: {
         [name]: value
@@ -51,9 +51,9 @@ class App extends React.Component {
   checkUser = async () => {
     const currentUser = await verifyUser();
     if (currentUser) {
-    this.setState({currentUser});
-      }
-    };
+      this.setState({ currentUser });
+    }
+  };
 
   handleLogin = async (e) => {
     // e.preventDefault();
@@ -62,26 +62,26 @@ class App extends React.Component {
       currentUser: userData.user
     })
     localStorage.setItem("jwt", userData.token)
-      this.props.history.push('/home')
+    this.props.history.push('/home')
   };
 
   handleLog = async (e) => {
     e.preventDefault();
 
-    if(this.state.authLoginData.username !== ""  && this.state.authLoginData.password !== ""){
+    if (this.state.authLoginData.username !== "" && this.state.authLoginData.password !== "") {
 
-    const userData = await loginUser(this.state.authLoginData);
-    this.setState({
-      currentUser: userData.user
-    })
-    localStorage.setItem("jwt", userData.token)
-    this.props.history.push('/home')
+      const userData = await loginUser(this.state.authLoginData);
+      this.setState({
+        currentUser: userData.user
+      })
+      localStorage.setItem("jwt", userData.token)
+      this.props.history.push('/home')
     }
-   };
+  };
 
   handleRegister = async (e) => {
     e.preventDefault();
-    if(this.state.authFormData.username !== "" && this.state.authFormData.email !== "" && this.state.authFormData.password !== ""){
+    if (this.state.authFormData.username !== "" && this.state.authFormData.email !== "" && this.state.authFormData.password !== "") {
       await registerUser(this.state.authFormData);
       this.handleLogin();
     }
@@ -117,14 +117,14 @@ class App extends React.Component {
 
   getGear = async (e) => {
     const gear = await allGear();
-    this.setState({gear});
+    this.setState({ gear });
   };
 
   makeGear = async (e) => {
 
-    await createGear({e});
+    await createGear({ e });
     this.setState(prevState => {
-      
+
     })
   };
 
@@ -140,13 +140,14 @@ class App extends React.Component {
 
   removeGearClick = async (e) => {
     this.setState(prevState => ({
-    selectedGear: prevState.selectedGear.filter((ele,i) => i !== e)
+      selectedGear: prevState.selectedGear.filter((ele, i) => i !== e)
     })
-  )};
+    )
+  };
 
   makeATrip = async (tripType) => {
     const tripName = await oneTrip(tripType);
-    const current = await makeTrip({ trip:tripName.trip });
+    const current = await makeTrip({ trip: tripName.trip });
     this.setState({
       tripSelected: current
     })
@@ -170,7 +171,7 @@ class App extends React.Component {
   handleSubmit = (e) => {
     this.setState({
       location: e.target.value
-   })
+    })
   };
 
   removeTrip = async (trip) => {
@@ -189,19 +190,19 @@ class App extends React.Component {
     this.getGear();
     this.checkUser();
   };
-// handleUserClick = async (e) => {
-//   e.preventDefault();
-//   const userName = await getUser(this.state.currentUser);
-//   const tripName = await getTripName(this.state.selectedTrip);
-//   const toResolve = await userTrips(userName.id, tripName.id);
-//   await Promise.all(toResolve);
-// }
-  render(){
+  // handleUserClick = async (e) => {
+  //   e.preventDefault();
+  //   const userName = await getUser(this.state.currentUser);
+  //   const tripName = await getTripName(this.state.selectedTrip);
+  //   const toResolve = await userTrips(userName.id, tripName.id);
+  //   await Promise.all(toResolve);
+  // }
+  render() {
     console.log('select', this.state.inputGear)
     return (
       <div className="App">
         <Switch>
-          <Route exact path='/'render={(props) => (
+          <Route exact path='/' render={(props) => (
             <>
               <div className="ruksak-landing">RukSak</div>
               <Login  {...props}
@@ -216,7 +217,7 @@ class App extends React.Component {
                 handleRegisterClick={(e) => this.handleRegisterClick(e)}
               />
             </>
-            )}/>
+          )} />
           <Route path='/home' render={() => (
             <>
               <Header
@@ -224,38 +225,38 @@ class App extends React.Component {
               />
               <Main
                 selectTrip={(e) => this.selectTrip(e)}
-                removeTrip={(e)=>this.removeTrip(e)}
+                removeTrip={(e) => this.removeTrip(e)}
                 selectedTrip={this.state.selectedTrip}
                 tripId={this.state.tripSelected}
                 currentUser={this.state.currentUser}
-                selectAllTrip={()=>this.selectAllTrip()}
+                selectAllTrip={() => this.selectAllTrip()}
                 tripSelected={this.state.tripSelected}
                 selectedGear={this.state.selectedGear}
               />
             </>
-          )}/>
-        <Route path='/planning' render={(props) => (
-          <>
-            <Header
-            handleLogout={this.state.handleLogout}
-            />
-            <Planning {...props}
-              selectedGear={this.state.selectedGear}
-              getGear={this.getGear}
-              gear={this.state.gear}
-              activity={this.state.selectTrip}
-              handleGearClick={(e) => this.handleGearClick(e)}
-              handleRemoveClick={(e)=>this.removeGearClick(e)}
-              handleTripClick={(e)=>this.handleTripClick(e)}
-              handleChangeLoc={(e)=>this.handleChangeLoc(e)}
-              location={this.state.location}
-              tripSelected={this.state.selectedTrip}
-              remove={(e)=>this.obliterateGear(e)}
-              makeGear={(e)=>this.makeGear(e)}
-              inputGear={this.state.inputGear}
-            />
-          </>
-        )}/>
+          )} />
+          <Route path='/planning' render={(props) => (
+            <>
+              <Header
+                handleLogout={this.state.handleLogout}
+              />
+              <Planning {...props}
+                selectedGear={this.state.selectedGear}
+                getGear={this.getGear}
+                gear={this.state.gear}
+                activity={this.state.selectTrip}
+                handleGearClick={(e) => this.handleGearClick(e)}
+                handleRemoveClick={(e) => this.removeGearClick(e)}
+                handleTripClick={(e) => this.handleTripClick(e)}
+                handleChangeLoc={(e) => this.handleChangeLoc(e)}
+                location={this.state.location}
+                tripSelected={this.state.selectedTrip}
+                remove={(e) => this.obliterateGear(e)}
+                makeGear={(e) => this.makeGear(e)}
+                inputGear={this.state.inputGear}
+              />
+            </>
+          )} />
           <Route path='/profile' render={() => (
             <>
               <Header
@@ -263,7 +264,7 @@ class App extends React.Component {
               />
               <Profile />
             </>
-          )}/>
+          )} />
         </Switch>
       </div>
     );

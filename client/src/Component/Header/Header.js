@@ -20,29 +20,29 @@ class HamburgerMenuWrapper extends React.Component {
     return (
       <div class="wrapper">
         {this.state.isOpen && <div class="sidebar">
-        <ul className="menu">
-        <li>
-          <Link className="link" to="/home">Home</Link>
-        </li>
-        <li>
-          <Link className="link" to="/planning">Plan Your Trip</Link>
-        </li>
-        <li>
-          <Link
-            handleLogout={this.props.handleLogout}
-            className='link'
-            to='/'>Logout</Link>
-        </li>
-        </ul>
+          <ul className="menu">
+            <li>
+              <Link className="link" to="/home">Home</Link>
+            </li>
+            <li>
+              <Link className="link" to="/planning">Plan Your Trip</Link>
+            </li>
+            <li>
+              <Link
+                handleLogout={this.props.handleLogout}
+                className='link'
+                to='/'>Logout</Link>
+            </li>
+          </ul>
 
         </div>}
         <label for="chk" className="hide-menu-btn">
 
-        <button
-          className="hamburgerButton"
-          onClick={() => this.toggleMenu()}>
+          <button
+            className="hamburgerButton"
+            onClick={() => this.toggleMenu()}>
             <i class="fas fa-bars fun-hamburger-color"></i>
-        </button>
+          </button>
 
 
         </label>
@@ -54,21 +54,25 @@ class HamburgerMenuWrapper extends React.Component {
             </div>
 
 
-          <div className="nav-links">
-            <li><Link className="link" to="/home">Home</Link></li>
-            <li><Link className="link" to="/planning">Plan Your Trip</Link></li>
-            <li><Link
-             handleLogout={this.props.handleLogout}
-             className='link'
-             to='/'>Logout</Link>
-           </li>
-{/* THIS IS WHERE I NEED TO PUT THE LOGOUT LINK, JUST NEED TO PASS DOWN */}
+            <div className="nav-links">
+              <li><Link className="link" to="/home">Home</Link></li>
+              <li><Link className="link" to="/planning">Plan Your Trip</Link></li>
+              <li><Link
+                handleLogout={this.props.handleLogout}
+                className='link'
+                to='/'>Logout</Link>
+              </li>
+              {/* THIS IS WHERE I NEED TO PUT THE LOGOUT LINK, JUST NEED TO PASS DOWN */}
 
+            </div>
           </div>
-        </div>
 
         </div>
+
+      </div>
+
         </div>
+
     )
 
   };
