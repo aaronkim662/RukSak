@@ -123,6 +123,9 @@ class App extends React.Component {
   makeGear = async (e) => {
 
     await createGear({e});
+    this.setState(prevState => {
+      
+    })
   };
 
   obliterateGear = async (gearId) => {

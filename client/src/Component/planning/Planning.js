@@ -40,7 +40,7 @@ class Planning extends React.Component {
   };
 
   render() {
-    console.log('gear', this.props.inputGear)
+    console.log('planning props')
     return (
       <React.Fragment>
         <div className="photo-container">
