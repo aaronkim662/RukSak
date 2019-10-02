@@ -37,7 +37,6 @@ class Login extends React.Component {
           handleRegister={this.props.handleRegister}
           handleChange={this.props.handleChange}
           handleLog={this.props.handleLog}
-          handleRegisterClick={(e) => this.props.handleRegisterClick(e)}
         />
       </div>
     )
