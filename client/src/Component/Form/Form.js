@@ -23,7 +23,7 @@ class Form extends React.Component {
   };
 
   registerLink = (e) => {
-    
+
   }
 
   render() {
@@ -51,9 +51,6 @@ class Form extends React.Component {
               onChange={(e) => this.props.handleChange(e)}
             />
             <button className="submitSignIn" id="buttonSignIn">Sign In</button>
-            <button
-              className="newUserButton"
-              onSubmit={(e) => this.props.handleRegisterClick(e)}>New Users</button>
           </form>
         </div>
         <div className="newUsers">
