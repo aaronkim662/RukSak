@@ -1,8 +1,19 @@
 @import url('https://fonts.googleapis.com/css?family=Metrophobic&display=swap');
 
+button {
+  margin: 0px 0px 0px 10px;
+}
+
 label {
   padding-left: 25px;
 }
+
+.gear-label {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
 .deleteButtonStyle {
   border: none;
   color: white;

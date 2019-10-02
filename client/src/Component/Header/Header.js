@@ -41,7 +41,7 @@ class HamburgerMenuWrapper extends React.Component {
           <button
             className="hamburgerButton"
             onClick={() => this.toggleMenu()}>
-            <i class="fas fa-bars fun-hamburger-color"></i>
+            <i className="fas fa-bars fun-hamburger-color"></i>
           </button>
 
 
@@ -70,9 +70,6 @@ class HamburgerMenuWrapper extends React.Component {
         </div>
 
       </div>
-
-        </div>
-
     )
 
   };
