@@ -53,6 +53,7 @@ class HamburgerMenuWrapper extends React.Component {
               <div className="tagline">Adventure Together</div>
             </div>
 
+
           <div className="nav-links">
             <li><Link className="link" to="/home">Home</Link></li>
             <li><Link className="link" to="/planning">Plan Your Trip</Link></li>
@@ -67,8 +68,13 @@ class HamburgerMenuWrapper extends React.Component {
         </div>
 
         </div>
+
+
+    )
+
         </div>
     )
+
   };
 };
 

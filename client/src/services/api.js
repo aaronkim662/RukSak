@@ -1,7 +1,7 @@
 const axios = require('axios');
 
-// const BASE_URL = 'http://localhost:3001/';
-const BASE_URL = 'https://ruksak-rad.herokuapp.com/';
+const BASE_URL = 'http://localhost:3001/';
+// const BASE_URL = 'https://ruksak-rad.herokuapp.com/';
 
 
 const api = axios.create({ baseURL: BASE_URL });
