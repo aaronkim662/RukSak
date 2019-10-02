@@ -66,6 +66,13 @@
   padding-left: 10px;
 }
 
+.temporaryText {
+  padding-left: 10px;
+}
+.yourGearHeader {
+  padding-left: 10px;
+}
+
 
 @media (max-width:768px) {
 

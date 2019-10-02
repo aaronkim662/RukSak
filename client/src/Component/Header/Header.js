@@ -71,7 +71,7 @@ class HamburgerMenuWrapper extends React.Component {
 
       </div>
 
-        </div>
+        
 
     )
 
