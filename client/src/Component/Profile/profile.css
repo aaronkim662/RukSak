@@ -53,7 +53,8 @@
 .profileList {
   list-style-type: none;
   margin-bottom: 10px;
-  font-size: 1.3em;
+  font-size: 1em;
+  overflow-wrap: break-word;
 }
 
 .profileTrips {

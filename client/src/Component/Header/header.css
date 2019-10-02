@@ -18,6 +18,7 @@
 }
 
 .nav-links {
+  /* display: none; */
   display: flex;
   color: white;
   font-family: 'Teko', sans-serif;
