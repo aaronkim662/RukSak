@@ -16,7 +16,7 @@ function Profile(props) {
         <h2 className="profileHeader">Current Trips</h2>
         <div className="temporaryText">Your Trips!</div>
             <div>{props.tripSelected && props.tripSelected.trip}</div>
-            <h3>Your Gear: </h3>
+            <h3 className="yourGearHeader">Your Gear: </h3>
             {props.selectedGear && props.selectedGear.map((ele) => {
               return (
                 <div>{ele.gear}</div>
