@@ -13,7 +13,7 @@ class Form extends React.Component {
   };
 
   handleChange = async (e) => {
-    const{ name,value } = e.target
+    const { name, value } = e.target
     this.setState(prevState => ({
       form: {
         [name]: value
@@ -52,18 +52,18 @@ class Form extends React.Component {
           </form>
         </div>
         <div className="newUsers">
-         <h2 className="formHeading">Register</h2>
+          <h2 className="formHeading">Register</h2>
           <form className="form returningForm" id="register"
             onSubmit={this.props.handleRegister}
           >
-          <input
-            className="formInput"
-            type="text"
-            name="email"
-            placeholder="email"
-            value={this.props.authFormData.email}
-            onChange={this.props.handleAuthChange}
-          />
+            <input
+              className="formInput"
+              type="text"
+              name="email"
+              placeholder="email"
+              value={this.props.authFormData.email}
+              onChange={this.props.handleAuthChange}
+            />
             <input
               className="formInput"
               type="text"
