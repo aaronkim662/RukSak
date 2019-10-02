@@ -18,7 +18,7 @@ app.use(bodyParser.json());
 app.use(logger('dev'));
 
 app.get('/', (req, res) => {
-  res.send('Welcome to the default route. 3001');
+  res.send('Welcome to the default route. PPPPPPP');
 });
 app.use('/location', locationController);
 app.use('/gear', gearController);
