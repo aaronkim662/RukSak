@@ -14,9 +14,6 @@ https://drive.google.com/file/d/1wRTyxZbuPiJMm2on-sMkRXl8NEUOkeJj/view
 
 https://imgur.com/a/1ZJhoLp
 
-#### Desktop
-
-Insert desktop here
 
 ## Components
 
