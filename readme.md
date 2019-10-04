@@ -31,11 +31,6 @@ They can view and edit their trips.
 Users will be displayed the information of the trip
 Users can add and remove gear. They can select the recommended or customize and search for their gear. Users should be able to choose the trip and day, as well as, any information about it.
 
-##### PostMVP
-
-Users can add others to the trip.
-Users can see their profile and view current and recommended trips
-Users can see their current trips on the profile bar on home screen
 
 #### Itinerary Page
 
